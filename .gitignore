@@ -1,0 +1,67 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+
+# Big Files #
+#############
+snapshot_*
+*.hdf5
+restart.*
+*.ascii
+*.bin
+
+# TexMaker Extras #
+###################
+*.aux
+*.out
+*.bak
+*.bbl
+*.blg
+#*.tex
+
+# Backups Internos#
+###################
+*.f03~
+*.f03#
+*~
+
+# Salida con Datos #
+####################
+*.dat
+
+#Imagenes#
+##########
+#*.png
+*.aux
+*.aux
+*.blg
+*.log
+
+
+
+/GADGET
+/Extras
+/Corridas

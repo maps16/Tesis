@@ -1,0 +1,141 @@
+%==========================================================================
+%   This is frontpage.tex file needed for the dmathesis.cls file.  You   %
+%  have to  put this file in the same directory with your thesis files.  %
+%                Written by M. Imran 2001/06/18                          %
+%                 No Copyright for this file                             %
+%                 Save your time and enjoy it                            %
+%                                                                        %
+%==========================================================================
+
+%==========================================================================
+%===============           The title page           =======================
+%==========================================================================
+\pagenumbering{roman}
+%\pagenumbering{arabic}
+
+\setcounter{page}{1}
+
+%Definir aquí el Título de la Tesis, el nombre del autor y el mes y
+%año de presentación.
+
+\newcommand{\thesistitle}{Identificación de
+subestructura en simulaciones de materia oscura}
+\newcommand{\minombre}{Martín Alejandro Paredes Sosa}
+\newcommand{\supername}{Carlos Antonio Calcáneo Roldán}
+\newcommand{\mespresentado}{Mayo de 2022}
+%\renewcommand{\listtablename}{Índice de tablas}
+\newpage
+
+\thispagestyle{empty}
+\begin{center}
+  \vspace*{0.5cm}
+  {\Huge \bf \thesistitle}
+
+  \vspace*{2cm}
+  {\LARGE\bf \minombre}
+
+  \vfill
+
+  {\Large Una tesis presentada para obtener el título de\\
+    \vspace{.3cm}
+    {\bf Maestría en Ciencias (Física)}\\
+    \vspace{.6cm}
+    bajo la dirección de \supername}
+  \vspace*{0.9cm}
+
+  % Put your university logo here if you wish.
+   \begin{center}
+   \includegraphics[scale=.5]{logo-institucional-cmyk-300}
+   \end{center}
+
+  {\large División de Ciencias Exactas y Naturales\\
+          [-3mm] Departamento de Investigación en Física\\
+          [-3mm] Universidad de Sonora\\
+          [-3mm] Hermosillo, Sonora\\
+          [1mm]  \mespresentado}
+
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% The dedication page, of you have one  %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\begin{center}
+ \vspace*{2cm}
+  \textit{\LARGE {Dedicatoria}}\\
+  \input{dedicatoria}
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%           The abstract page         %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\addcontentsline{toc}{chapter}{\numberline{}Resumen}
+\begin{center}
+  \textbf{\Large \thesistitle}
+
+  \vspace*{1cm}
+  \textbf{\large \minombre}
+
+  \vspace*{0.5cm}
+  {\large Tesis presentada para el título de Maestría en Física\\ \mespresentado}
+
+  \vspace*{1cm}
+  \textbf{\large Resumen}
+\end{center}
+\input{resumen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%          The declaration page         %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Declaración}
+\addcontentsline{toc}{chapter}{\numberline{}Declaración}
+Este escrito es resultado de un ejercicio de
+revisión, investigación, resolución  y síntesis  llevado a cabo en el
+grupo de Física Fundamental de la Universidad de Sonora. Aunque
+algunos aspectos del trabajo pudieran haber sido ya presentados en
+congresos o publicaciones independientes, ninguna parte de este trabajo,
+en su forma actual, ha sido presentada para la obtención de algún grado
+en otra  institución o con fines no académicos.
+El trabajo, incluida la redacción del texto, es producto exclusivo de
+los esfuerzos del autor, excepto cuando se señale explícitamente en el
+texto alguna cita.
+
+
+
+\vspace{2in}
+\noindent \textbf{\ccbysa; 2022 por \minombre}.\\
+``Este documento se libera al público por su autor bajo una licencia
+{\it creative commons} Atribución-CompartirIgual 4.0 Internacional (CC
+BY-SA 4.0). Se puede reproducir en todo o en parte, redistribuir y
+adaptar por cualquier medio. Lo anterior está condicionado a que
+cualquiera de sus derivados deberán liberarse bajo las mismas
+condiciones y ha que se haga referencia al original (una versión
+completa de la licencia se puede encontrar en:
+\url{https://creativecommons.org/licenses/by-sa/4.0/deed.es}) ''
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     The acknowledgements page         %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Agradecimientos}
+\addcontentsline{toc}{chapter}{\numberline{}Agradecimientos}
+\input{agradecimientos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%    tableofcontents, listoffigures and listoftables       %%%%%%%%%
+%%%%%%%%        Command if you do not have  them                  %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\listoffigures
+\listoftables
+\clearpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%   END OF FRONT PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

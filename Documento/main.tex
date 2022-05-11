@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      This is thesis.tex.  You have to  put this file in       %
+%              the same directory with your thesis files.       %
+%                Written by M. Imran 2001/06/18                 %
+%                 No Copyright for this file                    %
+%                 Save your time and enjoy it                   %
+%                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[aas_macros]{dmathesis}
+%% uncommand the following line to print equation labels next to
+%% equation numbers.
+\usepackage{showlabel,bm}
+%% The following is to control the format of your thesis
+\input{format} %Contiene Definiciones y paqueterias
+\newenvironment{myfont}{\fontfamily{phv}\selectfont}{\par}
+\DeclareTextFontCommand{\textmyfont}{\myfont}
+
+
+
+
+%==================================================================
+%% File to be included while running latex.
+%\includeonly{intro,cap1,cap2,cap3,conc,ref,apA}
+\includeonly{intro,cap1,cap2,cap3,conc,ref}
+%==================================================================
+
+%==================================================================
+\begin{document}
+
+% Front page of thesis
+\input{frontpage} %Contiene Portada, Dedicatoria, Resumen, Agradecimientos
+
+
+%==================================================================
+% Main text
+% set page number starts from 1
+\pagenumbering{arabic}
+\setcounter{page}{1}
+%==================================================================
+
+%==================================================================
+%% To ensure the equation counter works correctly
+\eqlabon
+\eqlaboff
+%==================================================================
+\include{intro}
+\include{cap1} %HAY QUE CHECAR LAS REFERENACIAS DEL CAPITULO
+\include{cap2}
+\include{cap3}
+\include{conc}
+\include{ref}
+%\include{apA}
+\end{document}

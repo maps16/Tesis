@@ -1,0 +1,121 @@
+@BOOK{marion,
+    author    = {{Marion}, Jerry B and {Thorton}, Stephen T},
+    title     = {Clasical Dynamics of particles and systems},
+    publisher = {Harcourt Brace \& Company} ,
+    edition   = {4$^{nd}$},
+    year      = {1995},
+    isbn      = {0-03-097302-3},
+    note = {{ISBN:} 0-03-097302-3}
+}
+
+@BOOK{Larson,
+    author    = {{Larson}, Ron and {Edwards}, Bruce H},
+    title     = "{Calculo 2 de varias variables}",
+    publisher = {Brooks/Cole. 9$^a$ edición},
+    year      = {2010},
+    isbn      = {978-970-110-7134-2},
+    note = {{ISBN:} 978-970-110-7134-2}
+}
+
+@BOOK{Penney,
+    author    = {{Edward}, Henry C y {Penney}, David E},
+    title     = {Ecuaciones diferenciales y problemas con valores en la frontera},
+    publisher = {Pearson Eduaction Inc. 4$^a$ edición},
+    year      = {2008},
+    isbn      = {978-970-26-1285-8},
+    note = {{ISBN:} 978-970-26-1285-8}
+}
+
+@BOOK{Binney,
+    author    = {{Binney}, James and {Tremaine}, Scott},
+    title     = {Galactic Dynamics},
+    publisher = {Princenton University Press},
+    edition = {2$^{nd}$},
+    year      = {2008},
+    isbn      = {978-0-691-13027-9},
+    note = {{ISBN:} 978-0-691-13027-9}
+}
+
+@BOOK{Zill,
+    author    = {{Zill}, Dennis G},
+    title     = {Ecuaciones diferenciales con aplicaciones del modelado},
+    publisher = {Brooks \& Cole/Cengage Learning, 9$^a$ edición},
+    year      = {2009},
+    isbn      = {970-830-055-1},
+    note = {{ISBN:} 970-830-055-1}
+}
+@ARTICLE{lagrange,
+    author       = {{Cornish}, Neil J.},
+    title        = {The Lagrange Points},
+    journal      = {WMAP Education and Outreach},
+    keywords     = {Physics - General Physics},
+    year         = {1998},
+    month        = {},
+    volume       = {},
+    _pages       = {1-8},
+    doi          = {},
+    primaryClass = {physics.gen-ph},
+    url          = {https://map.gsfc.nasa.gov/ContentMedia/lagrange.pdf},
+    note = {{https:} //map.gsfc.nasa.gov/ContentMedia/lagrange.pdf}
+}
+
+@misc{elisa,
+  author =        {{Danzmann}, Karsten},
+  howpublished =
+  {{\url{https://www.elisascience.org}}},
+  note =          {{Accedido: 2018-11-08}},
+  title =         {{eLISA Science Team}},
+  year ={2018}
+}
+
+@BOOK{carroll,
+       author = {{Carroll}, Bradley W. and {Ostlie}, Dale A.},
+        title = {An introduction to modern astrophysics and cosmology},
+        publisher = {Pearson, Addison-Wesley},
+        edition = {2$^{nd}$},
+         year = {2007},
+         isbn = {0-8053-0402-9},
+         note = {{ISBN:} 0-8053-0402-9}
+}
+
+@ARTICLE{luna2,
+   author = {{Sliz-Balogh}, J. and {Barta}, A. and {Horvath}, G.},
+    title = "{Celestial mechanics and polarization optics of the Kordylewski dust cloud in the Earth-Moon Lagrange point L5 - Part II. Imaging polarimetric observation: new evidence for the existence of Kordylewski dust cloud}",
+  journal = {Monthly Notices of the Royal Astronomical Society},
+ keywords = {polarization, instrumentation: polarimeters, methods: observational, celestial mechanics, Earth, Moon},
+     year = 2019,
+    month = jan,
+   volume = 482,
+    pages = {762-770},
+      doi = {10.1093/mnras/sty2630},
+   adsurl = {http://adsabs.harvard.edu/abs/2019MNRAS.482..762S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+@misc{Mathematica,
+  author = {{Wolfram Research Inc.}},
+  title = {Mathematica, {V}ersion 11.2},
+  note = {Champaign, IL, 2017},
+  year = 2017
+}
+
+@misc{artemis,
+  author = {{The Artemis mission}},
+  howpublished =
+  {{\url{https://www.nasa.gov/mission_pages/themis/news/artemis-orbit.html}}},
+  note =          {{Accedido: 2018-12-15}},
+  title =         {{Artemis L1 L2 Orbiter mission}},
+  year = 2010
+}
+
+@ARTICLE{dupret,
+   author = {{Wang}, Q.-D.},
+    title = "{The global solution of the n-body problem}",
+  journal = {Celestial Mechanics and Dynamical Astronomy},
+ keywords = {Celestial Mechanics, Many Body Problem, Weierstrass Functions, Angular Momentum, Equations Of Motion},
+     year = 1991,
+   volume = 50,
+    pages = {73-88},
+   adsurl = {http://adsabs.harvard.edu/abs/1991CeMDA..50...73W},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+

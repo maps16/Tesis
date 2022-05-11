@@ -1,0 +1,371 @@
+%%
+%% PropuestaCero.tex
+%% 
+%% Made by Carlos Calcaneo Roldan
+%% Login   <calcaneo@billpots>
+%% 
+%% Started on  Thu Mar 19 09:22:26 2020 Carlos Calcaneo Roldan
+%% Last update Time-stamp: <2020-Mar-19.Thursday 19:28:28 (calcaneo)>
+%%
+\documentclass[12pt,spanish]{article}
+
+%La sigientes lineas son para podel escribir en español usando el
+%teclaso y poder usar el corrector de idioma automático. 
+%OJOJOJOJOJOJOJOJOJOJOJOJOJO:  
+%También es necesario el spanish como opción de la clase.
+%OJOJOJOJOJOJOJOJOJOJOJOJOJO:  
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\spanishdecimal{.}
+\usepackage[utf8]{inputenc}
+
+
+
+\usepackage{helvet}  %Para usar tipo de letra helvEtica.
+%\usepackage{courier} %Para usar tipo de letra courier
+\renewcommand{\familydefault}{\sfdefault} %Cambia el tipo de letra
+                                %default a helvEtica para todo el
+                                %documento, inluyendo los textos que
+                                %se generan de manera automAtica.
+\usepackage{pstricks,pst-coil,pst-node}
+\usepackage{diagbox}
+\usepackage{epsfig,graphics,fancyvrb}
+\usepackage{fancyhdr,lastpage}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage{enumerate}
+\setlength{\topmargin}{-1mm}   %Separacion del margen superior al 
+                               %inicio de la cabeza. 
+\setlength{\footskip}{8mm}     %Separacion del pie del texto.
+\setlength{\headsep}{3mm}      %Separacion de la cabeza del texto.
+\setlength{\headheight}{6mm}   %Altura de la cabeza del texto.
+%\addtolength{\voffset}{-1in}  %Margen superior total de la hoja.
+% longitud de la cabeza y el pie fijados a la longitud del texto, 
+% pueden tener su propia longitud.
+%\renewcommand{\headwidth}{\textwidth}  % Notemos que \headwith controla
+                                       % tanto cabeza como pie.
+\setlength{\textwidth}{160mm}
+\setlength{\textheight}{220mm}
+\pagestyle{fancy}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%\newcommand{\sen}{\ensuremath{{\rm sen}\,}}
+\newcommand{\dif}{\ensuremath{{\rm d}}}
+\newcommand{\etal}{\em et al.}
+			
+%\lhead{\tiny  Proyecto FOMIX}
+%Para camiar sOlo el texto C. Calc\'aneo Rold\'an podriamos escribir:
+%\chead{\tiny \fontfamily{phv}\selectfont C. Calc\'aneo Rold\'an}
+%\chead{\tiny C. Calc\'aneo Rold\'an}
+\newcommand{\mydate}{19 de Marzo de 2020}
+\rhead{\tiny Propuesta de tema preliminar de investigación}
+\rfoot{\thepage \mbox{\,} de \pageref{LastPage}}
+\cfoot{}
+\lfoot{\tiny \mydate}
+
+\begin{document}
+%\fontfamily{phv}\selectfont %Esta linea cambia a helvEtica el texto
+                            %normal del documento. pero solo el texto,
+                            %no cambia los textos que se generan
+                            %automAticamente como ``Referencias'' o
+                            %``Indice''... 
+                            %{phv}{Adobe Helvetica}
+                            %{pcr}{Adobe Courier}
+\thispagestyle{empty}
+\setcounter{page}{0}
+\begin{center}
+  {\Large Propuesta de tema preliminar de investigación\\
+  ``{\it Encontrando amigos oscuros}''}
+\end{center} 
+
+\vspace{12em}
+\begin{center}
+  {\large Asociado a la LGAC del programa de maestría: Física matemática. \\}
+\vspace{4em}
+{\large Resumen:}
+\end{center}
+Presentamos una propuesta para el desarrollo de una investigación
+asociada al estudio de halos de materia oscura usando técnicas de
+aprendizaje de máquina (conocido técnicamente como {\it machine
+  learning}). En esta propuesta se incorporará esta técnica a la búsqueda
+de sobre-densidades en simulaciones de materia oscura para lo cual
+tradicionalmente se usan otras técnicas.
+
+\begin{flushright}
+\scalebox{0.75}{
+\includegraphics{/home/calcaneo/img/firmaKlKblue.png}
+}\\
+\vspace{-4ex}
+Dr. Carlos Calc\'aneo Rold\'an\\
+Academia de Física Teórica\\
+Departamento de Física.\\
+NAC Maestría en Ciencias \--- Física. 
+\end{flushright}
+
+
+\vspace{5em}
+%\begin{center}
+%     Referencia CONACyT: \\
+%     {\bf CB\--2009\--01\_000000000128851}
+%
+%\end{center}
+
+\vfill
+\begin{flushright}
+{\bf \mydate}
+\end{flushright}
+\newpage
+
+\section*{Antecedentes}
+
+Una gran parte del trabajo que desarrollamos en Cosmología en el grupo
+de Física Fundamental se sustenta en los siguientes antecedentes que
+hemos mencionado ya en otros momentos:
+
+\begin{quote}
+
+Existe un cúmulo de evidencia experimental y teórica
+que nos hace  
+confiar en el modelo cosmológico actual, mismo que  ha surgido de
+la confluencia entre la cosmología, la astrofísica y la física
+de partículas elementales. Las primeras describen el universo a gran
+escala, mientras la última se encarga de estudiar el mundo
+subatómico, su unión nos ha llevado a la realización de
+experimentos que están en la frontera de las posibilidades humanas,
+tanto materiales como intelectuales: LHC, WMAP, CDMS, LISA; por
+mencionar sólo algunos de los más nombrados en la actualidad,
+incluso en la prensa popular.
+
+El paradigma actual de la formación del Universo Observable se 
+basa en una serie de suposiciones sencillas: Momentos después del 
+gran estallido existían pequeñas imperfecciones en la 
+distribución del plasma materia/energía que formaba al Universo.
+Al ir expandiéndose, el plasma se fue enfriando hasta dejar escapar 
+a los fotones. Pequeñas imperfecciones en la distribución de
+materia fueron 
+expandidas exponencialmente por un proceso de inflación de tal 
+manera que se convirtieron en grumos de materia que se 
+identifican comúnmente como las semillas de las galaxias. Los 
+pequeños grumos van acumulándose en objetos cada vez más 
+grandes, a través de interacciones puramente 
+gravitacionales,  hasta formar halos dentro de los cuales, de nuevo 
+debido a la atracción gravitacional, se acumula materia 
+bariónica hasta formar galaxias. Posteriormente las galaxias se 
+agregan en cúmulos y así sucesivamente.
+
+Para poder reproducir observaciones astrofísicas (como las 
+curvas de velocidad circular de galaxias o la dispersión de 
+velocidades dentro de un cúmulo de galaxias) ha sido necesario 
+suponer que la mayoría de la materia contenida en los halos 
+galácticos tiene características muy peculiares. Esta materia 
+no puede corresponder a la materia bariónica que conocemos, 
+su principal característica es que las partículas que forman 
+esa materia sólo deben interactuar con las partículas de la 
+materia ordinaria a través de la fuerza gravitacional. Como 
+dicha materia no interactúa  termodinámicamente, no incrementa 
+la temperatura de su distribución en el halo y por lo tanto no 
+radia. Es por ello que se le ha denominado ``Materia Oscura''.
+
+Se han propuesto muchos candidatos de materia oscura, los más 
+aceptados pertenecen a una clase denominada ``Materia Oscura 
+Fría'' (CDM, por sus siglas en inglés). 
+
+
+\end{quote}
+
+\section*{Justificación}
+
+Los argumentos principales para continuar con el estudio de halos de
+materia oscura también los hemos resaltado antes, ahora recordamos la
+esencia de ellos:
+
+\begin{quote}
+
+  
+Uno de los modelos de formación de estructura estudiados más 
+intensamente se  basa en un universo dominado por CDM. Este modelo ha
+sido explorado en gran detalle por casi 30
+años a través de simulaciones y modelado semi-analítico. Una 
+propiedad importante de las simulaciones es que los halos pequeños 
+son los primeros en colapsarse y separarse de la expansión del 
+Universo. Estos halos crecen lentamente al acretar
+grumos más pequeños o rápidamente al fusionarse con otro halo de 
+tamaño comparable. En otras palabras, la formación de la estructura 
+es jerárquica: los objetos pequeños se forman primero y los más 
+grandes después.
+
+Una consecuencia importante de este paradigma cosmológico es que las
+galaxias se forman al centro de los halos de materia  
+oscura y que, como cerca del 80\% de la materia del halo es materia 
+oscura, ésta domina las interacciones entre las galaxias. 
+Así, estudiando estas interacciones idealizadas esperamos entender 
+cuáles son los factores que influyen en la evolución de las
+galaxias y en general la evolución de la estructura del Universo. 
+
+La razón principal para estudiar las interacciones entre halos 
+de materia oscura es que su dinámica nos permite entender la 
+evolución de las galaxias dentro de cúmulos de galaxias o bien de 
+satélites dentro de la Vía Láctea. Las galaxias se observan en 
+diferentes ambientes, desde completamente aisladas en el 
+campo hasta agrupadas densamente en un cúmulo de galaxias. Una 
+parte importante de estudiar la evolución de galaxias es entender las 
+transformaciones que sufren mientras orbitan dentro de este ambiente 
+denso.
+
+\end{quote}
+
+\section*{Objetivo}
+
+Tradicionalmente en la búsqueda de estructura en los halos de materia
+oscura se utiliza un método conocido como {\it ``Friends of Friends''},
+o amigos de amigos, en los que se recogen sobre-densidades usando
+distancias características entre las partículas de una simulación.
+
+En este trabajo nos proponemos aprender técnicas similares a las
+propuestas por Yongseok y Ji-hoon \cite{mssm} o Liao, Guo et
+al. \cite{hiker} y usar algoritmos novedosos de aprendizaje de
+máquina, mejor conocido 
+como {\it ``machine learning''} (ML de aquí en adelante) para
+encontrar subestructuras en halos de materia oscura.
+
+\section*{Metas}
+
+\begin{itemize}
+\item Completar un algoritmo de ML para la determinación de
+  subestructuras de halos de materia oscura en una simulación
+  cosmológica. 
+\item Comparar el método de ML con los métodos tradicionales para
+  encontrar estructuras.
+\end{itemize}
+
+\section*{Resultados esperados}
+
+\begin{itemize}
+\item Simulación cosmológica propia, o bien descarga de datos de
+  alguna fuente confiable.
+\item Algoritmo de ML para la detección de halos de materia oscura.
+\item Catálogo de halos de subestructura de materia oscura.
+\item Resumen del trabajo realizado en una disertación para obtener el
+  grado de Maestría en ciencias. 
+\end{itemize}
+
+\section*{Infraestructura Disponible}
+
+La investigación que nos proponemos realizar se apoya fuertemente
+en el cómputo mediante cálculos numéricos y el desarrollo y
+análisis de simulaciones. Gran parte del tiempo se invertirá en
+mejorar y diseñar nuevos algoritmos por lo que es de importancia
+fundamental la disponibilidad tanto de un buen equipo de cómputo
+como de software y compiladores actualizados que
+permitan la implementación y el desarrollo del trabajo.
+
+Actualmente realizamos el trabajo numérico  en un
+servidor intel con procesador Core 2 Quad Q9550, 8Gb de memoria RAM
+DDRII y capacidad de disco duro combinada de 1Tb
+y contamos con una impresora Láser Dell Multifuncional.
+
+En lo que concierne al material bibliográfico, el Departamento de
+Física cuenta con un acervo considerable, mismo que en su
+oportunidad habrá de actualizarse. Entre otras revistas
+de investigación se tiene acceso a las siguientes: The Physical
+Review D, Physical Review Letters, The Astrophysical Journal, Journal
+of Mathematical Physics, Revista Mexicana de Física, Revista
+Mexicana de Astronomía y Astrofísica. Además se tiene acceso en
+línea a la colección de revistas del IOP, AIP y de la APS.  
+
+En cuanto a recursos de software contamos con los paquetes
+Mathematica (versión 11.3), SuperMongo
+(versión 2.4.36), sistema operativo Linux con compiladores y
+graficadores de fuente abierta instalados. Realizamos el trabajo 
+de edición en \LaTeX .
+
+%%%%%%%%%%%%%%%%%%%%%%%%BIBLIOGRAFIA
+\begin{thebibliography}{00}
+\bibitem{mssm} Machine-assisted semi-simulation model (MSSM):
+  estimating galactic baryonic properties from their dark matter using
+  a machine trained on hydrodynamic simulations. J. Yongseok,
+  K. Ji-hoon. {\it MNRAS}, {\bf 489}:3565,2019.
+\bibitem{quijote} The Quijote simulations. Villaescusa-Navarro, F.,
+  Hahn, C., Massara, E., et al.\ 2019, arXiv e-prints,
+  arXiv:1909.05273
+\bibitem{hiker} HIKER: a halo-finding method based on kernel-shift
+  algorithm. Sun, S., Liao, S., Guo, Q., et al.\ 2019, arXiv e-prints,
+  arXiv:1909.13301 
+\bibitem{aar} Gravitational N-Body Simulations \--- Tools and
+  Algorithms. S. J. Aarseth. {\it Cambridge University Press},
+  Cambridge, UK, Primera edición, 2003. ISBN:0521432723.
+\bibitem{bin01} Galactic Dynamics. J. Binney, S. Tremaine. {\it Princeton 
+University Press}, Princeton, NJ, segunda edición,
+  2008. ISBN:978-0691130279.
+\bibitem{boy} Resolving Cosmic Structure Formation with the
+  Millennium-II Simulation. M. Boylan-Kolchin, V. Springel,
+  S. D. M. White, A. Jenkins, G. Lemson. {\it MNRAS}, {\bf
+    398}:1150,2009. 
+%\bibitem{cal} Galaxy destruction and diffuse light in
+%  clusters. C. Calcaneo-Roldan, B. Moore, J. Bland-Hawthorn, D. malin,
+%  E. M. Sadler. {\it MNRAS}, {\bf 314}:324, 2000.
+%\bibitem{eke01} The evolution of X-ray clusters in a low density universe. 
+%V. R. Eke, J. F. Navarro, C. S. Frenk. {\it ApJ}, {\bf 503}:569, 1998.
+%\bibitem{eke02} The power spectrum dependenceof dark matter halo
+%  concentrations. V. R. Eke, J. F. Navarro, M. Steinmetz.
+%  {\it ApJ}, {\bf 554}:114, 2001.
+%\bibitem{hay} The structural evolution of substructure. E. hayashi, 
+%  J. F. Navarro, J. E. Taylor, J. Stadel, T. Quinn. {\it ApJ}, {\bf
+%    584}:541, 2003.
+\bibitem{her} N-Body realizations of compound galaxies. L. Hernquist. 
+  {\it Astrophys. J. Suppl.}, {\bf 86}:389, 1993.
+\bibitem{hin} Five-Year Wilkinson Microwave Anisotropy Probe (WMAP)
+  Observations: Data Processing, Sky Maps, and Basic
+  Results. G. Hinshaw, J. L. Weiland, R. S. Hill, N. Odegard,
+  D. Larson, C. L. Bennett, J. Dunkley, B. Gold, M. R. Greason,
+  N. Jarosik, E. Komatsu, M. R. Nolta, L. Page, D. N. Spergel,
+  E. Wollack, M. Halpern, A. Kogut, M. Limon, S. S. Meyer,
+  G. S. Tucker, E. L. Wright {\it Astrophys. J. Suppl.}, {\bf
+    180}:225, 2009.
+%\bibitem{updateher} Generating Equilibrium Dark Matter Halos:
+%  Inadequacies of the Local Maxwellian Approximation. S. Kazantzidis,
+%  J. Magorrian, B. Moore {\it ApJ}, {\bf 601}:37, 2004.
+%\bibitem{kly} Galaxies in n-body simulations: Overcoming de
+%  overmerging problem. A. Klypin, S. Gottl\"ober, A. V. Kravtsov,
+%  A. M. Khokhlov. {\it ApJ}, {\bf 516}:530, 1999.
+%\bibitem{moo01} On the destrucción and overmerging of dark halos
+%  in dissipationless n-body simulations. B. Moore, N. Katz, G. Lake.
+%  {\it ApJ}, {\bf 457}:455, 1996.
+%\bibitem{moo02} Dark matter in Draco and the Local Group: Implications 
+%for direct detection experiments. B. Moore, C. Calcáneo-Roldan, 
+%J. Stadel, T. Quinn, G. Lake, S. Ghigna, F. Governato.
+%{\it Phys. Rev. }, {\bf D64}:063508, 2001.  
+\bibitem{nav01} The structure of cold dark matter halos. J. F. Navarro,
+  C. S. Frenk, S. D. M. White. {\it ApJ}, {\bf 462}:563, 1996.
+%\bibitem{nav02} A universal density profile from hierarchical
+%  clustering. J. F. Navarro, C. S. Frenk, S. D. M. White. {\it ApJ},
+%  {\bf 490}:493, 1997.
+%\bibitem{pee} Structure of the Coma cluster of galaxies.
+%  P. J. E. Peebles. {\it AJ}, {\bf 75}:13, 1970
+\bibitem{gad2} The cosmological simulation code
+  GADGET-2. V. Springel. {\it MNRAS}, {\bf 364}:1105, 2005.
+%\bibitem{mill} The Aquarius Project: the subhalos of galactic
+%halos. V. Springel, J. Wang, M. Vogelsberger, A. Ludlow,
+%A. Jenkins, A. Helmi, J. F. Navarro, C. S. Frenk, S.
+%D. M. White {\it MNRAS}, {\bf 391}:1685, 2008.
+\bibitem{sta} PKDGRAV, comunicación privada con J. Stadel.
+%\bibitem{staa}Quantifying the heart of darkness with GHALO - a
+%  multi-billion particle simulation of our galactic halo. J. Stadel,
+%  D. Potter, B. Moore, J. Diemand, P. Madau, M. Zemp, M. Kuhlen,
+%  V. Quilis {\tt astro-ph/0808.2981v2}, 2008.
+%\bibitem{tur03} Ten things everybody should know about
+%  inflation. M. S. Turner {\tt astro-ph/9704062}, 1997.
+\bibitem{vanK} Improved numerical modeling of clusters of galaxies.
+  E. van Kampen. {\it MNRAS}, {\bf 273}:295, 1995.
+%\bibitem{wei01} Adiabatic invariants in stellar dynamics 1: Basic Concepts. 
+%  M. D. Weinberg. {\it AJ}, {\bf 108}:1398, 1994
+%\bibitem{wei02} Adiabatic invariants in stellar dynamics 2:
+%  Gravitational shocking. M. D. Weinberg. {\it AJ}, {\bf 108}:1403, 1994
+%\bibitem{whi02} The dinamics of rich clusters of galaxies.
+%  S. D. M. White. {\it MNRAS}, {\bf 177}:717, 1976. 
+\bibitem{nbox} The Graininess of Dark Matter Haloes. M. Zemp,
+J. Diemand, M. Kuhlen, P. Madau, B. Moore, D. Potter,
+J. Stadel, L. Widrow.  {\it MNRAS}, {\bf 394}:641, 2009. 
+\end{thebibliography}
+
+
+
+\end{document}
