@@ -60,7 +60,7 @@ restart.*
 *.blg
 *.log
 
-main.pdf
+#main.pdf
 *Tesis.pdf
 /GADGET
 /Extras
