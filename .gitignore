@@ -32,6 +32,7 @@ snapshot_*
 restart.*
 *.ascii
 *.bin
+*.cfg
 
 # TexMaker Extras #
 ###################
@@ -64,4 +65,10 @@ restart.*
 *Tesis.pdf
 /GADGET
 /Extras
-/Corridas
+#/Corridas
+/Corridas/CorridasLocales/
+/Corridas/testdata
+/Corridas/CorridasServidor/Run1/Imagenes
+Corridas/CorridasServidor/Run1/.ipynb_checkpoints
+/home/martin/Documentos/Tesis/Corridas/CorridasServidor/Run1/gadget4
+/home/martin/Documentos/Tesis/Corridas/CorridasServidor/Run1/gadget2
