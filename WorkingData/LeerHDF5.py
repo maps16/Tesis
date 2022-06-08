@@ -11,7 +11,6 @@ cm =  plt.get_cmap('gist_gray')
 ax[-1,-1].set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
 #ax.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
 
-
 def plotAx(pos, pdata, nameData):
 
     ax.flat[pos].set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
@@ -47,13 +46,13 @@ arch.sort()
 
 j = 0
 for i in arch:
-    a = i.split('/')[-1]
+    a = i.split('/')[-1] #Selecion del archivo
 #    print(a)
-    d = a.split('_')[-1].split('.')[0]
-
+#    d = a.split('_')[-1].split('.')[0]
 
     #OPEN FILE
     z = h5.File(namepath + "/" + a , "r")
+    d = str( round( z[ 'Header' ].attrs[ 'Redshift' ],  ndigits = 2 ) )
     if 'Subhalo' and 'Group' in z:
 #HDF5 KEYS
 #Config, Header, Parameter, Group, IDs, Subhalo
@@ -64,7 +63,7 @@ for i in arch:
         log10zMass = np.log10(zMass)
 
         #PLOTTING
-        plotAx(pos=j, pdata=log10zMass, nameData='z' + d )
+        plotAx(pos=j, pdata=log10zMass, nameData='z = ' + d )
         #ax.hist(log10zMass, bins = 55, range = (10.0,14.5), label = 'z' + d)
         #ax.hist(log10zMass, bins = 55, label = 'z' + d)
 
@@ -81,8 +80,8 @@ ax.flat[-1].set_xlabel('log$_{10}$ M$_\odot$')
 ax[-1,-1].legend(loc=1)
 #plt.xlabel('log$_{10}$ R (Mpc)')
 
+
+
 fig.tight_layout()
-
-
 #plt.ion()
 plt.show()
