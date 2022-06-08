@@ -46,17 +46,46 @@ La simulación empieza en un Universo todavía muy uniforme (sin formación de e
 {\LARGE
 IMAGEN PENDIENTE
 }
+\section{Simulaciones Cosmológicas}
+Si queremos simular nuestro Universo, se ocupa resolver la ecuación de Boltzmann sin colisiones (CBE)
+
+\begin{equation}
+\frac{d f}{d t} \equiv \frac{\partial f}{\partial t} + \mathbf{v}\frac{\partial f}{\partial \mathbf{x}} + \frac{\partial \Phi}{\partial \mathbf{r}} \frac{\partial f}{\partial \mathbf{v}}
+\label{CBE}
+\end{equation}
+
+donde el potencial auto-consistente $\Phi$ es la solución a la ecuación de Poisson
+
+\begin{equation}
+\nabla^2\Phi(\mathbf{r},t) = 4\pi G \int f(\mathbf{r},\mathbf{v},t)d\mathbf{v}
+\label{PoissonSol}
+\end{equation}
+
+y $f(\mathbf{r},\mathbf{v},t)$ es la densidad de una partícula en el espacio fase.
+
+
 
 
 \section{GADGET-4}
 Los código GADGET han sido un de los mas utilizados en el estudió de formación de estructura y estudio de la materia oscura en las ultimas decadas. Han existido varias iteraciones de los códigos GADGET, siendo GADGET-4 la mas reciente.
 
-La motivación detras de la nueva versión de GADGET-4 
+La motivación detras de la nueva versión de GADGET-4
 \cite{2021MNRAS.506.2871S}
 
+
+
+
+
+
 \subsubsection{---}
+Esencialmente para resolver el sistema de N-cuerpos, el potencial gravitacional que se esta usa para calcular el movimiento de las N partículas es el siguiente:
 
+\begin{align}
+    \Phi (\textbf{x}) = &- \sum_{j=1}^{N} \frac{m_j}{|\textbf{x}_j-\textbf{x}+\textbf{q}*_j| + |\epsilon(\textbf{x}_j-\textbf{x}+\textbf{q}*_j)|} \nonumber \\
+    &+ \sum_{j=1}^{N} m_j \psi (\textbf{x}_j-\textbf{x}+\textbf{q}*_j)
+\end{align}
 
+donde la primer parte es el potencial gravitacional de newton con una corrección para considerar el radio de suavizado y el segundo termino en potencial se introduce como una corrección para el suavizado de imágenes distantes.
 
 
 \subsubsection{---}
