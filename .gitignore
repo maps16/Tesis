@@ -68,6 +68,7 @@ restart.*
 /Extras
 #/Corridas
 /Corridas/CorridasLocales/
+/Corridas/BiggerRun
 /Corridas/testdata
 /Corridas/CorridasServidor/Run1/Imagenes
 Corridas/CorridasServidor/Run1/.ipynb_checkpoints
