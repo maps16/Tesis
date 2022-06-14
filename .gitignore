@@ -61,6 +61,7 @@ restart.*
 *.blg
 *.log
 
+*.json
 #main.pdf
 *Tesis.pdf
 /GADGET
