@@ -29,10 +29,10 @@
 #############
 snapshot_*
 *.hdf5
-restart.*
 *.ascii
 *.bin
 *.cfg
+*restart.*
 
 # TexMaker Extras #
 ###################
@@ -66,6 +66,13 @@ restart.*
 *Tesis.pdf
 /GADGET
 /Extras
+
+Gadget4*
+param.txt-usedvalues
+parameters-usedvalues
+WorkingData/BiggerRun/**/*.txt
+WorkingData/BiggerRun/**/*.sh
+WorkingData/BiggerRun/**/*.csv
 #/Corridas
 /Corridas/CorridasLocales/
 /Corridas/BiggerRun

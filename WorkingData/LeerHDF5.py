@@ -17,17 +17,19 @@ def plotAx(pos, pdata, nameData):
     ax.flat[pos].hist(pdata , bins=55, range=(10.0,14.5), label=nameData)
     ax.flat[pos].set_ylabel("N bin")
     ax.flat[pos].set_xlabel('log$_{10}$ M$_\odot$')
-    #ax.flat[pos].set_ylim(0,4000)
+    ax.flat[pos].set_ylim(0,7500)
     ax.flat[pos].legend(loc=1)
     ax.flat[-1].hist(pdata , bins=55, range=(10.0,14.5), label=nameData)
 
     return None
 
 #ax.hist(log10zMass, bins = 55, range = (10.0,14.5), label = 'z' + d)
-
+'''
 run = "Run8"
 data = "fofsubhalo"
 namepath = "/home/martin/Documentos/Tesis/WorkingData/" + run + "/" + data
+'''
+namepath = '/home/martin/Documentos/Tesis/Corridas/BiggerRun/output/subhalo'
 
 # #CHECK FOR TYPE OF DATA
 # if data == "fofsubhalo":
@@ -68,6 +70,7 @@ for i in arch:
         #ax.hist(log10zMass, bins = 55, label = 'z' + d)
 
         print('Corrio ' + a + ', j=' + str(j) )
+        print( namepath )
         z.close()
         j += 1
     else:
@@ -85,3 +88,11 @@ ax[-1,-1].legend(loc=1)
 fig.tight_layout()
 #plt.ion()
 plt.show()
+
+
+""" top=0.959,
+bottom=0.057,
+left=0.03,
+right=0.997,
+hspace=0.18,
+wspace=0.18 """
