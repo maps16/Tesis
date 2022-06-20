@@ -24,12 +24,12 @@ def plotAx(pos, pdata, nameData):
     return None
 
 #ax.hist(log10zMass, bins = 55, range = (10.0,14.5), label = 'z' + d)
-'''
-run = "Run8"
-data = "fofsubhalo"
+
+run = "BiggerRun"
+data = "subhalo"
 namepath = "/home/martin/Documentos/Tesis/WorkingData/" + run + "/" + data
-'''
-namepath = '/home/martin/Documentos/Tesis/Corridas/BiggerRun/output/subhalo'
+
+
 
 # #CHECK FOR TYPE OF DATA
 # if data == "fofsubhalo":
@@ -70,7 +70,7 @@ for i in arch:
         #ax.hist(log10zMass, bins = 55, label = 'z' + d)
 
         print('Corrio ' + a + ', j=' + str(j) )
-        print( namepath )
+        
         z.close()
         j += 1
     else:

@@ -7,11 +7,11 @@ from glob import glob
 
 fig ,ax = plt.subplots( nrows = 1, ncols = 1, figsize = ( 9, 9 ) )
 
-""" run = "Run8"
-data = "fofsubhalo"
+run = "BiggerRun"
+data = "subhalo"
 namepath = "/home/martin/Documentos/Tesis/WorkingData/" + run + "/" + data
-"""
-namepath = '/home/martin/Documentos/Tesis/Corridas/BiggerRun/output/subhalo'
+
+
 #Checar todos los archivos
 arch = glob(namepath + '/*')
 arch.sort()
