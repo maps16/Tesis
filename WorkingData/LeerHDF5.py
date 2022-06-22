@@ -23,22 +23,11 @@ def plotAx(pos, pdata, nameData):
 
     return None
 
-#ax.hist(log10zMass, bins = 55, range = (10.0,14.5), label = 'z' + d)
+
 
 run = "BiggerRun"
 data = "subhalo"
 namepath = "/home/martin/Documentos/Tesis/WorkingData/" + run + "/" + data
-
-
-
-# #CHECK FOR TYPE OF DATA
-# if data == "fofsubhalo":
-#     fileprefix = "/fof_subhalo_tab_"
-# if data == "snaps":
-#     fileprefix = "/snapshot_"
-# if data == "subhalo":
-#     print( "Not implemented" )
-
 
 
 #Checar todos los archivos
@@ -54,7 +43,7 @@ for i in arch:
 
     #OPEN FILE
     z = h5.File(namepath + "/" + a , "r")
-    d = str( round( z[ 'Header' ].attrs[ 'Redshift' ],  ndigits = 2 ) )
+    d = str( round( z[ 'Header' ].attrs[ 'Redshift' ],  ndigits = 2 ) ) #OBTENCION DE REDSHIFT A DOS DECIMALES
     if 'Subhalo' and 'Group' in z:
 #HDF5 KEYS
 #Config, Header, Parameter, Group, IDs, Subhalo
@@ -86,7 +75,6 @@ ax[-1,-1].legend(loc=1)
 
 
 fig.tight_layout()
-#plt.ion()
 plt.show()
 
 
