@@ -46,16 +46,16 @@ for newVal in  values:
     
     s = newParams(dOrig, Omega0, OmegaLambda, OmegaBaryon)
 
+    if not (j==1) : print( time.ctime() )
+    
     DirN = '../run' + str(j)
-    print( time.ctime() )
-    subprocess.call( [ 'mpirun', '-np', '24', './Gadget4_SubFind','newparam.txt'] )
-    #subprocess.run( [ 'cat','newparam.txt'] )
+    
+    #subprocess.call( [ 'mpirun', '-np', '24', './Gadget4_SubFind','newparam.txt'] )
+    subprocess.run( [ 'cat','newparam.txt'] )
     
     subprocess.run( [ 'mkdir', DirN, 'output' ] )
     subprocess.run( [ 'cp','-r','output/','newparam.txt','newparam.txt-usedvalues',DirN ] )
     subprocess.run( [ 'rm','-r', 'newparam.txt', 'output/'], )
     j += 1
-    print( time.ctime() )
-    # print(newVal)
-    # print(Omega0, OmegaLambda, OmegaBaryon)
-#ewald_table_1-1-1_64-64-64_precision8-order3.dat
+
+print( time.ctime() )
