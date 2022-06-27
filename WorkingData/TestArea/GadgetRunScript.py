@@ -23,10 +23,6 @@ def newParams(ArchParam, Ome0, OmeL, OmeB):
             file.write(l+'\n')
         file.close()
 
-    #randomV = str( int( np.random.random(1) * 10) )
-    #randomV = 'newparam' + randomV + '.txt'
-    #subprocess.call(['mv','newparam.txt',randomV])
-
     return ArchParam
 
 #Tomar Archivo Param.txt Base y Leerlo
@@ -38,22 +34,27 @@ with open('type.txt', 'r') as val:
     values = val.read().splitlines()[1:] #Se salta en encabezado
     val.close()
 
-
 j=1
 print( time.ctime() )
 for newVal in  values:
+    #obteniendo los parametros ha cambiar
     Omega0, OmegaLambda, OmegaBaryon = np.float16(newVal.split(sep=',') )
     
+    #Creando nuevo archivos de parametros
     s = newParams(dOrig, Omega0, OmegaLambda, OmegaBaryon)
 
+    #Log de Tiempo
     if not (j==1) : print( time.ctime() )
     
-    DirN = '../run' + str(j)
+    DirN = '../run' + str(j)  # Nombre de la carpeta de la nueva corrida
+
+    #Correr procesos
+    subprocess.run( [ 'mkdir', DirN ] ) #Creando las carpetas
+    subprocess.run( [ 'mkdir', 'output' ] )
+    #subprocess.call( [ 'mpirun', '-np', '24', './Gadget4_SubFind','newparam.txt'] ) #Correr GADGET4
+    subprocess.run( [ 'cat','newparam.txt'] ) #TESTING RUN
     
-    #subprocess.call( [ 'mpirun', '-np', '24', './Gadget4_SubFind','newparam.txt'] )
-    subprocess.run( [ 'cat','newparam.txt'] )
     
-    subprocess.run( [ 'mkdir', DirN, 'output' ] )
     subprocess.run( [ 'cp','-r','output/','newparam.txt','newparam.txt-usedvalues',DirN ] )
     subprocess.run( [ 'rm','-r', 'newparam.txt', 'output/'], )
     j += 1
