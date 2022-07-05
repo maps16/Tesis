@@ -25,9 +25,9 @@ def plotAx(pos, pdata, nameData):
 
 
 
-run = "BiggerRun"
+run = "RunCanonica"
 data = "subhalo"
-namepath = "/home/martin/Documentos/Tesis/WorkingData/" + run + "/" + data
+namepath = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/" + run + "/" + data
 
 
 #Checar todos los archivos

@@ -7,11 +7,11 @@ from glob import glob
 
 fig ,ax = plt.subplots( nrows = 1, ncols = 1, figsize = ( 9, 9 ) )
 
-run = "BiggerRun"
+run = "RunCanonica"
 data = "subhalo"
-namepath = "/home/martin/Documentos/Tesis/WorkingData/" + run + "/" + data
+namepath = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/" + run + "/" + data
 
-
+#/home/martin/Documentos/Tesis/WorkingData/StandardResolution
 #Checar todos los archivos
 arch = glob(namepath + '/*')
 arch.sort()
@@ -46,7 +46,7 @@ fig.suptitle('Evolución del número de halos total')
 ax.set_ylabel('Número Total Halos')
 ax.set_xlabel('Redshift')
 ax.set_xlim(15.5, -0.5)
-ax.set_xticks(np.arange( min(redS), max(redS) + 0.0 , 1.0) )
+#ax.set_xticks(np.arange( min(redS), max(redS) + 0.0 , 1.0) )
 #ax.set_xticks(np.arange(15.0, 0.0, 1.0))
 #ax.legend(loc=1)
 #plt.xlabel('log$_{10}$ R (Mpc)')
