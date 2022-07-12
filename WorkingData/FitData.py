@@ -61,9 +61,9 @@ for i in arch:
         zMass = z['Subhalo']['SubhaloMass'][:] * 1e10
         log10zMass = np.log10(zMass)
 
-        param0 = np.array( [1.], dtype=np.float64 )  # PARAMETER GUESS
-        mini = fmin( loss_f, param0, args=(log10zMass,) )
-        lamd = mini[0] # PARAMETER SELEC
+        #param0 = np.array( [1.], dtype=np.float64 )  # PARAMETER GUESS
+        #mini = fmin( loss_f, param0, args=(log10zMass,) )
+        #lamd = mini[0] # PARAMETER SELEC
         
         
         
