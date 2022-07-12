@@ -6,8 +6,10 @@ from glob import glob
 from scipy.stats import exponnorm as scp
 
 # Creando Figura para plot
+NUM_COLORS = 5
 fig ,ax = plt.subplots( nrows=2, ncols=3, figsize=(10,10) )
-
+cm =  plt.get_cmap('gist_gray')
+ax[-1,-1].set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
 
 def plotAx(pos, pdata, nameData, num_bin, *param):
     '''
@@ -26,8 +28,11 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     ax.flat[pos].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False)
     # Plotting PDF
     ax.flat[pos].plot( X, scp.pdf(X, k,loc,scale) * len(pdata) * bsz, label= nameData)
-    
+
+    print('here')
+    ax[-1,-1].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False, label='here')
     # Ajustes de la figura
+    ax.flat[pos].set_xlim(10.,15.)
     ax.flat[pos].set_ylabel("N bin")
     ax.flat[pos].set_xlabel('log$_{10}$ M$_\odot$')
     ax.flat[pos].legend(loc=1)
@@ -58,14 +63,17 @@ for i in archivos:
     k, loc, scale = scp.fit(logmass)
 
     # LABEL, escrito de los labels
-    nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB)
+    mean, std = scp.mean(k,loc,scale), scp.std(k,loc,scale)             #Calculo de Mean y STD
+    nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) + '\n  Mean =' + str(round(mean, ndigits=4)) + ', std =' + str(round(std,ndigits=4))
+
+   
 
     # Funcion de Ploteo Checar Funciones 
-    plotAx(temp_exit, logmass, nameParam, bins, k,loc,scale )
+    plotAx(temp_exit, logmass, nameParam, bins, k,loc,scale, mean, std  )
 
     #Calculo de Media, STD
-    print('Mean: ' +  str( scp.mean(k,loc,scale) ) )
-    print('STD : ' +  str( scp.std(k,loc,scale) ) )
+    print('Mean: ' +  str( mean ) )
+    print('STD : ' +  str( std ) )
 
     # Debug
     # print( logmass )
@@ -78,5 +86,11 @@ for i in archivos:
     file_data.close()
 
 
-ax.flat[-1].cla()
+#ax.flat[-1].cla()
 plt.show()
+""" top=0.984,
+bottom=0.067,
+left=0.041,
+right=0.986,
+hspace=0.173,
+wspace=0.144 """
