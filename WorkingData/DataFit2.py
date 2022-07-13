@@ -81,9 +81,9 @@ for i in archivos:
     # Funcion de Ploteo Checar Funciones 
     plotAx(temp_exit, logmass, nameParam, bins, k,loc,scale, mean, std  )
 
-    #Calculo de Media, STD
-    print('Mean: ' +  str( mean ) )
-    print('STD : ' +  str( std ) )
+    #Calculo de Media, STD en pantalla
+    # print('Mean: ' +  str( mean ) )
+    # print('STD : ' +  str( std ) )
 
     # Debug
     # print( logmass )
