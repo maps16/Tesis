@@ -6,10 +6,10 @@ from glob import glob
 from scipy.stats import exponnorm as scp
 
 # Creando Figura para plot
-NUM_COLORS = 5
-fig ,ax = plt.subplots( nrows=2, ncols=3, figsize=(10,10) )
-cm =  plt.get_cmap('gist_gray')
-ax[-1,-1].set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
+#NUM_COLORS = 5
+fig ,ax = plt.subplots( nrows=2, ncols=3, figsize=(16,10) )
+#cm =  plt.get_cmap('gist_gray')
+#ax[-1,-1].set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
 
 def plotAx(pos, pdata, nameData, num_bin, *param):
     '''
@@ -24,13 +24,22 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     bsz = ( np.max(logmass) - np.min(logmass) ) / bins          # Bin Size
     k, loc, scale = param[0], param[1], param[2]                # Parametros de Ajuste
     
+    simple = nameData.split(',')[:3]
+    simple[-1] = simple[-1].split('\n')[0]
+    simplename = ''
+    for string in simple:
+        simplename += string + ' '
+    
+
     # Plotting Hist
     ax.flat[pos].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False)
+    
     # Plotting PDF
     ax.flat[pos].plot( X, scp.pdf(X, k,loc,scale) * len(pdata) * bsz, label= nameData)
 
-    print('here')
-    ax[-1,-1].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False, label='here')
+    #Plot Acumulado
+    ax[-1,-1].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False, label=simplename, alpha=0.5)
+    ax.flat[-1].legend(loc=1)
     # Ajustes de la figura
     ax.flat[pos].set_xlim(10.,15.)
     ax.flat[pos].set_ylabel("N bin")
@@ -85,7 +94,7 @@ for i in archivos:
     temp_exit += 1
     file_data.close()
 
-
+plt.tight_layout(h_pad=0.173,w_pad=0.144,rect=(0.041,0.067,0.986,0.984), pad=3)
 #ax.flat[-1].cla()
 plt.show()
 """ top=0.984,
