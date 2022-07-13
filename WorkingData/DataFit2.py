@@ -18,6 +18,7 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     pdata       Arreglo con los Datos 1D
     nameData    Nombre de los datos
     num_bin     Numero de Bins del Histograma
+    *param      Parametros de ajuste
     '''
 
     X = np.linspace( np.min(logmass), np.max(logmass), 10000 )  # Puntos Para Graficar PDF
@@ -39,7 +40,7 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
 
     #Plot Acumulado
     ax[-1,-1].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False, label=simplename, alpha=0.5)
-    ax.flat[-1].legend(loc=1)
+    
     # Ajustes de la figura
     ax.flat[pos].set_xlim(10.,15.)
     ax.flat[pos].set_ylabel("N bin")
@@ -94,12 +95,19 @@ for i in archivos:
     temp_exit += 1
     file_data.close()
 
-plt.tight_layout(h_pad=0.173,w_pad=0.144,rect=(0.041,0.067,0.986,0.984), pad=3)
-#ax.flat[-1].cla()
+# Ajuste de la figura
+ax.flat[-1].legend(loc=1)
+ax.flat[-1].set_xlim(10.,15.)
+ax.flat[-1].set_ylabel("N bin")
+ax.flat[-1].set_xlabel('log$_{10}$ M$_\odot$')
+#plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
+plt.tight_layout(h_pad=0.108,w_pad=0.116,rect=(0.0,0.0,1.0,1.0))
 plt.show()
-""" top=0.984,
-bottom=0.067,
-left=0.041,
-right=0.986,
-hspace=0.173,
-wspace=0.144 """
+'''
+top=0.988,
+bottom=0.048,
+left=0.031,
+right=0.991,
+hspace=0.108,
+wspace=0.116
+'''
