@@ -7,7 +7,7 @@ from scipy.stats import exponnorm as scp
 
 # Creando Figura para plot
 #NUM_COLORS = 5
-fig ,ax = plt.subplots( nrows=2, ncols=3, figsize=(16,10) )
+fig ,ax = plt.subplots( nrows=3, ncols=3, figsize=(16,10) )
 #cm =  plt.get_cmap('gist_gray')
 #ax[-1,-1].set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
 

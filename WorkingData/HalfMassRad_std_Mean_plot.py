@@ -39,7 +39,7 @@ for x in run:
             nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) 
             
             # Extrayendo la masa y calculando su Log10
-            logmass = np.log10( file_data['Subhalo']['SubhaloMass'][:] * 1e10)
+            logmass = np.log10( file_data['Subhalo']['SubhaloHalfmassRad'][:] * 1e10)
 
             # Calculado los parametros para el ajuste
             loc, scale = scp.fit(logmass,)
@@ -53,12 +53,12 @@ for x in run:
 
         file_data.close()
 
-    if len(std) != 0 : plt.plot(z, std, label=nameParam)
+    if len(std) != 0 : plt.plot(z, std, label=nameParam, marker='o')
         
 
 plt.xlabel('Redshift')
-plt.ylabel('$\sigma$')
-plt.xlim((15.5,-0.5))
+plt.ylabel('$\mu$')
+plt.xlim((25.05,-0.05))
 plt.legend(loc='best')
 plt.show()
 
