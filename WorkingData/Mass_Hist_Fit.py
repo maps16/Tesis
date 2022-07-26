@@ -42,7 +42,7 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     ax[-1,-1].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False, label=simplename, alpha=0.5)
     
     # Ajustes de la figura
-    ax.flat[pos].set_xlim(10.,15.)
+    #ax.flat[pos].set_xlim(round(np.min(pdata))  , 15.)
     ax.flat[pos].set_ylabel("N bin")
     ax.flat[pos].set_xlabel('log$_{10}$ M$_\odot$')
     ax.flat[pos].legend(loc=1)
@@ -97,7 +97,7 @@ for i in archivos:
 
 # Ajuste de la figura
 ax.flat[-1].legend(loc=1)
-ax.flat[-1].set_xlim(10.,15.)
+ax.flat[-1].set_xlim(9.9,15.)
 ax.flat[-1].set_ylabel("N bin")
 ax.flat[-1].set_xlabel('log$_{10}$ M$_\odot$')
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
