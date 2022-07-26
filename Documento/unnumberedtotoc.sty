@@ -28,27 +28,27 @@
 \DeclareOption{indentunnumbered}{\booltrue{@indentunnumbered}}
 \DeclareOption{silent}{\booltrue{@silent}}
 \ProcessOptions*
-\ifundef{\KOMAClassName}{%
-	\ifbool{@silent}{}{%
-		\PackageWarningNoLine{unnumberedtotoc}{%
-			^^J adding some features also provided by KOMA-script classes.%
-			^^J Consider switching, as there are much more features with KOMA.%
-			^^J Found at: https://github.com/johannesbottcher/unnumberedtotoc%
-		}%
-	}
-	\@ifclassloaded{memoir}{
-		\typeout{Sorry, this wasn't tested with `memoir'}
-	}{
-	}
-}{\PackageInfo{unnumberedtotoc}{You are using a KOMA
-	class. Not much to do for me here. Setting the options
-and that's it}
-\ifbool{@indentunnumbered}{%
-	\@ifpackageloaded{tocbasic}{%
-		\setuptoc{toc}{numberline}%
-	}{}}{}
-	\endinput
-}
+% \ifundef{\KOMAClassName}{%
+% 	\ifbool{@silent}{}{%
+% 		\PackageWarningNoLine{unnumberedtotoc}{%
+% 			^^J adding some features also provided by KOMA-script classes.%
+% 			^^J Consider switching, as there are much more features with KOMA.%
+% 			^^J Found at: https://github.com/johannesbottcher/unnumberedtotoc%
+% 		}%
+% 	}
+% 	\@ifclassloaded{memoir}{
+% 		\typeout{Sorry, this wasn't tested with `memoir'}
+% 	}{
+% 	}
+% }{\PackageInfo{unnumberedtotoc}{You are using a KOMA
+% 	class. Not much to do for me here. Setting the options
+% and that's it}
+% \ifbool{@indentunnumbered}{%
+% 	\@ifpackageloaded{tocbasic}{%
+% 		\setuptoc{toc}{numberline}%
+% 	}{}}{}
+% 	\endinput
+% }
 \RequirePackage{xparse}
 
 \AtBeginDocument{\providecommand{\MakeMarkcase}{}}
