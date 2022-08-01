@@ -36,7 +36,7 @@ for x in run:
             Omega0, OmegaL, OmegaB, z_cal = file_data['Parameters'].attrs['Omega0'], file_data['Parameters'].attrs['OmegaLambda'], file_data['Parameters'].attrs['OmegaBaryon'], file_data[ 'Header' ].attrs[ 'Redshift' ]
             
             # Label identificando cada cosmologia
-            nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) 
+            nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) #+ ', ' + r'$\Omega_B=$'+str(OmegaB) 
             
             # Extrayendo la masa y calculando su Log10
             logmass = np.log10( file_data['Subhalo']['SubhaloMass'][:] * 1e10)
@@ -60,6 +60,7 @@ plt.xlabel('Redshift')
 plt.ylabel('$\sigma$')
 plt.xlim((25.05,-0.05))
 plt.legend(loc='best')
+plt.tight_layout()
 plt.show()
 
 
