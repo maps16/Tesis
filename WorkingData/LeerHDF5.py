@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 from glob import glob
 
-fig ,ax = plt.subplots( nrows=3, ncols=4,figsize=(32,18) )
+fig ,ax = plt.subplots( nrows=3, ncols=4,figsize=(9,9) )
 #Asignando Mas Colores
 NUM_COLORS = 11#len(arch)
 cm =  plt.get_cmap('gist_gray')
