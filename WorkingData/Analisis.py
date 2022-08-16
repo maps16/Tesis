@@ -1,7 +1,7 @@
 import h5py as h5
 import numpy as np
 import matplotlib.pyplot as plt
-import pynbody as pnb
+# import pynbody as pnb
 from matplotlib import cm
 from glob import glob
 
