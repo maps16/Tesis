@@ -4,6 +4,9 @@ from scipy.stats import norm as scp
 import matplotlib.pyplot as plt
 import h5py as h5
 
+plt.figure(num='std',  figsize=(5.5,5.5) )
+plt.figure(num='mean', figsize=(5.5,5.5) )
+
 # Loc de archivos para trabajar
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
@@ -21,7 +24,7 @@ for x in run:
     # Extableciendo/Limpiendo los arrays para diferentes valores de interes
     mean = []       # Media
     std  = []       # Desviacion Estandar
-    z = []       # Redshift
+    z = []          # Redshift
 
     # Iterar sobre todos los archivos
     for i in arch:
@@ -36,7 +39,7 @@ for x in run:
             Omega0, OmegaL, OmegaB, z_cal = file_data['Parameters'].attrs['Omega0'], file_data['Parameters'].attrs['OmegaLambda'], file_data['Parameters'].attrs['OmegaBaryon'], file_data[ 'Header' ].attrs[ 'Redshift' ]
             
             # Label identificando cada cosmologia
-            nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) 
+            nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) #+ ', ' + r'$\Omega_B=$'+str(OmegaB) 
             
             # Extrayendo la masa y calculando su Log10
             logmass = np.log10( file_data['Subhalo']['SubhaloHalfmassRad'][:] * 1e10)
@@ -53,13 +56,29 @@ for x in run:
 
         file_data.close()
 
-    if len(std) != 0 : plt.plot(z, std, label=nameParam, marker='o')
+    if len(std) != 0 :
+        plt.figure('std')
+        plt.gca()
+        plt.plot(z, std, label=nameParam, marker='o')
+    if len(mean) != 0:
+        plt.figure('mean')
+        plt.gca()
+        plt.plot(z, mean, label=nameParam, marker='o')
         
+plt.figure('std')
+plt.xlabel('z (Redshift)')
+plt.ylabel('$\sigma$')
+plt.xlim((25.05,-0.05))
+plt.legend(loc='best')
+plt.tight_layout()
+plt.savefig('Documento/images/HalmMassRad_Std.png')
 
-plt.xlabel('Redshift')
+plt.figure('mean')
+plt.xlabel('z (Redshift)')
 plt.ylabel('$\mu$')
 plt.xlim((25.05,-0.05))
 plt.legend(loc='best')
+plt.tight_layout()
+plt.savefig('Documento/images/HalmMassRad_Mean.png')
+
 plt.show()
-
-

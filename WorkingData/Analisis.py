@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 from glob import glob
 
-fig ,ax = plt.subplots( nrows = 1, ncols = 1, figsize = ( 9, 9 ) )
+fig ,ax = plt.subplots( nrows = 1, ncols = 1, figsize = ( 5, 5 ) )
 
 run = "RunCanonica"
 data = "subhalo"
@@ -40,22 +40,22 @@ for i in arch:
 
 #Nsubh = np.array( (redS, Nsubh), dtype=np.int32)
 print(redS, Nsubh)
-ax.plot(redS, Nsubh)
+ax.plot(redS, Nsubh,'o-')
 
 fig.suptitle('Evolución del número de halos total')
-ax.set_ylabel('Número Total Halos')
+ax.set_ylabel('Total Halos')
 ax.set_xlabel('Redshift')
-ax.set_xlim(15.5, -0.5)
+ax.set_xlim(17.5, -0.5)
 #ax.set_xticks(np.arange( min(redS), max(redS) + 0.0 , 1.0) )
 #ax.set_xticks(np.arange(15.0, 0.0, 1.0))
 #ax.legend(loc=1)
 #plt.xlabel('log$_{10}$ R (Mpc)')
-ax.step
 
 
 fig.tight_layout()
 #plt.ion()
+plt.savefig('Documento/images/TotalHalos.png')
+#plt.savefig('Documento/images/TotalHalos.pgf')
 plt.show()
-
 #/Header attrs
 #<KeysViewHDF5 ['BoxSize', 'Git_commit', 'Git_date', 'Ngroups_ThisFile', 'Ngroups_Total', 'Nids_ThisFile', 'Nids_Total', 'Nsubhalos_ThisFile', 'Nsubhalos_Total', 'NumFiles', 'Redshift', 'Time']>
