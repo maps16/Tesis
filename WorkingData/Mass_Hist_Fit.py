@@ -47,7 +47,7 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     
     # Ajustes de la figura
     #ax.flat[pos].set_xlim(round(np.min(pdata))  , 15.)
-    ax.flat[pos].set_ylabel("N bin")
+    ax.flat[pos].set_ylabel("Número de halos")
     ax.flat[pos].set_xlabel('log$_{10}$ M$_\odot$')
     ax.flat[pos].legend(loc=1)
     
@@ -110,10 +110,11 @@ plt.savefig('Documento/images/MassDistCanonRunSep.png')
 
 
 plt.figure('MassDistCanonRun')
+plt.title('Distribución de masa')
 ax2.legend(loc='best')
 ax2.set_xlim(9.9,15.)
 ax2.set_ylim(-25,3050)
-ax2.set_ylabel("N bin")
+ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('log$_{10}$ M$_\odot$')
 plt.tight_layout()
 plt.savefig('Documento/images/MassDistCanonRun.png')

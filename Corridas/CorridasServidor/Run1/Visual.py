@@ -10,16 +10,15 @@ print ("Librerias Lista")
 
 
 #GENERAR FIGURA PARA EL PLOT
-plt.ion() #Interactive ON
-fig, ax = plt.subplots(1, 1, sharex= True, sharey= True, figsize=(10,10)  )
+fig, ax = plt.subplots(1, 1, sharex= True, sharey= True, figsize=(6.8,5.5)  )
 
 print ("Figura Lista")
 
 #Ubicacion de los archivos
-arcNameG4 = "/home/martin/Documentos/Tesis/Corridas/CorridasServidor/Run1/gadget4/"
+arcNameG4 = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/RunCanonica/snapshot/"
 
 #Cargar Snapshots
-snap17 = pnb.load(filename= arcNameG4 + "snapshot_017.hdf5")
+snap17 = pnb.load(filename= arcNameG4 + "snapshot_033.hdf5")
 print ("Cargar snapshots Lista")
 
 #Tratar en umidades fisicas
@@ -36,16 +35,23 @@ snap17["x"] -= bxs * 0.5
 snap17["y"] -= bxs * 0.5
 snap17["z"] -= bxs * 0.5
 
+# Extrayendo parametros de la simulación
+Omega0, OmegaL, OmegaB, redshiftZ = snap17.properties['omegaM0'], snap17.properties['omegaL0'], snap17.properties['omegaB0'], snap17.properties[ 'Redshift' ]
+                
+                # Label identificando cada cosmologia
+nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$z=$'+str(round(redshiftZ,2)) 
+
+
 print ("Inicio Plotting")
 
 
 #PLOTTING
-sph.image(snap17, qty="rho", width = bxs * 0.50, cmap="Blues", av_z=True, title="Simulación con Gadget4 \n z=0", subplot= ax, show_cbar=True, clear = True, resolution=2000)
+sph.image(snap17, qty="rho", width = bxs * 0.50, cmap="Blues", av_z=False, title=nameParam, subplot= ax, show_cbar=True, clear = True, resolution=500)
 
 
 #Mostrar Plots
 fig.tight_layout()                                                              #Ajustar Plot
-#fig.savefig("/home/martin/Imágenes/SimG4Z0.png")                               #Guardar Plot en PNG
+#fig.savefig("Documento/images/SimG4Z0.png")                               #Guardar Plot en PNG
 plt.show()                                                                      #Mostrar Plot
 
 
