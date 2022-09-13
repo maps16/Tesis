@@ -18,7 +18,7 @@ print ("Figura Lista")
 arcNameG4 = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/RunCanonica/snapshot/"
 
 #Cargar Snapshots
-snap17 = pnb.load(filename= arcNameG4 + "snapshot_033.hdf5")
+snap17 = pnb.load(filename= arcNameG4 + "snapshot_030.hdf5")
 print ("Cargar snapshots Lista")
 
 #Tratar en umidades fisicas
@@ -46,7 +46,7 @@ print ("Inicio Plotting")
 
 
 #PLOTTING
-sph.image(snap17, qty="rho", width = bxs * 0.50, cmap="Blues", av_z=False, title=nameParam, subplot= ax, show_cbar=True, clear = True, resolution=500)
+sph.image(snap17, qty="rho", width = bxs * 0.50, cmap="Blues", av_z=True, title=nameParam, subplot= ax, show_cbar=True, clear = True, resolution=500)
 
 
 #Mostrar Plots

@@ -7,17 +7,19 @@
 %% Started on  Mon Jul 22 15:03:25 2019 Carlos Calcaneo Roldan
 %% Last update Time-stamp: <2020-jul-29.miércoles 19:05:05 ()>
 %%
-
+%%%%%%%%EL TExto Comienza abajo de aquí! 
 \chapter{Halos de Materia Oscura}
 \setcounter{equation}{0}
 
-Con la intención de conocer y diferenciar las diferentes cosmologías, en nuestro estudio de los halos de materia oscura, optamos por realizar fue una variedad de simulaciones de materia oscura. Desde simulaciones con cosmologías de Universos planos ($\Omega = 1$), asi como cosmologías  de universos con densidades sub-criticas ($\Omega < 1$) y super-criticas ($\Omega > 1$).
+\noindent Con la intención de conocer y diferenciar diferentes cosmologías, en nuestro estudio de los halos de materia oscura, optamos por realizar fue una variedad de simulaciones de materia oscura. Desde simulaciones con cosmologías de Universos planos ($\Omega = 1$), asi como cosmologías  de universos con densidades sub-criticas ($\Omega < 1$) y super-criticas ($\Omega > 1$).
 
-%%%%%%%%EL TExto Comienza abajo de aquí! 
- \section{Universo con cosmología  \texorpdfstring{$\Omega_\lambda = 0.691$, $\Omega_0 = 0.309$ }{Omega lambda = 0.691, Omega 0 = 0.309}  }
+\section[]{Cosmología Plana \texorpdfstring{$\Omega = 1$}{Omega = 1}}
 
+\noindent Comenzaremos con un estudio de las cosmologías planas (aquellas donde las densidades sean $\Omega = 1$). Estudiaremos 3 cosmologías planas, empezando con las que tiene las densidades mas aceptadas de nuestro Universo ($\Omega_\lambda = 0.691$, $\Omega_0 = 0.309$  \cite{2020A&A...641A...1P}). Luego pasaremos nuestra atención a estudiar los efectos que hay con las densidades invertidas ($\Omega_\lambda = 0.309$, $\Omega_0 = 0.691$) y para terminar con las cosmologías planas veremos los efectos en un Universo con densidades iguales ($\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$).
 
-En la evolución del Universo, la materia del Universo se comenzó a agrupar lentamente en lo que llamamos halos. En un principio la materia parece una nube difusa sin estructuras internas, después de un tiempo en el que se esta agrumando, pequeñas estructuras de materia se empiezan a formar. Las primeras estructuras son pocas como se aprecia en la figura \ref{fig:EvoNumTotHalos}. Las estructuras tardan tiempo en aparecer y eventualmente hay un aumento acelerado en la cantidad halos que se forman y mas hacia al presente vemos un pico donde empiezan a disminuir el total de halos.
+ \subsection{Universo con cosmología  \texorpdfstring{$\Omega_\lambda = 0.691$, $\Omega_0 = 0.309$ }{Omega lambda = 0.691, Omega 0 = 0.309}  }
+
+ En la evolución de este Universo, la materia comienza a agruparse lentamente en lo que llamamos halos. En un principio la materia parece una nube difusa sin estructuras internas, después de un tiempo en el que se esta agrumando, pequeñas estructuras de materia se empiezan a formar. Las primeras estructuras son pocas como se aprecia en la figura \ref{fig:EvoNumTotHalos}. Las estructuras tardan tiempo en aparecer y eventualmente hay un aumento acelerado en la cantidad halos que se forman y mas hacia al presente vemos un pico donde empiezan a disminuir el total de halos.
 
 \begin{figure}
     \centering
@@ -52,10 +54,22 @@ En la figura \ref{fig:MassDistCanonRunSep} y \ref{fig:MassDistCanonRun} podemos 
     \label{fig:MassStatsCanonRun}
 \end{figure}
 
+La figura \ref{fig:CanonRunDensityMap} podemos observar a lo que conocemos como la \emph{Cosmic Web}. Se observa la simulación desde un plano y como cambia con el tiempo. En les redshift altos se observan nubes difusas donde no se alcanza a visualizar gran estructura, mientras que los redshift bajos, se observan objetos mejor definidos y en grandes cantidades.
 \begin{figure}
     \centering
-    \includegraphics[width = 0.65\linewidth]{RunCanonZ0Rho.png}
-    \caption[Mapa de densidad de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$ en z=0]{\small Mapa de densidad de la simulación en redshift 0 de una cosmología $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$.}
+
+    \includegraphics[width = 0.33\linewidth]{RunCanonZ63Rho.png}   %snap 000
+    \includegraphics[width = 0.33\linewidth]{RunCanonZ25Rho.png}   %snap 005
+    \includegraphics[width = 0.32\linewidth]{RunCanonZ20Rho.png}   %snap 010
+    \\
+    \includegraphics[width = 0.33\linewidth]{RunCanonZ15Rho.png}   %snap 015
+    \includegraphics[width = 0.33\linewidth]{RunCanonZ10Rho.png}   %snap 020
+    \includegraphics[width = 0.32\linewidth]{RunCanonZ5Rho.png}    %snap 025
+    \\
+    \includegraphics[width = 0.33\linewidth]{RunCanonZ3Rho.png}    %snap 027
+    \includegraphics[width = 0.33\linewidth]{RunCanonZ1_5Rho.png}  %snap 030
+    \includegraphics[width = 0.32\linewidth]{RunCanonZ0Rho.png}    %snap 033
+    \caption[Mapa de densidad de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$ en en diferentes redshift]{ \small Mapa de densidad de la simulación en diferentes redshifts de una cosmología $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$. }
     \label{fig:CanonRunDensityMap}
 \end{figure}
 
@@ -63,6 +77,8 @@ En la figura \ref{fig:MassDistCanonRunSep} y \ref{fig:MassDistCanonRun} podemos 
 
 
 
-\section{Cúmulo proyectado sobre el plano de S2}
+
+
+\subsection{ Universo con cosmología  \texorpdfstring{$\Omega_\lambda = 0.691$, $\Omega_0 = 0.309$ }{Omega lambda = 0.691, Omega 0 = 0.309} }
 
 
