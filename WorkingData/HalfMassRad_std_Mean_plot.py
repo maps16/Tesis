@@ -11,6 +11,7 @@ plt.figure(num='mean', figsize=(5.5,5.5) )
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
+run = ['WorkingData/StandardResolution/RunCanonica']
 
 # Corriendo sobre las diferentes cosmologias
 for x in run:
@@ -42,7 +43,7 @@ for x in run:
             nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) #+ ', ' + r'$\Omega_B=$'+str(OmegaB) 
             
             # Extrayendo la masa y calculando su Log10
-            logmass = np.log10( file_data['Subhalo']['SubhaloHalfmassRad'][:] * 1e10)
+            logmass = np.log10( file_data['Subhalo']['SubhaloHalfmassRad'][:] * 1e03)
 
             # Calculado los parametros para el ajuste
             loc, scale = scp.fit(logmass,)
@@ -67,18 +68,18 @@ for x in run:
         
 plt.figure('std')
 plt.xlabel('z (Redshift)')
-plt.ylabel('$\sigma$')
-plt.xlim((25.05,-0.05))
+plt.ylabel('$\sigma$(log$_{10}$Kpc)')
+plt.xlim((15.25,-0.25))
 plt.legend(loc='best')
 plt.tight_layout()
-plt.savefig('Documento/images/HalmMassRad_Std.png')
+plt.savefig('Documento/images/HalfMassRad_Std.png')
 
 plt.figure('mean')
 plt.xlabel('z (Redshift)')
-plt.ylabel('$\mu$')
-plt.xlim((25.05,-0.05))
+plt.ylabel('$\mu$ (log$_{10}$Kpc)')
+plt.xlim((15.25,-0.25))
 plt.legend(loc='best')
 plt.tight_layout()
-plt.savefig('Documento/images/HalmMassRad_Mean.png')
+plt.savefig('Documento/images/HalfMassRad_Mean.png')
 
 plt.show()

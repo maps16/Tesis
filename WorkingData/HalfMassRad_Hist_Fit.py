@@ -38,17 +38,17 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     ax.flat[pos].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False)
     
     # Plotting PDF
-    ax.flat[pos].plot( X, scp.pdf(X, loc,scale) * len(pdata) * bsz, label= nameData)
+    ax.flat[pos].plot( X, scp.pdf(X,loc,scale) * len(pdata) * bsz, label= nameData)
 
     #Plot Acumulado
     plt.figure('HalfMassRadDistCanonRun')
     #ax2.hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False, label=simplename, alpha=0.9)
-    ax2.plot( X, scp.pdf(X, loc, scale) * len(pdata) * bsz, label=simplename)
+    ax2.plot( X, scp.pdf(X,loc, scale) * len(pdata) * bsz, label=simplename)
     
     # Ajustes de la figura
     #ax.flat[pos].set_xlim(round(np.min(pdata))  , 15.)
     ax.flat[pos].set_ylabel("Número de halos")
-    ax.flat[pos].set_xlabel('log$_{10}$ M$_\odot$')
+    ax.flat[pos].set_xlabel('log$_{10}$Kpc')
     ax.flat[pos].legend(loc=1)
     
     return None
@@ -72,7 +72,7 @@ for i in archivos:
         Omega0, OmegaL, OmegaB, redshift = file_data['Parameters'].attrs['Omega0'], file_data['Parameters'].attrs['OmegaLambda'], file_data['Parameters'].attrs['OmegaBaryon'], file_data['Header'].attrs['Redshift'] # Obtenido paramtros cosmologicos
         
         # Extrayendo las masas de los halos
-        mass = file_data['Subhalo']['SubhaloHalfmassRad'][:] * 1e10
+        mass = file_data['Subhalo']['SubhaloHalfmassRad'][:] * 1e03
         logmass = np.log10(mass)
         
         # Calculo de los paramtros Exponencial Normal
@@ -110,22 +110,14 @@ plt.savefig('Documento/images/HalfMassRadDistCanonRunSep.png')
 
 
 plt.figure('HalfMassRadDistCanonRun')
-plt.title('Distribución de masa')
+plt.title('Radio que contine la mitad de la masa')
 ax2.legend(loc='best')
-ax2.set_xlim(7.2,9.7)
-ax2.set_ylim(-25,2200)
+ax2.set_xlim(0,2.7)
+ax2.set_ylim(-15,2200)
 ax2.set_ylabel("Número de halos")
-ax2.set_xlabel('log$_{10}$ M$_\odot$')
+ax2.set_xlabel('log$_{10}$ Kpc')
 plt.tight_layout()
 plt.savefig('Documento/images/HalfMassRadDistCanonRun.png')
 
 plt.close('all')
 #plt.show()
-'''
-top=0.988,
-bottom=0.048,
-left=0.031,
-right=0.991,
-hspace=0.108,
-wspace=0.116
-'''
