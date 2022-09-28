@@ -4,19 +4,21 @@ from scipy.stats import norm as scp
 import matplotlib.pyplot as plt
 import h5py as h5
 
-plt.figure(num='std',  figsize=(5.5,5.5) )
-plt.figure(num='mean', figsize=(5.5,5.5) )
+#Generando Figura
+fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.5,5.5) )
+fig2 ,ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.5,5.5) )
 
 # Loc de archivos para trabajar
+sim = 'RunCanonica'
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
-run = ['WorkingData/StandardResolution/RunCanonica']
+run = range(1) #['WorkingData/StandardResolution/RunCanonica']
 
 # Corriendo sobre las diferentes cosmologias
 for x in run:
-    x = x.split('/')[-1]
-    namepath = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/" + x + "/" + data
+    # x = x.split('/')[-1]
+    namepath = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/" + sim + "/" + data
    
     #Checar todos los archivos
     arch = glob(namepath + '/*')
@@ -43,10 +45,10 @@ for x in run:
             nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) #+ ', ' + r'$\Omega_B=$'+str(OmegaB) 
             
             # Extrayendo la masa y calculando su Log10
-            logmass = np.log10( file_data['Subhalo']['SubhaloHalfmassRad'][:] * 1e03)
+            HalMassRadLog10 = np.log10( file_data['Subhalo']['SubhaloHalfmassRad'][:] * 1e03)
 
             # Calculado los parametros para el ajuste
-            loc, scale = scp.fit(logmass,)
+            loc, scale = scp.fit(HalMassRadLog10,)
             # Calculo de la media y desviacion estandar
             mean_cal, std_cal = scp.mean(loc,scale), scp.std(loc,scale)
 
@@ -58,28 +60,29 @@ for x in run:
         file_data.close()
 
     if len(std) != 0 :
-        plt.figure('std')
-        plt.gca()
-        plt.plot(z, std, label=nameParam, marker='o')
+        ax1.plot(z, mean, label=nameParam, marker='o')
     if len(mean) != 0:
-        plt.figure('mean')
-        plt.gca()
-        plt.plot(z, mean, label=nameParam, marker='o')
+        ax2.plot(z, std, label=nameParam, marker='o')
         
+ax1.set_xlabel('z')
+ax2.set_xlabel('z')
+ax1.set_ylabel('$\mu$ (log$_{10}$Kpc)')
+ax2.set_ylabel('$\sigma$(log$_{10}$Kpc)')
+ax1.set_xlim((15.5,-0.2))
+ax2.set_xlim((15.5,-0.2))
+ax1.legend(loc='best')
+ax2.legend(loc='best')  
+
+
 plt.figure('std')
-plt.xlabel('z (Redshift)')
-plt.ylabel('$\sigma$(log$_{10}$Kpc)')
-plt.xlim((15.25,-0.25))
-plt.legend(loc='best')
+# plt.title('Std')
 plt.tight_layout()
-plt.savefig('Documento/images/HalfMassRad_Std.png')
+plt.savefig('Documento/images/'+sim+'/HalfMassRad_Std_'+sim+'.png')
+
 
 plt.figure('mean')
-plt.xlabel('z (Redshift)')
-plt.ylabel('$\mu$ (log$_{10}$Kpc)')
-plt.xlim((15.25,-0.25))
-plt.legend(loc='best')
+# plt.title('Mean')
 plt.tight_layout()
-plt.savefig('Documento/images/HalfMassRad_Mean.png')
+plt.savefig('Documento/images/'+sim+'/HalfMassRad_Mean_'+sim+'.png')
 
 plt.show()

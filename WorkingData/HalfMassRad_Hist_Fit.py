@@ -7,8 +7,8 @@ from scipy.stats import norm as scp
 
 # Creando Figura para plot
 #NUM_COLORS = 5
-fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='HalfMassRadDistCanonRunSep' )
-fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='HalfMassRadDistCanonRun', figsize=(5.75,5.75) )
+fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='HalfMassRad-Dist-Sep' )
+fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='HalfMassRad-Dist', figsize=(5.75,5.75) )
 NUM_COLORS = 20#len(arch)
 cm =  plt.get_cmap('tab20')
 ax2.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
@@ -33,7 +33,7 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     for string in simple:
         simplename += string + ' '
     
-    plt.figure('HalfMassRadDistCanonRunSep')
+    plt.figure('HalfMassRad-Dist-Sep')
     # Plotting Hist
     ax.flat[pos].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False)
     
@@ -41,20 +41,21 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     ax.flat[pos].plot( X, scp.pdf(X,loc,scale) * len(pdata) * bsz, label= nameData)
 
     #Plot Acumulado
-    plt.figure('HalfMassRadDistCanonRun')
+    plt.figure('HalfMassRad-Dist')
     #ax2.hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False, label=simplename, alpha=0.9)
     ax2.plot( X, scp.pdf(X,loc, scale) * len(pdata) * bsz, label=simplename)
     
     # Ajustes de la figura
-    #ax.flat[pos].set_xlim(round(np.min(pdata))  , 15.)
-    ax.flat[pos].set_ylabel("Número de halos")
-    ax.flat[pos].set_xlabel('log$_{10}$Kpc')
+    # ax.flat[pos].set_xlim(round(np.min(pdata))  , 15.)
+    # ax.flat[pos].set_ylabel("Número de halos")
+    # ax.flat[pos].set_xlabel('log$_{10}$Kpc')
     ax.flat[pos].legend(loc=1)
     
     return None
 
 
 # Localizacion de datos
+sim = 'RunCanonica'
 data_Name = 'subhalo'                                                   # Tipo de Dato
 path = '/home/martin/Documentos/Tesis/WorkingData/StandardResolution'   # Ubicacion
 # Identtificando el snapshot 017 del catalogo de halos
@@ -87,29 +88,20 @@ for i in archivos:
         # Funcion de Ploteo Checar Funciones 
         plotAx(temp_exit, logmass, nameParam, bins, loc,scale, mean, std  )
 
-        #Calculo de Media, STD en pantalla
-        # print('Mean: ' +  str( mean ) )
-        # print('STD : ' +  str( std ) )
-
-        # Debug
-        # print( logmass )
-        # print(Omega0, OmegaL, OmegaB , Omega0+OmegaB+OmegaL)
-        # if temp_exit == 0:
-        #     plt.legend(loc=1)
-        #     plt.show() # Uncomment for only one run
-        #     exit()
         temp_exit += 1
     file_data.close()
 
 # Ajuste de la figura
-plt.figure('HalfMassRadDistCanonRunSep')
+plt.figure('HalfMassRad-Dist-Sep')
+fig.supxlabel('log$_{10}$Kpc')
+fig.supylabel('Número de halos')
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
 plt.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
 # plt.tight_layout()
-plt.savefig('Documento/images/HalfMassRadDistCanonRunSep.png')
+plt.savefig('Documento/images/'+sim+'/HalfMassRad_Dist_'+sim+'Sep.png')
 
 
-plt.figure('HalfMassRadDistCanonRun')
+plt.figure('HalfMassRad-Dist')
 plt.title('Radio que contine la mitad de la masa')
 ax2.legend(loc='best')
 ax2.set_xlim(0,2.7)
@@ -117,7 +109,7 @@ ax2.set_ylim(-15,2200)
 ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('log$_{10}$ Kpc')
 plt.tight_layout()
-plt.savefig('Documento/images/HalfMassRadDistCanonRun.png')
+plt.savefig('Documento/images/'+sim+'/HalfMassRad_Dist_'+ sim +'.png')
 
 plt.close('all')
-#plt.show()
+plt.show()

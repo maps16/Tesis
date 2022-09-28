@@ -9,6 +9,7 @@ fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.5,5.5) )
 fig2 ,ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.5,5.5) )
 
 # Loc de archivos para trabajar
+sim = 'RunCanonica'
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
@@ -17,7 +18,7 @@ run = range(1)
 # Corriendo sobre las diferentes cosmologias
 for x in run:
     # x = x.split('/')[-1]
-    namepath = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/" + 'RunCanonica' + "/" + data
+    namepath = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/" + sim + "/" + data
    
     #Checar todos los archivos
     arch = glob(namepath + '/*')
@@ -76,20 +77,12 @@ ax2.legend(loc='best')
 plt.figure(num='mean')
 #plt.title('Masa media')
 plt.tight_layout()
-plt.savefig('Documento/images/RunCanonMassMean.png')
-plt.close('mean')
+plt.savefig('Documento/images/'+sim+'/MassMean_'+sim+'.png')
+# plt.close('mean')
 
 plt.figure(num='std')
 #plt.title('Dispersión de masa')
 plt.tight_layout()
-plt.savefig('Documento/images/RunCanonMassStd.png')
+plt.savefig('Documento/images/'+sim+'/MassStd_'+sim+'.png')
 
-# plt.close('std')
-# plt.xlabel('Redshift')
-# plt.ylabel('$\sigma$')
-# plt.xlim((25.05,-0.05))
-# plt.legend(loc='best')
-# plt.tight_layout()
 plt.show()
-
-

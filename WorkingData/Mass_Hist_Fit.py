@@ -46,15 +46,16 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     ax2.plot( X, scp.pdf(X, k, loc, scale) * len(pdata) * bsz, label=simplename)
     
     # Ajustes de la figura
-    #ax.flat[pos].set_xlim(round(np.min(pdata))  , 15.)
-    ax.flat[pos].set_ylabel("Número de halos")
-    ax.flat[pos].set_xlabel('log$_{10}$ M$_\odot$')
+    # ax.flat[pos].set_xlim(round(np.min(pdata))  , 15.)
+    # ax.flat[pos].set_ylabel("Número de halos")
+    # ax.flat[pos].set_xlabel('log$_{10}$ M$_\odot$')
     ax.flat[pos].legend(loc=1)
     
     return None
 
 
 # Localizacion de datos
+sim = 'RunCanonica'
 data_Name = 'subhalo'                                                   # Tipo de Dato
 path = '/home/martin/Documentos/Tesis/WorkingData/StandardResolution'   # Ubicacion
 # Identtificando el snapshot 017 del catalogo de halos
@@ -87,26 +88,17 @@ for i in archivos:
         # Funcion de Ploteo Checar Funciones 
         plotAx(temp_exit, logmass, nameParam, bins, k,loc,scale, mean, std  )
 
-        #Calculo de Media, STD en pantalla
-        # print('Mean: ' +  str( mean ) )
-        # print('STD : ' +  str( std ) )
-
-        # Debug
-        # print( logmass )
-        # print(Omega0, OmegaL, OmegaB , Omega0+OmegaB+OmegaL)
-        # if temp_exit == 0:
-        #     plt.legend(loc=1)
-        #     plt.show() # Uncomment for only one run
-        #     exit()
         temp_exit += 1
     file_data.close()
 
 # Ajuste de la figura
 plt.figure('MassDistCanonRunSep')
+fig.supylabel('Número de halos')
+fig.supxlabel('log$_{10}$ M$_\odot$')
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
 plt.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
 # plt.tight_layout()
-plt.savefig('Documento/images/MassDistCanonRunSep.png')
+plt.savefig('Documento/images/'+sim+'/Mass_Dist_'+sim+'Sep.png')
 
 
 plt.figure('MassDistCanonRun')
@@ -117,15 +109,7 @@ ax2.set_ylim(-25,3050)
 ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('log$_{10}$ M$_\odot$')
 plt.tight_layout()
-plt.savefig('Documento/images/MassDistCanonRun.png')
+plt.savefig('Documento/images/'+sim+'/Mass_Dist_'+sim+'.png')
 
 plt.close('all')
 # plt.show()
-'''
-top=0.988,
-bottom=0.048,
-left=0.031,
-right=0.991,
-hspace=0.108,
-wspace=0.116
-'''
