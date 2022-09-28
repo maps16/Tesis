@@ -46,17 +46,8 @@ fig.suptitle('Evolución del número de halos total')
 ax.set_ylabel('Total Halos')
 ax.set_xlabel('Redshift (z)')
 ax.set_xlim(17.5, -0.5)
-#ax.set_xticks(np.arange( min(redS), max(redS) + 0.0 , 1.0) )
-#ax.set_xticks(np.arange(15.0, 0.0, 1.0))
-#ax.legend(loc=1)
-#plt.xlabel('log$_{10}$ R (Mpc)')
-
 
 fig.tight_layout()
-#plt.ion()
-plt.savefig('Documento/images/TotalHalos.png')
-# plt.close('all')
-#plt.savefig('Documento/images/TotalHalos.pgf')
+plt.savefig('Documento/images/'+run+'/TotalHalos_'+run+'.png')
+plt.close('all')
 plt.show()
-#/Header attrs
-#<KeysViewHDF5 ['BoxSize', 'Git_commit', 'Git_date', 'Ngroups_ThisFile', 'Ngroups_Total', 'Nids_ThisFile', 'Nids_Total', 'Nsubhalos_ThisFile', 'Nsubhalos_Total', 'NumFiles', 'Redshift', 'Time']>

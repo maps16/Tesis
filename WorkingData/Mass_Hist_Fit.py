@@ -8,7 +8,7 @@ from scipy.stats import exponnorm as scp
 # Creando Figura para plot
 #NUM_COLORS = 5
 fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='MassDistCanonRunSep' )
-fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='MassDistCanonRun', figsize=(5.5,5.5) )
+fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='MassDistCanonRun', figsize=(5.3,5.3) )
 NUM_COLORS = 20#len(arch)
 cm =  plt.get_cmap('tab20')
 ax2.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
