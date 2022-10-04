@@ -8,7 +8,7 @@ from scipy.stats import exponnorm as scp
 # Creando Figura para plot
 #NUM_COLORS = 5
 fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='VMaxDistCanonRunSep' )
-fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='VMaxDistCanonRun', figsize=(5.3,5.3) )
+fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='VMaxDistCanonRun', figsize=(5.5,5.5) )
 NUM_COLORS = 20#len(arch)
 cm =  plt.get_cmap('tab20')
 ax2.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
@@ -80,7 +80,7 @@ for i in archivos:
         k, loc, scale = scp.fit(logVmax)
 
         # LABEL, escrito de los labels
-        mean, std = scp.mean(loc,scale), scp.std(loc,scale)             #Calculo de Mean y STD
+        mean, std = scp.mean(k, loc, scale), scp.std(k, loc, scale)             #Calculo de Mean y STD
         nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) + '\n  Mean =' + str(round(mean, ndigits=4)) + ', std =' + str(round(std,ndigits=4))
         nameParam = 'z = ' +str( round(redshift,1) )
     
@@ -93,23 +93,32 @@ for i in archivos:
 
 # Ajuste de la figura
 plt.figure('VMaxDistCanonRunSep')
-fig.supxlabel('Kpc')
+fig.supxlabel('km/s')
 fig.supylabel('Número de halos')
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
-plt.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
+fig.tight_layout( w_pad = 0.09 )
 # plt.tight_layout()
-# plt.savefig('Documento/images/'+sim+'/VMax_Dist_'+sim+'Sep.png')
+plt.savefig('Documento/images/'+sim+'/VelMax_Dist_'+sim+'Sep.png')
 
 
 plt.figure('VMaxDistCanonRun')
-plt.title('Radio de la velocidad máxima radial')
+fig2.suptitle('Velocidad máxima circular')
 ax2.legend(loc='best')
-# ax2.set_xlim(0,257)
-# ax2.set_ylim(-25,9300)
+ax2.set_xlim(0,257)
+ax2.set_ylim(-25,9400)
 ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('km/s')
-plt.tight_layout()
-# plt.savefig('Documento/images/'+sim+'/VMax_Dist_'+sim+'.png')
+fig2.tight_layout(rect=(0.01, 0, 1, 1.05))
+# plt.tight_layout()
+# plt.savefig('Documento/images/'+sim+'/VelMax_Dist_'+sim+'.png')
 
-# plt.close('VMaxDistCanonRunSep')
+# plt.close('all')
 plt.show()
+""" 
+top=0.985,
+bottom=0.045,
+left=0.045,
+right=0.995,
+hspace=0.13,
+wspace=0.12
+"""

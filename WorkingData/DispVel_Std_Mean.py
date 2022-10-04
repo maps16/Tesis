@@ -45,7 +45,7 @@ for x in run:
             nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) #+ ', ' + r'$\Omega_B=$'+str(OmegaB) 
             
             # Extrayendo la masa y calculando su Log10
-            VMaxRad = file_data['Subhalo']['SubhaloVmax'][:] * 1e0
+            VMaxRad = file_data['Subhalo']['SubhaloVelDisp'][:] * 1e0
 
             # Calculado los parametros para el ajuste
             k, loc, scale = scp.fit(VMaxRad,)
@@ -78,12 +78,12 @@ ax2.legend(loc='best')
 plt.figure(num='mean')
 #plt.title('Masa media')
 fig1.tight_layout()
-# plt.savefig('Documento/images/'+sim+'/VelMax_Mean_'+sim+'.png')
+plt.savefig('Documento/images/'+sim+'/VelDisp_Mean_'+sim+'.png')
 
 
 plt.figure(num='std')
 #plt.title('Dispersión de masa')
 fig2.tight_layout()
-# plt.savefig('Documento/images/'+sim+'/VelMax_Std_'+sim+'.png')
+plt.savefig('Documento/images/'+sim+'/VelDisp_Std_'+sim+'.png')
 
 plt.show()
