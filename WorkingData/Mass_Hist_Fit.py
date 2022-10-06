@@ -7,8 +7,8 @@ from scipy.stats import exponnorm as scp
 
 # Creando Figura para plot
 #NUM_COLORS = 5
-fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='MassDistCanonRunSep' )
-fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='MassDistCanonRun', figsize=(5.3,5.3) )
+fig ,ax = plt.subplots( nrows=3, ncols=6, figsize=(16,10), num='MassDistSep' )
+fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='MassDist', figsize=(5.5,5.5) )
 NUM_COLORS = 20#len(arch)
 cm =  plt.get_cmap('tab20')
 ax2.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
@@ -33,7 +33,7 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     for string in simple:
         simplename += string + ' '
     
-    plt.figure('MassDistCanonRunSep')
+    plt.figure('MassDistSep')
     # Plotting Hist
     ax.flat[pos].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False)
     
@@ -41,7 +41,7 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     ax.flat[pos].plot( X, scp.pdf(X, k,loc,scale) * len(pdata) * bsz, label= nameData)
 
     #Plot Acumulado
-    plt.figure('MassDistCanonRun')
+    plt.figure('MassDist')
     #ax2.hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False, label=simplename, alpha=0.9)
     ax2.plot( X, scp.pdf(X, k, loc, scale) * len(pdata) * bsz, label=simplename)
     
@@ -55,18 +55,18 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
 
 
 # Localizacion de datos
-sim = 'RunCanonica'
+sim = 'RunInvertida'
 data_Name = 'subhalo'                                                   # Tipo de Dato
 path = '/home/martin/Documentos/Tesis/WorkingData/StandardResolution'   # Ubicacion
 # Identtificando el snapshot 017 del catalogo de halos
-archivos = glob( path + '/RunCanonica/' + data_Name + '/*.hdf5')
+archivos = glob( path + '/' + sim + '/' + data_Name + '/*.hdf5')
 archivos.sort()
 
 temp_exit = 0
 bins = 55
 for i in archivos:
     
-        #Abriendo el archivo
+    #Abriendo el archivo
     file_data = h5.File(i, mode='r')
     if 'Subhalo' and 'Group' in file_data:
 
@@ -83,33 +83,33 @@ for i in archivos:
         mean, std = scp.mean(k,loc,scale), scp.std(k,loc,scale)             #Calculo de Mean y STD
         nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) + '\n  Mean =' + str(round(mean, ndigits=4)) + ', std =' + str(round(std,ndigits=4))
         nameParam = 'z = ' +str( round(redshift,1) )
-    
-
+       
         # Funcion de Ploteo Checar Funciones 
         plotAx(temp_exit, logmass, nameParam, bins, k,loc,scale, mean, std  )
 
         temp_exit += 1
+        print(temp_exit)
     file_data.close()
 
 # Ajuste de la figura
-plt.figure('MassDistCanonRunSep')
+plt.figure('MassDistSep')
 fig.supylabel('Número de halos')
 fig.supxlabel('log$_{10}$ M$_\odot$')
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
-plt.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
+fig.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
 # plt.tight_layout()
 plt.savefig('Documento/images/'+sim+'/Mass_Dist_'+sim+'Sep.png')
 
 
-plt.figure('MassDistCanonRun')
+plt.figure('MassDist')
 plt.title('Distribución de masa')
 ax2.legend(loc='best')
-ax2.set_xlim(9.9,15.)
-ax2.set_ylim(-25,3050)
+ax2.set_xlim(10.4,14.7)
+ax2.set_ylim(-25,2900)
 ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('log$_{10}$ M$_\odot$')
-plt.tight_layout()
+fig2.tight_layout( rect=(0.0, 0, 1, 1.0) )
 plt.savefig('Documento/images/'+sim+'/Mass_Dist_'+sim+'.png')
 
-plt.close('all')
-# plt.show()
+# plt.close('MassDistSep')
+plt.show()

@@ -112,7 +112,7 @@ fig2.tight_layout(rect=(0.01, 0, 1, 1.05))
 # plt.tight_layout()
 # plt.savefig('Documento/images/'+sim+'/VelDisp_Dist_'+sim+'.png')
 
-plt.close('all')
+# plt.close('all')
 plt.show()
 """ 
 top=0.985,

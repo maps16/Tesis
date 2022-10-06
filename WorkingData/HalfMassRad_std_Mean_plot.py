@@ -9,7 +9,7 @@ fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.5,5.5) )
 fig2 ,ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.5,5.5) )
 
 # Loc de archivos para trabajar
-sim = 'RunCanonica'
+sim = 'RunInvertida'
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
@@ -68,21 +68,21 @@ ax1.set_xlabel('z')
 ax2.set_xlabel('z')
 ax1.set_ylabel('$\mu$ (log$_{10}$Kpc)')
 ax2.set_ylabel('$\sigma$(log$_{10}$Kpc)')
-ax1.set_xlim((15.5,-0.2))
-ax2.set_xlim((15.5,-0.2))
+ax1.set_xlim((14.5,-0.2))
+ax2.set_xlim((14.5,-0.2))
 ax1.legend(loc='best')
 ax2.legend(loc='best')  
 
 
 plt.figure('std')
 # plt.title('Std')
-plt.tight_layout()
-plt.savefig('Documento/images/'+sim+'/HalfMassRad_Std_'+sim+'.png')
+fig1.tight_layout()
+fig1.savefig('Documento/images/'+sim+'/HalfMassRad_Std_'+sim+'.png')
 
 
 plt.figure('mean')
 # plt.title('Mean')
-plt.tight_layout()
+fig2.tight_layout()
 plt.savefig('Documento/images/'+sim+'/HalfMassRad_Mean_'+sim+'.png')
 
 plt.show()
