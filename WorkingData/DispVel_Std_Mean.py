@@ -9,7 +9,7 @@ fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.0,5.0) )
 fig2 ,ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.0,5.0) )
 
 # Loc de archivos para trabajar
-sim = 'RunCanonica'
+sim = 'RunInvertida'
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
@@ -69,8 +69,8 @@ ax1.set_xlabel('z')
 ax2.set_xlabel('z')
 ax1.set_ylabel('$\mu$ (km/s)')
 ax2.set_ylabel('$\sigma$ (km/s)')
-ax1.set_xlim((17.5,-0.2))
-ax2.set_xlim((17.5,-0.2))
+ax1.set_xlim((14.5,-0.5))
+ax2.set_xlim((14.5,-0.5))
 ax1.legend(loc='best')
 ax2.legend(loc='best')
 

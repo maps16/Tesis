@@ -56,6 +56,7 @@ for x in run:
             mean.append(mean_cal)
             std.append(std_cal)
             z .append(z_cal)
+            print('z=',round(z_cal,ndigits=2),', mean=',round(mean_cal, ndigits=2),', std=',round(std_cal,ndigits=2), sep=' ')
 
         file_data.close()
 
@@ -76,13 +77,13 @@ ax2.legend(loc='best')
 
 plt.figure('std')
 # plt.title('Std')
-fig1.tight_layout()
-fig1.savefig('Documento/images/'+sim+'/HalfMassRad_Std_'+sim+'.png')
+fig2.tight_layout()
+fig2.savefig('Documento/images/'+sim+'/HalfMassRad_Std_'+sim+'.png')
 
 
 plt.figure('mean')
 # plt.title('Mean')
-fig2.tight_layout()
-plt.savefig('Documento/images/'+sim+'/HalfMassRad_Mean_'+sim+'.png')
+fig1.tight_layout()
+fig1.savefig('Documento/images/'+sim+'/HalfMassRad_Mean_'+sim+'.png')
 
 plt.show()

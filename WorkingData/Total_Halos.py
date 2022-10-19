@@ -7,7 +7,7 @@ from glob import glob
 
 fig ,ax = plt.subplots( nrows = 1, ncols = 1, figsize = ( 5, 5 ) )
 
-run = "RunCanonica"
+run = "RunInvertida"
 data = "subhalo"
 namepath = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/" + run + "/" + data
 
@@ -39,15 +39,15 @@ for i in arch:
         z.close()
 
 #Nsubh = np.array( (redS, Nsubh), dtype=np.int32)
-print(redS, Nsubh)
+# print(redS, Nsubh)
 ax.plot(redS, Nsubh,'o-')
 
 fig.suptitle('Evolución del número de halos total')
 ax.set_ylabel('Total Halos')
 ax.set_xlabel('Redshift (z)')
-ax.set_xlim(17.5, -0.5)
+ax.set_xlim(14.5, -0.5)
 
 fig.tight_layout()
 plt.savefig('Documento/images/'+run+'/TotalHalos_'+run+'.png')
-plt.close('all')
+# plt.close('all')
 plt.show()

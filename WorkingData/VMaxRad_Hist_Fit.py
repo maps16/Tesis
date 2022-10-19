@@ -7,7 +7,7 @@ from scipy.stats import norm as scp
 
 # Creando Figura para plot
 #NUM_COLORS = 5
-fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='VMaxRadDistCanonRunSep' )
+fig ,ax = plt.subplots( nrows=3, ncols=6, figsize=(16,10), num='VMaxRadDistCanonRunSep' )
 fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='VMaxRadDistCanonRun', figsize=(5.3,5.3) )
 NUM_COLORS = 20#len(arch)
 cm =  plt.get_cmap('tab20')
@@ -55,11 +55,11 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
 
 
 # Localizacion de datos
-sim = 'RunCanonica'
+sim = 'RunInvertida'
 data_Name = 'subhalo'                                                   # Tipo de Dato
 path = '/home/martin/Documentos/Tesis/WorkingData/StandardResolution'   # Ubicacion
 # Identtificando el snapshot 017 del catalogo de halos
-archivos = glob( path + '/RunCanonica/' + data_Name + '/*.hdf5')
+archivos = glob( path + '/'+sim+'/' + data_Name + '/*.hdf5')
 archivos.sort()
 
 temp_exit = 0
@@ -96,20 +96,20 @@ plt.figure('VMaxRadDistCanonRunSep')
 fig.supxlabel('Kpc')
 fig.supylabel('Número de halos')
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
-plt.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
+fig.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
 # plt.tight_layout()
-plt.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'Sep.png')
+# fig.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'Sep.png')
 
 
 plt.figure('VMaxRadDistCanonRun')
 plt.title('Radio de la velocidad circular máxima')
 ax2.legend(loc='best')
-ax2.set_xlim(0,257)
-ax2.set_ylim(-25,5400)
+ax2.set_xlim(0,350)
+ax2.set_ylim(-25,7000)
 ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('Kpc')
-plt.tight_layout()
-plt.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'.png')
+fig2.tight_layout()
+# fig2.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'.png')
 
 # plt.close('all')
 plt.show()
