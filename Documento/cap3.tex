@@ -180,7 +180,7 @@ Hemos estudiado un Universo con las densidades mas aceptadas, pero como cambia s
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.5]{RunInvertida/TotalHalos_RunInvertida.png}
-    \caption[Evolución del número de halos en un Universo $\Omega_\lambda = 0.309 $, $\Omega_0 = 0.691$]{\footnotesize Se muestra el numero de halos y como cambia la cantidad conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$.}    
+    \caption[Evolución del número de halos en un Universo $\Omega_\lambda = 0.309 $, $\Omega_0 = 0.691$]{\footnotesize Se muestra el numero de halos y como cambia la cantidad conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.309 $ y $\Omega_0 = 0.691$.}    
     \label{fig:Invertida-TotalHalos}
 \end{figure}
 
@@ -326,8 +326,37 @@ La figura \ref{fig:Invertida-DensityMap} muestra la el mapa de densidad de un Un
 \end{figure}
 
 
-
-
 \subsection{Universo con cosmología \texorpdfstring{$\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$ }{Omega lambda = 0.5, Omega 0 = 0.5} }
 
-Hemos visto que como se comporta un Universo con las densidades mas aceptadas y cuando estas se invierten. Ahora veamos un Universo con las densidades iguales ($\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$).
+Hemos visto que como se comporta un Universo con las densidades mas aceptadas y cuando estas se invierten. Ahora veamos un Universo con las densidades iguales ($\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$). Comencemos viendo como se afecta la cantidad de halos. La figura \ref{fig:HalfCosmo-TotalHalos} muestra que los primeros halos aparecen en $z=15$, además muestra que el máximo de halos en las simulaciones que se alcanza fue de $26242$ halos en $z=1.5$. Observamos un comportamiento similar a las cosmologías anteriores donde vemos un crecimiento rápido hasta que alcanza un máximo y después empieza a disminuir.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.5]{RunHalfCosmo/TotalHalos_RunHalfCosmo.png}
+    \caption[Evolución del número de halos en un Universo $\Omega_\lambda = 0.5 $, $\Omega_0 = 0.5$]{\footnotesize Se muestra el numero de halos y como cambia la cantidad conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.5 $ y $\Omega_0 = 0.5$.}    
+    \label{fig:HalfCosmo-TotalHalos}
+\end{figure}
+
+La distribución de la masa para esta cosmología se observa en las figuras \ref{fig:HalfCosmo-MassDistSep} y \ref{fig:HalfCosmo-MassDist}. Los rangos de la masa se encuentran entre las $10^{10.3}M_\odot$ a $10^{14.5}M_\odot$ a lo largo de de la evolución del sistema. Las primeras estructuras, las que tienen $z$ altos, tenían masas menores a las $10^{12}M_\odot$ y las estructuras en $z$ pequeños la mayor parte de los halos tenían masas entre $10^{10.5}M_\odot$ y $10^{11.5}M_\odot$. Mientras, la figura \ref{fig:HalfCosmo-MassStats} nos muestra el comportamiento medio durante la evolución. Observamos que la masa media incrementa desde $10^{10.65}M_\odot$ con una desviación de $10^{0.1}M_\odot$ en $z=14$ hasta $10^{10.95}M_\odot$ con una desviación de $10^{0.5}M_\odot$ en $z=0$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.8\linewidth]{RunHalfCosmo/Mass_Dist_RunHalfCosmoSep.png}
+    \caption[Distribución de masa en la evolución de un Universo $\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$]{\footnotesize Se muestra la distribución de la masa conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.5$ y $\Omega_0 = 0.5$. Se observa como aumentan la cantidad de halos cada vez mas masivos.}
+    \label{fig:HalfCosmo-MassDistSep}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.5\linewidth]{RunHalfCosmo/Mass_Dist_RunHalfCosmo.png}
+    \caption[Comparación de distribución de masa Universo $\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$]{\footnotesize Comparación de las distribuciones de masa durante la evolución del Universo $\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$. Se observa como crece la cantidad de halos de materia oscura, asi como el tamaño de estos.}
+    \label{fig:HalfCosmo-MassDist}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.4\linewidth]{RunHalfCosmo/MassMean_RunHalfCosmo.png}
+    \includegraphics[width = 0.4\linewidth]{RunHalfCosmo/MassStd_RunHalfCosmo.png}
+    \caption[Media y desviación estándar de la distribución de masa de un Universo $\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$]{\footnotesize En la izquierda se muestra la masa media de los halos de materia oscura y se observa como cambia durante la evolución del Universo. En la derecha se muestra la desviación estándar de la masa, la cual nos muestra la variedad que hay de los halos de materia oscura.}
+    \label{fig:HalfCosmo-MassStats}
+\end{figure}
