@@ -9,7 +9,7 @@ fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.5,5.5) )
 fig2 ,ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.5,5.5) )
 
 # Loc de archivos para trabajar
-sim = 'RunInvertida'
+sim = 'RunHalfCosmo'
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
@@ -45,7 +45,7 @@ for x in run:
             nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) #+ ', ' + r'$\Omega_B=$'+str(OmegaB) 
             
             # Extrayendo la masa y calculando su Log10
-            HalMassRadLog10 = np.log10( file_data['Subhalo']['SubhaloHalfmassRad'][:] * 1e03)
+            HalMassRadLog10 = np.log10( file_data['Subhalo']['SubhaloHalfmassRad'][:] * 1e03) # type: ignore
 
             # Calculado los parametros para el ajuste
             loc, scale = scp.fit(HalMassRadLog10,)
@@ -56,21 +56,21 @@ for x in run:
             mean.append(mean_cal)
             std.append(std_cal)
             z .append(z_cal)
-            print('z=',round(z_cal,ndigits=2),', mean=',round(mean_cal, ndigits=2),', std=',round(std_cal,ndigits=2), sep=' ')
+            print('z=',round(z_cal,ndigits=2),', mean=',round(mean_cal, ndigits=2),', std=',round(std_cal,ndigits=2), sep=' ')  # type: ignore
 
         file_data.close()
 
     if len(std) != 0 :
-        ax1.plot(z, mean, label=nameParam, marker='o')
+        ax1.plot(z, mean, label=nameParam, marker='o') # type: ignore
     if len(mean) != 0:
-        ax2.plot(z, std, label=nameParam, marker='o')
+        ax2.plot(z, std, label=nameParam, marker='o') # type: ignore
         
 ax1.set_xlabel('z')
 ax2.set_xlabel('z')
-ax1.set_ylabel('$\mu$ (log$_{10}$Kpc)')
-ax2.set_ylabel('$\sigma$(log$_{10}$Kpc)')
-ax1.set_xlim((14.5,-0.2))
-ax2.set_xlim((14.5,-0.2))
+ax1.set_ylabel('$\mu$ (log$_{10}$Kpc)') # type: ignore
+ax2.set_ylabel('$\sigma$(log$_{10}$Kpc)') # type: ignore
+ax1.set_xlim((15.5,-0.2))
+ax2.set_xlim((15.5,-0.2))
 ax1.legend(loc='best')
 ax2.legend(loc='best')  
 

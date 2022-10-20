@@ -9,7 +9,7 @@ fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.0,5.0) )
 fig2 ,ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.0,5.0) )
 
 # Loc de archivos para trabajar
-sim = 'RunInvertida'
+sim = 'RunHalfCosmo'
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
@@ -45,7 +45,7 @@ for x in run:
             nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) #+ ', ' + r'$\Omega_B=$'+str(OmegaB) 
             
             # Extrayendo la masa y calculando su Log10
-            VMaxRad = file_data['Subhalo']['SubhaloVmaxRad'][:] * 1e3
+            VMaxRad = file_data['Subhalo']['SubhaloVmaxRad'][:] * 1e3  # type: ignore
 
             # Calculado los parametros para el ajuste
             loc, scale = scp.fit(VMaxRad,)
@@ -61,21 +61,21 @@ for x in run:
         file_data.close()
 
     if len(std) != 0 : 
-        ax1.plot(z, mean , label=nameParam, marker='o')
+        ax1.plot(z, mean , label=nameParam, marker='o')# type: ignore
     if len(std) != 0 : 
-        ax2.plot(z, std , label=nameParam, marker='o')        
+        ax2.plot(z, std , label=nameParam, marker='o')     # type: ignore   
 
 ax1.set_xlabel('z')
 ax2.set_xlabel('z')
-ax1.set_ylabel('$\mu$ (Kpc)')
-ax2.set_ylabel('$\sigma$ (Kpc)')
-ax1.set_xlim((14.5,-0.2))
-ax2.set_xlim((14.5,-0.2))
+ax1.set_ylabel('$\mu$ (Kpc)')# type: ignore
+ax2.set_ylabel('$\sigma$ (Kpc)')# type: ignore
+ax1.set_xlim((15.5,-0.2))
+ax2.set_xlim((15.5,-0.2))
 ax1.legend(loc='best')
 ax2.legend(loc='best')
 
 
-plt#.figure(num='mean')
+# plt.figure(num='mean')
 #plt.title('Masa media')
 fig1.tight_layout()
 fig1.savefig('Documento/images/'+sim+'/VMaxRad_Mean_'+sim+'.png')

@@ -7,10 +7,10 @@ from scipy.stats import exponnorm as scp
 
 # Creando Figura para plot
 #NUM_COLORS = 5
-fig ,ax = plt.subplots( nrows=3, ncols=6, figsize=(16,10), num='VMaxDistCanonRunSep' )
+fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='VMaxDistCanonRunSep' )
 fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='VMaxDistCanonRun', figsize=(5.5,5.5) )
 NUM_COLORS = 20#len(arch)
-cm =  plt.get_cmap('tab20')
+cm =  plt.get_cmap('tab20')# type: ignore
 ax2.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
 
 def plotAx(pos, pdata, nameData, num_bin, *param):
@@ -23,8 +23,8 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     *param      Parametros de ajuste
     '''
 
-    X = np.linspace( np.min(logVmax), np.max(logVmax), 10000 )  # Puntos Para Graficar PDF
-    bsz = ( np.max(logVmax) - np.min(logVmax) ) / bins          # Bin Size
+    X = np.linspace( np.min(pdata), np.max(pdata), 10000 )  # Puntos Para Graficar PDF
+    bsz = ( np.max(pdata) - np.min(pdata) ) / bins          # Bin Size
     k, loc, scale = param[0], param[1], param[2]                             # Parametros de Ajuste
     
     simple = nameData.split(',')[:3]
@@ -35,10 +35,10 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     
     plt.figure('VMaxDistCanonRunSep')
     # Plotting Hist
-    ax.flat[pos].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False)
+    ax.flat[pos].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False)# type: ignore
     
     # Plotting PDF
-    ax.flat[pos].plot( X, scp.pdf(X, k, loc, scale) * len(pdata) * bsz, label= nameData)
+    ax.flat[pos].plot( X, scp.pdf(X, k, loc, scale) * len(pdata) * bsz, label= nameData)# type: ignore
 
     #Plot Acumulado
     plt.figure('VMaxDistCanonRun')
@@ -49,13 +49,13 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     #ax.flat[pos].set_xlim(round(np.min(pdata))  , 15.)
     # ax.flat[pos].set_ylabel("Número de halos")
     # ax.flat[pos].set_xlabel('m/s')
-    ax.flat[pos].legend(loc=1)
+    ax.flat[pos].legend(loc=1)# type: ignore
     
     return None
 
 
 # Localizacion de datos
-sim = 'RunInvertida'
+sim = 'RunHalfCosmo'
 data_Name = 'subhalo'                                                   # Tipo de Dato
 path = '/home/martin/Documentos/Tesis/WorkingData/StandardResolution'   # Ubicacion
 # Identtificando el snapshot 017 del catalogo de halos
@@ -73,7 +73,7 @@ for i in archivos:
         Omega0, OmegaL, OmegaB, redshift = file_data['Parameters'].attrs['Omega0'], file_data['Parameters'].attrs['OmegaLambda'], file_data['Parameters'].attrs['OmegaBaryon'], file_data['Header'].attrs['Redshift'] # Obtenido paramtros cosmologicos
         
         # Extrayendo las masas de los halos
-        Vmax = file_data['Subhalo']['SubhaloVmax'][:] * 1e0
+        Vmax = file_data['Subhalo']['SubhaloVmax'][:] * 1e0# type: ignore
         logVmax = Vmax #np.log10(Vmax)
         
         # Calculo de los paramtros Exponencial Normal
@@ -81,8 +81,8 @@ for i in archivos:
 
         # LABEL, escrito de los labels
         mean, std = scp.mean(k, loc, scale), scp.std(k, loc, scale)             #Calculo de Mean y STD
-        nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) + '\n  Mean =' + str(round(mean, ndigits=4)) + ', std =' + str(round(std,ndigits=4))
-        nameParam = 'z = ' +str( round(redshift,1) )
+        nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) + '\n  Mean =' + str(round(mean, ndigits=4)) + ', std =' + str(round(std,ndigits=4))# type: ignore
+        nameParam = 'z = ' +str( round(redshift,1) )# type: ignore
     
 
         # Funcion de Ploteo Checar Funciones 
@@ -98,6 +98,7 @@ fig.supylabel('Número de halos')
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
 fig.tight_layout( w_pad = 0.9 )
 # plt.tight_layout()
+ax.flat[-1].axis('off')# type: ignore
 fig.savefig('Documento/images/'+sim+'/VelMax_Dist_'+sim+'Sep.png')
 
 
@@ -114,11 +115,3 @@ fig2.savefig('Documento/images/'+sim+'/VelMax_Dist_'+sim+'.png')
 
 # plt.close('all')
 plt.show()
-""" 
-top=0.985,
-bottom=0.045,
-left=0.045,
-right=0.995,
-hspace=0.13,
-wspace=0.12
-"""

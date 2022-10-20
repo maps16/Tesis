@@ -15,11 +15,11 @@ fig, ax = plt.subplots(1, 1, sharex= True, sharey= True, figsize=(6.8,5.5)  )
 print ("Figura Lista")
 
 #Ubicacion de los archivos
-sim = 'RunInvertida'
+sim = 'RunHalfCosmo'
 arcNameG4 = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/"+sim+"/snapshot/"
 
 #Cargar Snapshots
-snap17 = pnb.load(filename= arcNameG4 + "snapshot_033.hdf5")
+snap17 = pnb.load(filename= arcNameG4 + "snapshot_000.hdf5")
 print ("Cargar snapshots Lista")
 
 #Tratar en umidades fisicas
@@ -39,7 +39,7 @@ snap17["z"] -= bxs * 0.5
 # Extrayendo parametros de la simulación
 Omega0, OmegaL, OmegaB, redshiftZ = snap17.properties['omegaM0'], snap17.properties['omegaL0'], snap17.properties['omegaB0'], snap17.properties[ 'Redshift' ]
                 
-                # Label identificando cada cosmologia
+# Label identificando cada cosmologia
 nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$z=$'+str(round(redshiftZ,2)) 
 
 
@@ -47,8 +47,7 @@ print ("Inicio Plotting")
 
 
 #PLOTTING
-sph.image(snap17, qty="rho", width = bxs * 0.50, cmap="Blues", av_z=True, title=nameParam, subplot= ax, show_cbar=True, clear = True, resolution=500)
-
+sph.image(snap17, qty="rho", width = bxs * 0.50, cmap="Blues", av_z=True, title=nameParam, subplot= ax, show_cbar=True, clear = True, resolution=500)    # type: ignore
 
 #Mostrar Plots
 fig.tight_layout()                                                              #Ajustar Plot

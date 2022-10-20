@@ -7,10 +7,10 @@ from scipy.stats import norm as scp
 
 # Creando Figura para plot
 #NUM_COLORS = 5
-fig ,ax = plt.subplots( nrows=3, ncols=6, figsize=(16,10), num='VMaxRadDistCanonRunSep' )
+fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='VMaxRadDistCanonRunSep' )
 fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='VMaxRadDistCanonRun', figsize=(5.3,5.3) )
 NUM_COLORS = 20#len(arch)
-cm =  plt.get_cmap('tab20')
+cm =  plt.get_cmap('tab20') # type: ignore
 ax2.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
 
 def plotAx(pos, pdata, nameData, num_bin, *param):
@@ -23,8 +23,8 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     *param      Parametros de ajuste
     '''
 
-    X = np.linspace( np.min(logVmax), np.max(logVmax), 10000 )  # Puntos Para Graficar PDF
-    bsz = ( np.max(logVmax) - np.min(logVmax) ) / bins          # Bin Size
+    X = np.linspace( np.min(pdata), np.max(pdata), 10000 )      # Puntos Para Graficar PDF
+    bsz = ( np.max(pdata) - np.min(pdata) ) / bins              # Bin Size
     loc, scale = param[0], param[1]                             # Parametros de Ajuste
     
     simple = nameData.split(',')[:3]
@@ -35,10 +35,10 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     
     plt.figure('VMaxRadDistCanonRunSep')
     # Plotting Hist
-    ax.flat[pos].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False)
+    ax.flat[pos].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False) # type: ignore
     
     # Plotting PDF
-    ax.flat[pos].plot( X, scp.pdf(X, loc, scale) * len(pdata) * bsz, label= nameData)
+    ax.flat[pos].plot( X, scp.pdf(X, loc, scale) * len(pdata) * bsz, label= nameData) # type: ignore
 
     #Plot Acumulado
     plt.figure('VMaxRadDistCanonRun')
@@ -49,13 +49,13 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     #ax.flat[pos].set_xlim(round(np.min(pdata))  , 15.)
     # ax.flat[pos].set_ylabel("Número de halos")
     # ax.flat[pos].set_xlabel('m/s')
-    ax.flat[pos].legend(loc=1)
+    ax.flat[pos].legend(loc=1) # type: ignore
     
     return None
 
 
 # Localizacion de datos
-sim = 'RunInvertida'
+sim = 'RunHalfCosmo'
 data_Name = 'subhalo'                                                   # Tipo de Dato
 path = '/home/martin/Documentos/Tesis/WorkingData/StandardResolution'   # Ubicacion
 # Identtificando el snapshot 017 del catalogo de halos
@@ -73,16 +73,16 @@ for i in archivos:
         Omega0, OmegaL, OmegaB, redshift = file_data['Parameters'].attrs['Omega0'], file_data['Parameters'].attrs['OmegaLambda'], file_data['Parameters'].attrs['OmegaBaryon'], file_data['Header'].attrs['Redshift'] # Obtenido paramtros cosmologicos
         
         # Extrayendo las masas de los halos
-        Vmax = file_data['Subhalo']['SubhaloVmaxRad'][:] * 1e03
-        logVmax = Vmax #np.log10(Vmax)
+        Vmax = file_data['Subhalo']['SubhaloVmaxRad'][:] * 1e03 # type: ignore
+        logVmax = Vmax
         
         # Calculo de los paramtros Exponencial Normal
         loc, scale = scp.fit(logVmax)
 
         # LABEL, escrito de los labels
         mean, std = scp.mean(loc,scale), scp.std(loc,scale)             #Calculo de Mean y STD
-        nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) + '\n  Mean =' + str(round(mean, ndigits=4)) + ', std =' + str(round(std,ndigits=4))
-        nameParam = 'z = ' +str( round(redshift,1) )
+        nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) + '\n  Mean =' + str(round(mean, ndigits=4)) + ', std =' + str(round(std,ndigits=4)) # type: ignore
+        nameParam = 'z = ' +str( round(redshift,1) ) # type: ignore
     
 
         # Funcion de Ploteo Checar Funciones 
@@ -97,19 +97,20 @@ fig.supxlabel('Kpc')
 fig.supylabel('Número de halos')
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
 fig.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
-# plt.tight_layout()
-# fig.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'Sep.png')
+# fig.tight_layout()
+ax.flat[-1].axis('off')  # type: ignore
+fig.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'Sep.png')
 
 
 plt.figure('VMaxRadDistCanonRun')
 plt.title('Radio de la velocidad circular máxima')
 ax2.legend(loc='best')
-ax2.set_xlim(0,350)
-ax2.set_ylim(-25,7000)
+ax2.set_xlim(-10,600)
+ax2.set_ylim(-25,5500)
 ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('Kpc')
 fig2.tight_layout()
-# fig2.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'.png')
+fig2.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'.png')
 
 # plt.close('all')
 plt.show()
