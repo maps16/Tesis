@@ -23,8 +23,8 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     *param      Parametros de ajuste
     '''
 
-    X = np.linspace( np.min(logVmax), np.max(logVmax), 10000 )  # Puntos Para Graficar PDF
-    bsz = ( np.max(logVmax) - np.min(logVmax) ) / bins          # Bin Size
+    X = np.linspace( np.min(pdata), np.max(pdata), 10000 )  # Puntos Para Graficar PDF
+    bsz = ( np.max(pdata) - np.min(pdata) ) / bins          # Bin Size
     k, loc, scale = param[0], param[1], param[2]                             # Parametros de Ajuste
     
     simple = nameData.split(',')[:3]
@@ -49,7 +49,7 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     # ax.flat[pos].set_ylabel("Número de halos")
     # ax.flat[pos].set_xlabel('m/s')
     ax.flat[pos].legend(loc=1) # type: ignore
-    
+    print(nameData,np.min(pdata), np.max(pdata), sep=' , ')
     return None
 
 
