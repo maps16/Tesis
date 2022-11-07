@@ -1,19 +1,19 @@
-# import numpy as np
+import numpy as np
 from glob import glob
 from scipy.stats import norm as scp
 import matplotlib.pyplot as plt
 import h5py as h5
 
-#Generando Figuras
-fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.0,5.0) )
-fig2 ,ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.0,5.0) )
+#Generando Figura
+fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.5,5.5) )
+fig2, ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.5,5.5) )
 
 # Loc de archivos para trabajar
-sim = 'RunHalfCosmo'
+sim = 'RunCanonica'
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
-run = range(1)
+run = range(1) #['WorkingData/StandardResolution/RunCanonica']
 
 # Corriendo sobre las diferentes cosmologias
 for x in run:
@@ -53,17 +53,17 @@ for x in run:
             mean_cal, std_cal = scp.mean(loc,scale), scp.std(loc,scale)
 
             # Guardando los valoares en los arrays
-            print('z =', z_cal, ' mean=', mean_cal, ' std =', std_cal )
             mean.append(mean_cal)
             std.append(std_cal)
             z .append(z_cal)
+            print('z=',round(z_cal,ndigits=2),', mean=',round(mean_cal, ndigits=2),', std=',round(std_cal,ndigits=2), sep=' ')  # type: ignore
 
         file_data.close()
 
-    if len(std) != 0 : 
-        ax1.plot(z, mean , label=nameParam, marker='o')# type: ignore
-    if len(std) != 0 : 
-        ax2.plot(z, std , label=nameParam, marker='o')     # type: ignore   
+    if len(mean) != 0 : 
+        ax1.plot(z, mean, label=nameParam, marker='o') # type: ignore
+    if len(std) != 0:
+        ax2.plot(z, std, label=nameParam, marker='o')  # type: ignore   
 
 ax1.set_xlabel('z')
 ax2.set_xlabel('z')
@@ -75,15 +75,8 @@ ax1.legend(loc='best')
 ax2.legend(loc='best')
 
 
-# plt.figure(num='mean')
-#plt.title('Masa media')
 fig1.tight_layout()
-fig1.savefig('Documento/images/'+sim+'/VMaxRad_Mean_'+sim+'.png')
-
-
-#plt.figure(num='std')
-#plt.title('Dispersión de masa')
+# fig1.savefig('Documento/images/'+sim+'/VMaxRad_Mean_'+sim+'.png')
 fig2.tight_layout()
-fig2.savefig('Documento/images/'+sim+'/VMaxRad_Std_'+sim+'.png')
-
+# fig2.savefig('Documento/images/'+sim+'/VMaxRad_Std_'+sim+'.png')
 plt.show()

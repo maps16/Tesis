@@ -10,7 +10,7 @@ from scipy.stats import exponnorm as scp
 fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='VelDispDistCanonRunSep' )
 fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='VelDispDistCanonRun', figsize=(5.5,5.5) )
 NUM_COLORS = 20#len(arch)
-cm =  plt.get_cmap('tab20') # type: ignore
+cm =  plt.get_cmap('tab20')  # type: ignore
 ax2.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
 
 def plotAx(pos, pdata, nameData, num_bin, *param):
@@ -23,9 +23,9 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     *param      Parametros de ajuste
     '''
 
-    X = np.linspace( np.min(pdata), np.max(pdata), 10000 )  # Puntos Para Graficar PDF
-    bsz = ( np.max(pdata) - np.min(pdata) ) / bins          # Bin Size
-    k, loc, scale = param[0], param[1], param[2]                             # Parametros de Ajuste
+    X = np.linspace( np.min(pdata), np.max(pdata), 10000 )      # Puntos Para Graficar PDF
+    bsz = ( np.max(pdata) - np.min(pdata) ) / bins              # Bin Size
+    k, loc, scale = param[0], param[1], param[2]                # Parametros de Ajuste
     
     simple = nameData.split(',')[:3]
     simple[-1] = simple[-1].split('\n')[0]
@@ -35,9 +35,9 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     
     plt.figure('VelDispDistCanonRunSep')
     # Plotting Hist
-    ax.flat[pos].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False) # type: ignore
+    ax.flat[pos].hist(pdata , bins=num_bin, range=(np.min(pdata),np.max(pdata)), density = False)  # type: ignore
     # Plotting PDF
-    ax.flat[pos].plot( X, scp.pdf(X, k, loc, scale) * len(pdata) * bsz, label= nameData) # type: ignore
+    ax.flat[pos].plot( X, scp.pdf(X, k, loc, scale) * len(pdata) * bsz, label= nameData)  # type: ignore
 
     #Plot Acumulado
     plt.figure('VelDispDistCanonRun')
@@ -48,17 +48,17 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     #ax.flat[pos].set_xlim(round(np.min(pdata))  , 15.)
     # ax.flat[pos].set_ylabel("Número de halos")
     # ax.flat[pos].set_xlabel('m/s')
-    ax.flat[pos].legend(loc=1) # type: ignore
-    print(nameData,np.min(pdata), np.max(pdata), sep=' , ')
+    ax.flat[pos].legend(loc=1)  # type: ignore
+    print('z =', nameData ,', Min =',min(pdata), ', Max =',max(pdata) )
     return None
 
 
 # Localizacion de datos
-sim = 'RunHalfCosmo'
+sim = 'RunCanonica'
 data_Name = 'subhalo'                                                   # Tipo de Dato
 path = '/home/martin/Documentos/Tesis/WorkingData/StandardResolution'   # Ubicacion
 # Identtificando el snapshot 017 del catalogo de halos
-archivos = glob( path + '/'+sim+'/' + data_Name + '/*.hdf5')
+archivos = glob( path + '/' + sim + '/' + data_Name + '/*.hdf5')
 archivos.sort()
 
 temp_exit = 0
@@ -79,46 +79,37 @@ for i in archivos:
         k, loc, scale = scp.fit(logVmax)
 
         # LABEL, escrito de los labels
-        mean, std = scp.mean(k, loc, scale), scp.std(k, loc, scale)             #Calculo de Mean y STD
-        nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) + '\n  Mean =' + str(round(mean, ndigits=4)) + ', std =' + str(round(std,ndigits=4)) # type: ignore
-        nameParam = 'z = ' +str( round(redshift,1) ) # type: ignore
+        mean, std = scp.mean(k,loc,scale), scp.std(k,loc,scale)             #Calculo de Mean y STD
+        nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) + ', ' + r'$\Omega_B=$'+str(OmegaB) + '\n  Mean =' + str(round(mean, ndigits=4)) + ', std =' + str(round(std,ndigits=4))  # type: ignore
+        nameParam = 'z = ' +str( round(redshift,1) )  # type: ignore
     
-
         # Funcion de Ploteo Checar Funciones 
-        plotAx(temp_exit, logVmax, nameParam, bins, k, loc, scale)
+        plotAx(temp_exit, logVmax, nameParam, bins, k, loc, scale, mean, std  )
 
         temp_exit += 1
+        # print(temp_exit)
     file_data.close()
 
 # Ajuste de la figura
 plt.figure('VelDispDistCanonRunSep')
-fig.supxlabel('km/s')
 fig.supylabel('Número de halos')
+fig.supxlabel('km/s')
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
 fig.tight_layout( w_pad = 0.09 )
-# plt.tight_layout()
+# fig.tight_layout()
 ax.flat[-1].axis('off') # type: ignore
-fig.savefig('Documento/images/'+sim+'/VelDisp_Dist_'+sim+'Sep.png')
+# fig.savefig('Documento/images/'+sim+'/VelDisp_Dist_'+sim+'Sep.png')
 
 
 plt.figure('VelDispDistCanonRun')
 fig2.suptitle('Dispersión de velocidades')
 ax2.legend(loc='best')
 # ax2.set_xlim(0,400)
-ax2.set_ylim(-50,10750)#11010
+ax2.set_ylim(-50,10750)
 ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('km/s')
 fig2.tight_layout(rect=(0.01, 0, 1, 1.0))
-# plt.tight_layout()
-fig2.savefig('Documento/images/'+sim+'/VelDisp_Dist_'+sim+'.png')
+# fig2.savefig('Documento/images/'+sim+'/VelDisp_Dist_'+sim+'.png')
 
 # plt.close('all')
 plt.show()
-""" 
-top=0.985,
-bottom=0.045,
-left=0.045,
-right=0.995,
-hspace=0.13,
-wspace=0.12
-"""

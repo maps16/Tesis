@@ -4,16 +4,16 @@ from scipy.stats import exponnorm as scp
 import matplotlib.pyplot as plt
 import h5py as h5
 
-#Generando Figuras
-fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.0,5.0) )
-fig2 ,ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.0,5.0) )
+#Generando Figura
+fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.5,5.5) )
+fig2, ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.5,5.5) )
 
 # Loc de archivos para trabajar
-sim = 'RunHalfCosmo'
+sim = 'RunCanonica'
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
-run = range(1)
+run = range(1) #['WorkingData/StandardResolution/RunCanonica']
 
 # Corriendo sobre las diferentes cosmologias
 for x in run:
@@ -45,7 +45,7 @@ for x in run:
             nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) #+ ', ' + r'$\Omega_B=$'+str(OmegaB) 
             
             # Extrayendo la masa y calculando su Log10
-            VMaxRad = file_data['Subhalo']['SubhaloVmax'][:] * 1e0# type: ignore
+            VMaxRad = file_data['Subhalo']['SubhaloVmax'][:] * 1e0  # type: ignore
 
             # Calculado los parametros para el ajuste
             k, loc, scale = scp.fit(VMaxRad,)
@@ -53,37 +53,30 @@ for x in run:
             mean_cal, std_cal = scp.mean(k, loc,scale), scp.std(k, loc,scale)
 
             # Guardando los valoares en los arrays
-            print('z =', z_cal, ' mean=', mean_cal, ' std =', std_cal )
             mean.append(mean_cal)
             std.append(std_cal)
             z .append(z_cal)
+            print('z=',round(z_cal,ndigits=2),', mean=',round(mean_cal, ndigits=2),', std=',round(std_cal,ndigits=2), sep=' ')  # type: ignore
 
         file_data.close()
 
-    if len(std) != 0 : 
-        ax1.plot(z, mean , label=nameParam, marker='o')# type: ignore
-    if len(std) != 0 : 
-        ax2.plot(z, std , label=nameParam, marker='o')       # type: ignore 
+    if len(mean) != 0 : 
+        ax1.plot(z, mean, label=nameParam, marker='o') # type: ignore
+    if len(std) != 0: 
+        ax2.plot(z, std, label=nameParam, marker='o')  # type: ignore 
 
 ax1.set_xlabel('z')
 ax2.set_xlabel('z')
 ax1.set_ylabel('$\mu$ (km/s)')# type: ignore
 ax2.set_ylabel('$\sigma$ (km/s)')# type: ignore
-ax1.set_xlim((15.5,-0.5))
-ax2.set_xlim((15.5,-0.5))
+ax1.set_xlim((17.5,-0.2))
+ax2.set_xlim((17.5,-0.2))
 ax1.legend(loc='best')
 ax2.legend(loc='best')
 
 
-plt.figure(num='mean')
-#plt.title('Masa media')
 fig1.tight_layout()
-fig1.savefig('Documento/images/'+sim+'/VelMax_Mean_'+sim+'.png')
-
-
-plt.figure(num='std')
-#plt.title('Dispersión de masa')
+# fig1.savefig('Documento/images/'+sim+'/VelMax_Mean_'+sim+'.png')
 fig2.tight_layout()
-fig2.savefig('Documento/images/'+sim+'/VelMax_Std_'+sim+'.png')
-
+# fig2.savefig('Documento/images/'+sim+'/VelMax_Std_'+sim+'.png')
 plt.show()

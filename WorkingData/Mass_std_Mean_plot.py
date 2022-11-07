@@ -4,16 +4,16 @@ from scipy.stats import norm as scp
 import matplotlib.pyplot as plt
 import h5py as h5
 
-#Generando Figuras
+#Generando Figura
 fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.5,5.5) )
-fig2 ,ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.5,5.5) )
+fig2, ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.5,5.5) )
 
 # Loc de archivos para trabajar
-sim = 'RunHalfCosmo'
+sim = 'RunCanonica'
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
-run = range(1)
+run = range(1) #['WorkingData/StandardResolution/RunCanonica']
 
 # Corriendo sobre las diferentes cosmologias
 for x in run:
@@ -27,7 +27,7 @@ for x in run:
     # Extableciendo/Limpiendo los arrays para diferentes valores de interes
     mean = []       # Media
     std  = []       # Desviacion Estandar
-    z = []       # Redshift
+    z = []          # Redshift
 
     # Iterar sobre todos los archivos
     for i in arch:
@@ -56,13 +56,14 @@ for x in run:
             mean.append(mean_cal)
             std.append(std_cal)
             z .append(z_cal)
+            print('z=',round(z_cal,ndigits=2),', mean=',round(mean_cal, ndigits=2),', std=',round(std_cal,ndigits=2), sep=' ')  # type: ignore
 
         file_data.close()
 
-    if len(std) != 0 : 
-        ax1.plot(z, mean , label=nameParam, marker='o')# type: ignore
-    if len(std) != 0 : 
-        ax2.plot(z, std , label=nameParam, marker='o')     # type: ignore   
+    if len(mean) != 0 : 
+        ax1.plot(z, mean, label=nameParam, marker='o') # type: ignore
+    if len(std) != 0: 
+        ax2.plot(z, std, label=nameParam, marker='o')  # type: ignore   
 
 ax1.set_xlabel('z')
 ax2.set_xlabel('z')
@@ -74,16 +75,10 @@ ax1.legend(loc='best')
 ax2.legend(loc='best')
 
 
-plt.figure(num='mean')
-#plt.title('Masa media')
 fig1.tight_layout()
-plt.savefig('Documento/images/'+sim+'/MassMean_'+sim+'.png')
-# plt.close('mean')
-
-plt.figure(num='std')
-#plt.title('Dispersión de masa')
+fig1.savefig('Documento/images/'+sim+'/MassMean_'+sim+'.png')
 fig2.tight_layout()
-plt.savefig('Documento/images/'+sim+'/MassStd_'+sim+'.png')
+fig2.savefig('Documento/images/'+sim+'/MassStd_'+sim+'.png')
 # plt.close('all')
 plt.show()
 print('Done')

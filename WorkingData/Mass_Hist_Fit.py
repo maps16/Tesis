@@ -23,8 +23,8 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     *param      Parametros de ajuste
     '''
 
-    X = np.linspace( np.min(logmass), np.max(logmass), 10000 )  # Puntos Para Graficar PDF
-    bsz = ( np.max(logmass) - np.min(logmass) ) / bins          # Bin Size
+    X = np.linspace( np.min(pdata), np.max(pdata), 10000 )      # Puntos Para Graficar PDF
+    bsz = ( np.max(pdata) - np.min(pdata) ) / bins              # Bin Size
     k, loc, scale = param[0], param[1], param[2]                # Parametros de Ajuste
     
     simple = nameData.split(',')[:3]
@@ -50,12 +50,12 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     # ax.flat[pos].set_ylabel("Número de halos")
     # ax.flat[pos].set_xlabel('log$_{10}$ M$_\odot$')
     ax.flat[pos].legend(loc=1)  # type: ignore
-    
+    print('Min=',min(pdata), ', Max=',max(pdata) )
     return None
 
 
 # Localizacion de datos
-sim = 'RunHalfCosmo'
+sim = 'RunCanonica'
 data_Name = 'subhalo'                                                   # Tipo de Dato
 path = '/home/martin/Documentos/Tesis/WorkingData/StandardResolution'   # Ubicacion
 # Identtificando el snapshot 017 del catalogo de halos
@@ -88,7 +88,7 @@ for i in archivos:
         plotAx(temp_exit, logmass, nameParam, bins, k,loc,scale, mean, std  )
 
         temp_exit += 1
-        print(temp_exit)
+        # print(temp_exit)
     file_data.close()
 
 # Ajuste de la figura
@@ -97,9 +97,9 @@ fig.supylabel('Número de halos')
 fig.supxlabel('log$_{10}$ M$_\odot$')# type: ignore
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
 fig.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
-# plt.tight_layout()
-ax.flat[-1].axis('off')  # type: ignore Temporalmete
-fig.savefig('Documento/images/'+sim+'/Mass_Dist_'+sim+'Sep.png')
+# fig.tight_layout()
+ax.flat[-1].axis('off')  # type: ignore Temporalmente
+# fig.savefig('Documento/images/'+sim+'/Mass_Dist_'+sim+'Sep.png')
 
 
 plt.figure('MassDist')
@@ -110,7 +110,7 @@ ax2.set_ylim(-25,2900)
 ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('log$_{10}$ M$_\odot$') # type: ignore
 fig2.tight_layout( rect=(0.0, 0, 1, 1.0) )
-fig2.savefig('Documento/images/'+sim+'/Mass_Dist_'+sim+'.png')
+# fig2.savefig('Documento/images/'+sim+'/Mass_Dist_'+sim+'.png')
 
-# plt.close('MassDistSep')
+# plt.close('all')
 plt.show()
