@@ -53,18 +53,19 @@ IMAGEN PENDIENTE
 %==================================================================================================
 %==================================================================================================
 \section{Simulaciones Cosmológicas}
-Si queremos simular nuestro Universo, se ocupa resolver la ecuación de Boltzmann sin colisiones (CBE)
+
+Nuestro Universo se puede considerar un gas donde podemos decir que no hay colisiones entre las partículas que lo componen. Se asume esto ya que la distancia que hay entre las cosas que componen nuestro Universo se encuentran separadas grandes distancias y por tanto no hay gran probabilidad de que las cosas choquen. Por lo tanto, si queremos simular nuestro Universo, idealmente ocupamos resolver la ecuación de Boltzmann sin colisiones (CBE)
 
 \begin{equation}
 \frac{d f}{d t} \equiv \frac{\partial f}{\partial t} + \mathbf{v}\frac{\partial f}{\partial \mathbf{x}} + \frac{\partial \Phi}{\partial \mathbf{r}} \frac{\partial f}{\partial \mathbf{v}}
-\label{CBE}
+\label{eq:CBE}
 \end{equation}
 
 \noindent donde el potencial auto-consistente $\Phi$ es la solución a la ecuación de Poisson
 
 \begin{equation}
 \nabla^2\Phi(\mathbf{r},t) = 4\pi G \int f(\mathbf{r},\mathbf{v},t)d\mathbf{v}
-\label{PoissonSol}
+\label{eq:PoissonSol}
 \end{equation}
 
 \noindent y $f(\mathbf{r},\mathbf{v},t)$ es la densidad de una partícula en el espacio fase.

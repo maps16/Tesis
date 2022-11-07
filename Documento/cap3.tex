@@ -11,111 +11,119 @@
 \chapter{Halos de Materia Oscura}
 \setcounter{equation}{0}
 
-\noindent Con la intención de conocer y diferenciar diferentes cosmologías, en nuestro estudio de los halos de materia oscura, optamos por realizar fue una variedad de simulaciones de materia oscura. Desde simulaciones con cosmologías de Universos planos ($\Omega = 1$), asi como cosmologías  de universos con densidades sub-criticas ($\Omega < 1$) y super-criticas ($\Omega > 1$).
+\noindent Con la intención de conocer y diferenciar diferentes cosmologías, en nuestro estudio de los halos de materia oscura, optamos por realizar fue una variedad de simulaciones de materia oscura. Desde simulaciones con cosmologías de Universos planos ($\Omega = 1$), asi como cosmologías  de universos con densidades sub-criticas ($\Omega < 1$) y super-criticas ($\Omega > 1$). Las simulaciones que realizamos empezaron en un corrimiento al rojo de $z=63$ hasta un $z=0$.
 
+%====================================================================================================================
+%======================================  COSMO PLANA  ===============================================================
+%====================================================================================================================
 \section[Cosmología Plana \texorpdfstring{$\Omega = 1$}{Omega = 1}]{Cosmología Plana \texorpdfstring{$\Omega = 1$}{Omega = 1}}
 
 \noindent Comenzaremos con un estudio de las cosmologías planas (aquellas donde las densidades sean $\Omega = 1$). Estudiaremos 3 cosmologías planas, empezando con las que tiene las densidades mas aceptadas de nuestro Universo ($\Omega_\lambda = 0.691$, $\Omega_0 = 0.309$  \cite{2020A&A...641A...1P}). Luego pasaremos nuestra atención a estudiar los efectos que hay con las densidades invertidas ($\Omega_\lambda = 0.309$, $\Omega_0 = 0.691$) y para terminar con las cosmologías planas veremos los efectos en un Universo con densidades iguales ($\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$).
 
+%====================================================================================================================
+%======================================  CANON RUN  =================================================================
+%====================================================================================================================
  \subsection{Universo con cosmología  \texorpdfstring{$\Omega_\lambda = 0.691$, $\Omega_0 = 0.309$ }{Omega lambda = 0.691, Omega 0 = 0.309}  }
 
- En la evolución de este Universo, la materia comienza a agruparse lentamente en lo que llamamos halos. En un principio la materia parece una nube difusa sin estructuras internas, después de un tiempo en el que se esta agrumando, pequeñas estructuras de materia se empiezan a formar. Las primeras estructuras son pocas como se aprecia en la figura \ref{fig:EvoNumTotHalos}. Las estructuras tardan tiempo en aparecer y eventualmente hay un aumento acelerado en la cantidad halos que se forman y mas hacia al presente vemos un pico donde empiezan a disminuir el total de halos.
+ En la evolución de este Universo, la materia comienza a agruparse lentamente en lo que llamamos halos. En un principio la materia parece una nube difusa sin estructuras internas, después de un tiempo en el que se esta agrumando, pequeñas estructuras de materia se empiezan a formar. Las primeras estructuras son pocas como se aprecia en la figura \ref{fig:Canon_TotalHalos}. Las estructuras tardan tiempo en aparecer y eventualmente hay un aumento acelerado en la cantidad halos que se forman y mas hacia al presente vemos un pico donde empiezan a disminuir el total de halos.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.5]{RunCanonica/TotalHalos_RunCanonica.png}
-    \caption[Evolución del número de halos en un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra el numero de halos y como cambia la cantidad conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$.}
-    \label{fig:EvoNumTotHalos}
+    \caption[Evolución del número de halos en un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra el numero de halos según el redshift y podemos observar como evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$.}
+    \label{fig:Canon_TotalHalos}
 \end{figure}
 
-En la figura \ref{fig:MassDistCanonRunSep} y \ref{fig:MassDistCanonRun} podemos observar que aunque disminuyen la cantidad de halos después del redshift 2, podemos ver que comienzan a aparecer estructuras mas masivas. Las estructuras en un principio son pequeñas y escasas y conforme el el Universo evoluciona podemos ver una gran cantidad de halos pequeños a medianos. Mas al presente, se observan que las estructuras son cada vez mas grandes, aunque no en gran cantidad.
+La distribución de la masa para esta cosmología se observa en las figuras \ref{fig:Canon-MassDistSep} y \ref{fig:Canon-MassDist}. Los rangos de la masa se encuentran entre las $10^{10.11}M_\odot$ a $10^{14.32}M_\odot$ a lo largo de de la evolución del sistema. Las primeras estructuras, las que tienen $z$ altos, tenían masas menores a las $10^{11}M_\odot$ y las estructuras en $z$ pequeños la mayor parte de los halos tenían masas entre $10^{10.5}M_\odot$ y $10^{11.5}M_\odot$ con estructuras que alcanzan $10^{14.32}M_\odot$. Mientras, la figura \ref{fig:Canon-MassStats} nos muestra el comportamiento medio durante la evolución donde observamos que la masa media incrementa desde $10^{10.41}M_\odot$ con una desviación de $10^{0.11}M_\odot$ en $z=15$ hasta $10^{10.75}M_\odot$ con una desviación de $10^{0.49}M_\odot$ en $z=0$.
+
+% En la figura \ref{fig:Canon-MassDistSep} y \ref{fig:Canon-MassDist} podemos observar que aunque disminuyen la cantidad de halos después del $z=2$, podemos ver que comienzan a aparecer estructuras mas masivas. La mayor parte de los halos tiene una masa entre $10^{10.3}M\_odot$ y $10^{11}M_\odot$ teniendo el halo de mayor masa de $10^{14.3}m_\odot$. Podemos apreciar como con el tiempo, los halos de materia oscura se vuelven mas masivos y aumenta su cantidad así como vemos un aumento en la variedad de masas que hay. Por lo que en redshifts altos vemos pocas y pequeñas estructuras y en redshifts bajos vemos una mayor cantidad de estructuras con una gran variedad en las masas.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.8\linewidth]{RunCanonica/Mass_Dist_RunCanonicaSep.png}
-    \caption[Distribución de masa en la evolución de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra la distribución de la masa conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$. Se observa como aumentan la cantidad de halos cada vez mas masivos.}
-    \label{fig:MassDistCanonRunSep}
+    \caption[Distribución de masa en la evolución de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Tenemos la cantidad de halos en diferentes rangos de masa. Se muestran la distribución de la masa conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$. Se tienen las distribuciones en los diferentes redshifts empezando en $z=17$ en la parte superior izquierda y terminado en $z=0$ en la parte inferior derecha. Se observa como aumentan la cantidad de halos cada vez mas masivos.}
+    \label{fig:Canon-MassDistSep}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.5\linewidth]{RunCanonica/Mass_Dist_RunCanonica.png}
-    \caption[Comparación de distribución de masa Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Comparación de las distribuciones de masa durante la evolución del Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$. Se observa como crece la cantidad de halos de materia oscura, asi como el tamaño de estos.}
-    \label{fig:MassDistCanonRun}
+    \caption[Comparación de distribución de masa en un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Tenemos la cantidad de halos en los diferentes rangos de masa. Comparamos de las distribuciones de masa durante la evolución del Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$. Se muestra la cantidad de halos en un rango de masas. Se observa como crece la cantidad de halos de materia oscura, asi como el tamaño de estos.}
+    \label{fig:Canon-MassDist}
 \end{figure}
-
-En las figuras \ref{fig:MassDistCanonRun} y \ref{fig:MassStatsCanonRun} podemos apreciar como con el tiempo, los halos de materia oscura se vuelven mas masivos así como vemos un aumento en la variedad de masas que hay. Por lo que en redshifts altos vemos pocas y pequeñas estructuras y en redshifts bajos vemos una mayor cantidad de estructuras con una gran variedad en las masas.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.4\linewidth]{RunCanonica/MassMean_RunCanonica.png}
     \includegraphics[width = 0.4\linewidth]{RunCanonica/MassStd_RunCanonica.png}
     \caption[Media y desviación estándar de la distribución de masa de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize En la izquierda se muestra la masa media de los halos de materia oscura y se observa como cambia durante la evolución del Universo. En la derecha se muestra la desviación estándar de la masa, la cual nos muestra la variedad que hay de los halos de materia oscura.}
-    \label{fig:MassStatsCanonRun}
+    \label{fig:Canon-MassStats}
 \end{figure}
 
-Nos hemos dado cuenta de como cambia la distribución de la masa conforme evolucionan el sistema de materia oscura, pero no hemos visto los efectos en los tamaño. Empezando con el radio de la mitad del radio. En las figura \ref{fig:HalfMassRadDistCanonRun} y \ref{fig:HalfMassRadDistCanonRunSep} se observa que el radio crece de manera que en los momentos tempranos tiene un radio entre $10^{0.35}$kpc y $10^{1}$kpc y mas al presente vemos radios entre $10^{5}$kpc y $10^{2.75}$kpc. En la figura \ref{fig:HalfMassRadStatsCanonRun} Observamos con mayor claridad el crecimiento en el radio, siendo que la media va de $10^{0.35}$ kpc a tener radio de $10^{1.5}$kpc. También vemos que hay un aumento en la variedad en los tamaños y además se ve que hay un crecimiento acelerado en la variedad de halos que se observan a lo largo del tiempo.
+En las figuras \ref{fig:Canon-HalfMassRadDistSep} y \ref{fig:Canon-HalfMassRadDist} podemos ver el radio que contiene la mitad de la masa de los halos a lo largo de la evolución del Universo. Vemos que los radios se encuentran entre los $10^{0.24}$kpc y $10^{2.69}$kpc donde los primeros halos tienen radios entre los $10^{0.24}$kpc y los $10^{1.01}$ y las estructuras mas recientes tienen la mayor parte de los halos en el rango de $10^{1.25}$kpc y los $10^{1.7}$kpc con halos que alcanzan hasta los $10^{2.69}kpc$. El radio medio tiene un crecimiento de $10^{0.44}$kpc con una desviación de $10^{0.06}$kpc en $z=15$ hasta un radio de $10^{1.47}$kpc con una desviación de $10^{0.19}$kpc en $z=0$.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.75\linewidth]{RunCanonica/HalfMassRad_Dist_RunCanonicaSep.png}
-    \caption[Radio que contiene la mitad de la masa en la evolución de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra el radio que contiene la mitad de la masa conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$.}
-    \label{fig:HalfMassRadDistCanonRunSep}
+    \caption[Radio que contiene la mitad de la masa en la evolución de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra la cantidad de halos que tiene el radio que contiene la mitad de la masa conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$. Se tienen las distribuciones en los diferentes redshifts empezando en $z=17$ en la parte superior izquierda y terminado en $z=0$ en la parte inferior derecha.}
+    \label{fig:Canon-HalfMassRadDistSep}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.5\linewidth]{RunCanonica/HalfMassRad_Dist_RunCanonica.png}
-    \caption[Distribución del Radio que contiene la mitad de la masa de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Comparación de las distribuciones del radio que contiene la mitad de la masa de los halos de materia oscura de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$.}
-    \label{fig:HalfMassRadDistCanonRun}
+    \caption[Distribución del radio que contiene la mitad de la masa en un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Mostramos la cantidad de halos de materia oscura que tienen un radio que contiene la mitad de la masa en un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$ desde un $z=17$ hasta un $z=0$.}
+    \label{fig:Canon-HalfMassRadDist}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.4\linewidth]{RunCanonica/HalfMassRad_Mean_RunCanonica.png}
     \includegraphics[width = 0.4\linewidth]{RunCanonica/HalfMassRad_Std_RunCanonica.png}
-    \caption[Media y desviación estándar del radio de la mitad de la masa de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize En la izquierda mostramos la media del radio que contiene la mitad de la masa de los halos de materia oscura y en la derecha se muestra su desviación estándar a lo largo de la evolución del Universo.}
-    \label{fig:HalfMassRadStatsCanonRun}
+    \caption[Media y desviación estándar del radio de la mitad de la masa de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize En la izquierda mostramos la media del radio que contiene la mitad de la masa de los halos de materia oscura y en la derecha se muestra su desviación estándar a lo largo de la evolución del Universo, desde un $z=17$ hasta un $z=0$.}
+    \label{fig:Canon-HalfMassRadStats}
 \end{figure}
 
-Otra medida que utilizamos para dar una idea en el tamaño que tienen los halos es usando el radio donde tenemos la mayor velocidad radial. Las figuras \ref{fig:VMaxRadDistCanonRunSep} y \ref{fig:VMaxRadDistCanonRun} nos muestran la distribución de los radios donde se alcanza la velocidad circular máxima. Podemos ver que con el tiempo, empiezan a verse radios cada vez mas grandes, teniendo estructuras con radios hasta 10 veces mas grandes que la media. La figura \ref{fig:VMaxRadStatsCanonRun} nos muestra el crecimiento medio que tienen los halos a lo largo del tiempo. Aquí se observa un crecimiento acelerado del radio, teniendo las primeras estructuras con radios de $2.45$kpc y las estructuras mas modernas con radios de $27.60$kpc. También observamos que la diversidad de halos aumenta aceleradamente con desviaciones de $0.8$kpc en el pasado hasta $15.7$ kpc.
+Otra medida que utilizamos para dar una idea en el tamaño que tienen los halos es usando el radio donde tenemos la mayor velocidad radial. En las figuras \ref{fig:Canon-VMaxRadDistSep} y \ref{fig:Canon-VMaxRadDist} observamos que a lo largo de la evolución de las estructuras, tenemos halos con radios que van desde los $0.72$kpc hasta los $452.28$kpc. Vemos que la gran mayoría de los halos son halos con tamaños menores a $50$kpc con halos que alcanzan hasta los $452.28$kpc mas al presente y menores a $10$kpc con estructuras que alcanzan $9.83$kpc en los redshifts mas altos. En la figura \ref{fig:Canon-VMaxRadStats} vemos que la media va desde los $2.45$kpc con una desviación de $0.88$kpc en $z=15$ hasta $27.60$kpc con una desviación de $15.69$kpc en $z=0$.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.75\linewidth]{RunCanonica/VMaxRad_Dist_RunCanonicaSep.png}
-    \caption[Radio donde se alcanza la velocidad máxima radial en la evolución de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra el radio donde se alcanza la velocidad máxima radial conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$. Se observa como aumentan la cantidad de halos cada vez mas masivos.}
-    \label{fig:VMaxRadDistCanonRunSep}
+    \caption[Radio donde se alcanza la velocidad máxima radial en la evolución de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra el radio donde se alcanza la velocidad máxima radial conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$. Se tienen las distribuciones en los diferentes redshifts empezando en $z=17$ en la parte superior izquierda y terminado en $z=0$ en la parte inferior derecha.}
+    \label{fig:Canon-VMaxRadDistSep}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.5\linewidth]{RunCanonica/VMaxRad_Dist_RunCanonica.png}
-    \caption[Distribución del radio donde se alcanza la velocidad máxima radial de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Comparación de las distribuciones del radio donde se alcanza la velocidad máxima radial de los halos de materia oscura de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$.}
-    \label{fig:VMaxRadDistCanonRun}
+    \caption[Distribución del radio donde se alcanza la velocidad máxima radial de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra la cantidad de halos de materia oscura con el radio donde se alcanza la velocidad máxima radial en un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$.}
+    \label{fig:Canon-VMaxRadDist}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.4\linewidth]{RunCanonica/VMaxRad_Mean_RunCanonica.png}
     \includegraphics[width = 0.4\linewidth]{RunCanonica/VMaxRad_Std_RunCanonica.png}
-    \caption[Media y desviación estándar del Radio donde se alcanza la velocidad máxima radial de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize En la izquierda mostramos la media del radio donde se alcanza la velocidad máxima radial de los halos de materia oscura y en la derecha se muestra su desviación estándar a lo largo de la evolución del Universo.}
-    \label{fig:VMaxRadStatsCanonRun}
+    \caption[Media y desviación estándar del Radio donde se alcanza la velocidad máxima radial de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize En la izquierda mostramos la media del radio donde se alcanza la velocidad máxima radial de los halos de materia oscura y en la derecha se muestra su desviación estándar a lo largo de la evolución del Universo, desde un $z=17$ hasta un $z=0$.}
+    \label{fig:Canon-VMaxRadStats}
 \end{figure}
 
-Pasando a las velocidades, empezando con la velocidad circular máxima, en las figuras \ref{fig:VelMaxDistCanonRunSep} y \ref{fig:VelMaxDistCanonRun} podemos ver que un pequeña parte de los halos tienen velocidades mayores a $200$ km/s a lo largo de la evolución del Universo. La mayor parte tienen velocidades entre $40$ y $150$km/s. Algo que se observa en la figura \ref{fig:VelMaxStatsCanonRun} es que la velocidad media disminuye conforme avanza el tiempo, pero también vemos un aumento en la diversidad de velocidades que hay. La media en un universo temprano se encontraba entre los $130$ y $150$ km/s con variaciones entre $10$ y $30$ km/s. En el presente tenemos una media de $74.7$ km/s con desviación de $33.9$ km/s. 
+Pasando a las velocidades, empezando con la velocidad circular máxima. Podemos apreciar que las velocidades circulares van de los rangos de los $22.82$km/s hasta los $1001.91$km/s donde vemos la gran mayoría de los halos en los rangos de $100$km/s y $175$km/s para los $z$ altos y entre los $50$km/s y $175$km/s mas al presente, como se muestra en las figuras \ref{fig:Canon-VelMaxDistSep} y \ref{fig:Canon-VelMaxDist}. Lo que podemos ver en la figura \ref{fig:Canon-VelMaxStats} es que la velocidad  media disminuye rápidamente desde $150.13$km/s con una desviación de $26.76$km/s en $z=15$ hasta que alcanza $74.77$km/s con una desviación de $33.90$km/s en $z=0$.
+
+% Pasando a las velocidades, empezando con la velocidad circular máxima, en las figuras \ref{fig:VelMaxDistSep} y \ref{fig:VelMaxDist} podemos ver que un pequeña parte de los halos tienen velocidades mayores a $200$ km/s a lo largo de la evolución del Universo. La mayor parte tienen velocidades entre $40$ y $150$km/s. Algo que se observa en la figura \ref{fig:VelMaxStats} es que la velocidad media disminuye conforme avanza el tiempo, pero también vemos un aumento en la diversidad de velocidades que hay. La media en un universo temprano se encontraba entre los $130$ y $150$ km/s con variaciones entre $10$ y $30$ km/s. En el presente tenemos una media de $74.7$ km/s con desviación de $33.9$ km/s. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.75\linewidth]{RunCanonica/VelMax_Dist_RunCanonicaSep.png}
-    \caption[Velocidad circular máxima en la evolución de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra la velocidad circular máxima conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$.}
-    \label{fig:VelMaxDistCanonRunSep}
+    \caption[Velocidad circular máxima en la evolución de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra la velocidad circular máxima conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$. Se tienen las distribuciones en los diferentes redshifts empezando en $z=17$ en la parte superior izquierda y terminado en $z=0$ en la parte inferior derecha.}
+    \label{fig:Canon-VelMaxDistSep}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.5\linewidth]{RunCanonica/VelMax_Dist_RunCanonica.png}
-    \caption[Distribución de la velocidad circular máxima de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Comparación de las distribuciones de la velocidad circular máxima de los halos de materia oscura de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$.}
-    \label{fig:VelMaxDistCanonRun}
+    \caption[Distribución de la velocidad circular máxima de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Mostramos la cantidad de halos de materia oscura en los diferentes rangos de circular máxima en un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$.}
+    \label{fig:Canon-VelMaxDist}
 \end{figure}
 
 \begin{figure}[H]
@@ -123,24 +131,25 @@ Pasando a las velocidades, empezando con la velocidad circular máxima, en las f
     \includegraphics[width = 0.4\linewidth]{RunCanonica/VelMax_Mean_RunCanonica.png}
     \includegraphics[width = 0.4\linewidth]{RunCanonica/VelMax_Std_RunCanonica.png}
     \caption[Media y desviación estándar de la velocidad circular máxima de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize En la izquierda mostramos la media de la velocidad circular máxima de los halos de materia oscura y en la derecha se muestra su desviación estándar a lo largo de la evolución del Universo.}
-    \label{fig:VelMaxStatsCanonRun}
+    \label{fig:Canon-VelMaxStats}
 \end{figure}
- 
-Para terminar de hablar de la dinámica interna del halo, las figuras \ref{fig:VelDispDistCanonRunSep} \ref{fig:VelDispDistCanonRun} nos muestran las distribuciones de la dispersión de velocidades. Observamos un comportamiento similar a la velocidad máxima circular, donde vemos casos pocos situaciones con dispersiones mayores de $150$ km/s. Ademas, si observamos la figura \ref{fig:VelDispStatsCanonRun}, podemos apreciar una disminución en la dispersion de velocidades media similar a la media de la velocidad circular máxima. En este caso vemos que la dispersión de velocidades media varia desde $86.5$ km/s en el pasado, hasta $37$ km/s en el presente. 
 
+Ahora hablemos de la dispersion de las velocidades de los halos de materia oscura. La dispersión de velocidades de estos halos esta en los rangos de $12.78$km/s a los $619.79$km/s a lo largo de la evolución de los halos. Vemos en las figuras \ref{fig:Canon-VelDispDistSep} y \ref{fig:Canon-VelDispDist} que en los $z$ altos vemos que que la mayor parte de los halos se encuentran en el rango de los $60$km/s a los $100$km/s con picos en los $183.94$km/s, mientras que en los $z$ bajos vemos los rango que van de $50$km/s y $80$km/s con los picos entre los $355.62$km/s y $619.79$km/s. En la figura \ref{fig:Canon-VelDispStats} observamos que la dispersión de velocidades media disminuye desde los $85.25$km/s con una desviación de $13.09$km/s en $z=15$ a $37.08$km/s con una desviación de $18.69$km/s en $z=0$.
+
+% Para terminar de hablar de la dinámica interna del halo, las figuras \ref{fig:VelDispDistSep} \ref{fig:VelDispDist} nos muestran las distribuciones de la dispersión de velocidades. Observamos un comportamiento similar a la velocidad máxima circular, donde vemos casos pocos situaciones con dispersiones mayores de $150$ km/s. Ademas, si observamos la figura \ref{fig:VelDispStats}, podemos apreciar una disminución en la dispersion de velocidades media similar a la media de la velocidad circular máxima. En este caso vemos que la dispersión de velocidades media varia desde $86.5$ km/s en el pasado, hasta $37$ km/s en el presente. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.75\linewidth]{RunCanonica/VelDisp_Dist_RunCanonicaSep.png}
-    \caption[Dispersión de velocidades en la evolución de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra la dispersión de velocidades conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$.}
-    \label{fig:VelDispDistCanonRunSep}
+    \caption[Dispersión de velocidades en la evolución de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Se muestra la dispersión de velocidades conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$.Se tienen las distribuciones en los diferentes redshifts empezando en $z=17$ en la parte superior izquierda y terminado en $z=0$ en la parte inferior derecha.}
+    \label{fig:Canon-VelDispDistSep}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.5\linewidth]{RunCanonica/VelDisp_Dist_RunCanonica.png}
-    \caption[Distribución de la dispersión de velocidades de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Comparación de las distribuciones de la dispersión de velocidades de los halos de materia oscura de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$.}
-    \label{fig:VelDispDistCanonRun}
+    \caption[Distribución de la dispersión de velocidades de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize Mostramos la dispersion de velocidades de los halos de materia oscura en un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$.}
+    \label{fig:Canon-VelDispDist}
 \end{figure}
 
 \begin{figure}[H]
@@ -148,12 +157,10 @@ Para terminar de hablar de la dinámica interna del halo, las figuras \ref{fig:V
     \includegraphics[width = 0.4\linewidth]{RunCanonica/VelDisp_Mean_RunCanonica.png}
     \includegraphics[width = 0.4\linewidth]{RunCanonica/VelDisp_Std_RunCanonica.png}
     \caption[Media y desviación estándar de la dispersión de velocidades de un Universo $\Omega_\lambda = 0.691 $, $\Omega_0 = 0.309$]{\footnotesize En la izquierda mostramos la media de la dispersión de velocidades de los halos de materia oscura y en la derecha se muestra su desviación estándar a lo largo de la evolución del Universo.}
-    \label{fig:VelDispStatsCanonRun}
+    \label{fig:Canon-VelDispStats}
 \end{figure}
- 
 
 Finalmente, la figura \ref{fig:CanonRunDensityMap} muestra a lo que conocemos como la \emph{Cosmic Web} vista desde un plano. Se ve el mapa de densidad de la simulación del Universo en diferentes redshifts. En los redshift altos (viendo mas al pasado) se observan nubes difusas donde no hay una estructura, mientras que los redshift bajos (mas al presente) se observan estructuras mejor definidos y con el tempo vemos que hay un aumento en la cantidad de estructura que se observa.
-
 
 \begin{figure}[H]
     \centering
@@ -173,7 +180,9 @@ Finalmente, la figura \ref{fig:CanonRunDensityMap} muestra a lo que conocemos co
     \label{fig:CanonRunDensityMap}
 \end{figure}
 
-
+%====================================================================================================================
+%=====================================  RUN INVERTIDA  ==============================================================
+%====================================================================================================================
 \subsection{Universo con cosmología  \texorpdfstring{$\Omega_\lambda = 0.309$, $\Omega_0 = 0.691$ }{Omega lambda = 0.309, Omega 0 = 0.691} }
 Hemos estudiado un Universo con las densidades mas aceptadas, pero como cambia si las densidades cambian, para este caso que sucede si invertimos las densidades pero dejamos el Universo plano. Primeramente podemos apreciar en la figura \ref{fig:Invertida-TotalHalos} que los halos se empiezan a formar en redshift $z=14$ pero tiene un comportamiento similar a la cosmología anterior, teniendo el pico en la cantidad de halos alrededor del redshift $z=2$. 
 
@@ -184,7 +193,7 @@ Hemos estudiado un Universo con las densidades mas aceptadas, pero como cambia s
     \label{fig:Invertida-TotalHalos}
 \end{figure}
 
-La distribución de masa de los halos se ve en la figura \ref{fig:Invertida-MassDist} a largo de la evolución. Podemos ver poca estructura con masas mayores a $10^{12}M_\odot$ y mucha con masas entre $10^{10.3}$ y $10^{11}M_\odot$. Ademas en  \ref{fig:Invertida-MassStats} vemos que la media muestra un incremento en la masa de los halos, el que va de $10^{10.8} M\odot$ en $z=13$ hasta $10^{11.1}M_\odot$ en $z=0$. Esto es un incremento de aproximadamente un orden de magnitud. Mientras la desviación tiene un incremento aproximado de $10^{0.1}M_\odot$ en $z=13$ a $10^{0.5}M_\odot$ en $z=0$. 
+La distribución de masa de los halos se ve en la figura \ref{fig:Invertida-MassDist} a largo de la evolución. Podemos ver poca estructura con masas mayores a $10^{12}M_\odot$ y mayor parte de la masa entre $10^{10.3}$ y $10^{11}M_\odot$. Ademas en  \ref{fig:Invertida-MassStats} vemos que la media muestra un incremento en la masa de los halos, el que va de $10^{10.8} M\odot$ en $z=13$ hasta $10^{11.1}M_\odot$ en $z=0$. Esto es un incremento de aproximadamente un orden de magnitud. Mientras la desviación tiene un incremento aproximado de $10^{0.1}M_\odot$ en $z=13$ a $10^{0.5}M_\odot$ en $z=0$. 
 
 \begin{figure}[H]
     \centering
@@ -325,7 +334,9 @@ La figura \ref{fig:Invertida-DensityMap} muestra la el mapa de densidad de un Un
     \label{fig:Invertida-DensityMap}
 \end{figure}
 
-
+%====================================================================================================================
+%=====================================  RUN HALF COSMO  =============================================================
+%====================================================================================================================
 \subsection{Universo con cosmología \texorpdfstring{$\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$ }{Omega lambda = 0.5, Omega 0 = 0.5} }
 
 Hemos visto que como se comporta un Universo con las densidades mas aceptadas y cuando estas se invierten. Ahora veamos un Universo con las densidades iguales ($\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$). Comencemos viendo como se afecta la cantidad de halos. La figura \ref{fig:HalfCosmo-TotalHalos} muestra que los primeros halos aparecen en $z=15$, además muestra que el máximo de halos en las simulaciones que se alcanza fue de $26242$ halos en $z=1.5$. Observamos un comportamiento similar a las cosmologías anteriores donde vemos un crecimiento rápido hasta que alcanza un máximo y después empieza a disminuir.
@@ -476,4 +487,7 @@ La figura \ref{fig:HalfCosmo-DensityMap} muestra la el mapa de densidad de un Un
     \label{fig:HalfCosmo-DensityMap}
 \end{figure}
 
+%====================================================================================================================
+%=====================================  RUN INVERTIDA  ==============================================================
+%====================================================================================================================
 \section[Cosmología Sub-Crítica \texorpdfstring{$\Omega < 1$}{Omega < 1}]{Cosmología Sub-Crítica \texorpdfstring{$\Omega < 1$}{Omega < 1}}
