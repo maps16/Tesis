@@ -7,7 +7,7 @@ from glob import glob
 
 fig ,ax = plt.subplots( nrows = 1, ncols = 1, figsize = ( 5, 5 ) )
 
-run = "RunHalfCosmo"
+run = "RunHighLam"
 data = "subhalo"
 namepath = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/" + run + "/" + data
 
@@ -30,14 +30,14 @@ for i in arch:
         NTsubh = z['Header'].attrs['Nsubhalos_Total']
         redSh = z['Header'].attrs['Redshift']
         Nsubh.append(NTsubh)
-        redS. append(redSh)
+        redS.append(redSh)
         print('Corrio ' , a , ', Total =' , NTsubh, ', z=',redSh )
         z.close()
         #j += 1
     else:
         print('Satlo del archivo ' + a )
         z.close()
-
+print('Primeros Halos en z= ', round( max(redS), 0), ', Total de Corridas =', len(redS)  )
 #Nsubh = np.array( (redS, Nsubh), dtype=np.int32)
 # print(redS, Nsubh)
 ax.plot(redS, Nsubh,'o-')
@@ -45,7 +45,7 @@ ax.plot(redS, Nsubh,'o-')
 fig.suptitle('Evolución del número de halos total')
 ax.set_ylabel('Total Halos')
 ax.set_xlabel('Redshift (z)')
-ax.set_xlim(15.5, -0.5)
+ax.set_xlim(round( max(redS), 0 )+.5, -0.5)
 
 fig.tight_layout()
 plt.savefig('Documento/images/'+run+'/TotalHalos_'+run+'.png')

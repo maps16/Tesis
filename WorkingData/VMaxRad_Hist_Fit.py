@@ -1,6 +1,7 @@
 # Librerias
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.colors as cplt
 import h5py as h5
 from glob import glob
 from scipy.stats import norm as scp
@@ -9,8 +10,11 @@ from scipy.stats import norm as scp
 #NUM_COLORS = 5
 fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='VMaxRadDistCanonRunSep' )
 fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='VMaxRadDistCanonRun', figsize=(5.5,5.5) )
-NUM_COLORS = 20#len(arch)
-cm =  plt.get_cmap('tab20')  # type: ignore
+NUM_COLORS = 40#len(arch)
+cm1 = plt.cm.tab20(np.linspace(0,1,20))   # type: ignore
+cm2 = plt.cm.tab20b(np.linspace(0,1,20))  # type: ignore
+cmT = np.vstack((cm1, cm2))
+cm  = cplt.LinearSegmentedColormap.from_list('Tab30', cmT)
 ax2.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
 
 def plotAx(pos, pdata, nameData, num_bin, *param):
@@ -55,7 +59,7 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
 
 
 # Localizacion de datos
-sim = 'RunCanonica'
+sim = 'RunHighLam'
 data_Name = 'subhalo'                                                   # Tipo de Dato
 path = '/home/martin/Documentos/Tesis/WorkingData/StandardResolution'   # Ubicacion
 # Identtificando el snapshot 017 del catalogo de halos
@@ -99,18 +103,19 @@ fig.supxlabel('Kpc')
 fig.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
 # fig.tight_layout()
 ax.flat[-1].axis('off')  # type: ignore Temporalmente
-# fig.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'Sep.png')
+# ax.flat[-2].axis('off')  # type: ignore Temporalmente
+fig.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'Sep.png')
 
 
 plt.figure('VMaxRadDistCanonRun')
 plt.title('Radio de la velocidad circular máxima')
-ax2.legend(loc='best')
-ax2.set_xlim(-10,460)
-ax2.set_ylim(-25,5500)
+ax2.legend(loc='best', ncol=2)
+ax2.set_xlim(-5,520)
+ax2.set_ylim(-50,5400)
 ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('Kpc')
 fig2.tight_layout( rect=(0.0, 0, 1, 1.0) )
-# fig2.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'.png')
+fig2.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'.png')
 
 # plt.close('all')
 plt.show()

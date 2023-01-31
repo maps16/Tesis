@@ -9,11 +9,17 @@ fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.5,5.5) )
 fig2, ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.5,5.5) )
 
 # Loc de archivos para trabajar
-sim = 'RunCanonica'
+sim = 'RunHighLam'
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
 run = range(1) #['WorkingData/StandardResolution/RunCanonica']
+
+# Extableciendo/Limpiendo los arrays para diferentes valores de interes
+mean = []       # Media
+std  = []       # Desviacion Estandar
+z = []          # Redshift
+nameParam = None
 
 # Corriendo sobre las diferentes cosmologias
 for x in run:
@@ -23,11 +29,6 @@ for x in run:
     #Checar todos los archivos
     arch = glob(namepath + '/*')
     arch.sort()
-
-    # Extableciendo/Limpiendo los arrays para diferentes valores de interes
-    mean = []       # Media
-    std  = []       # Desviacion Estandar
-    z = []          # Redshift
 
     # Iterar sobre todos los archivos
     for i in arch:
@@ -61,22 +62,22 @@ for x in run:
         file_data.close()
 
     if len(mean) != 0 : 
-        ax1.plot(z, mean, label=nameParam, marker='o') # type: ignore
+        ax1.plot(z, mean, label=nameParam, marker='o') 
     if len(std) != 0: 
-        ax2.plot(z, std, label=nameParam, marker='o')  # type: ignore 
+        ax2.plot(z, std, label=nameParam, marker='o')  
 
 ax1.set_xlabel('z')
 ax2.set_xlabel('z')
 ax1.set_ylabel('$\mu$ (km/s)')# type: ignore
 ax2.set_ylabel('$\sigma$ (km/s)')# type: ignore
-ax1.set_xlim((17.5,-0.2))
-ax2.set_xlim((17.5,-0.2))
+ax1.set_xlim(round(max(z), ndigits=0)+0.5,-0.2)
+ax2.set_xlim(round(max(z), ndigits=0)+0.5,-0.2)
 ax1.legend(loc='best')
 ax2.legend(loc='best')
 
 
 fig1.tight_layout()
-# fig1.savefig('Documento/images/'+sim+'/VelMax_Mean_'+sim+'.png')
+fig1.savefig('Documento/images/'+sim+'/VelMax_Mean_'+sim+'.png')
 fig2.tight_layout()
-# fig2.savefig('Documento/images/'+sim+'/VelMax_Std_'+sim+'.png')
+fig2.savefig('Documento/images/'+sim+'/VelMax_Std_'+sim+'.png')
 plt.show()

@@ -1,6 +1,7 @@
 # Librerias
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.colors as cplt
 import h5py as h5
 from glob import glob
 from scipy.stats import norm as scp
@@ -8,9 +9,12 @@ from scipy.stats import norm as scp
 # Creando Figura para plot
 #NUM_COLORS = 5
 fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='HalfMassRad-Dist-Sep' )
-fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='HalfMassRad-Dist', figsize=(5.5,5.5) )
-NUM_COLORS = 20#len(arch)
-cm =  plt.get_cmap('tab20')  # type: ignore
+fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='HalfMassRad-Dist', figsize=(6.5,6.5) )
+NUM_COLORS = 40#len(arch)
+cm1 = plt.cm.tab20(np.linspace(0,1,20))   # type: ignore
+cm2 = plt.cm.tab20b(np.linspace(0,1,20))  # type: ignore
+cmT = np.vstack((cm1, cm2))
+cm  = cplt.LinearSegmentedColormap.from_list('Tab30', cmT)
 ax2.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
 
 def plotAx(pos, pdata, nameData, num_bin, *param):
@@ -55,11 +59,11 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
 
 
 # Localizacion de datos
-sim = 'RunCanonica'
+sim = 'RunHighLam'
 data_Name = 'subhalo'                                                   # Tipo de Dato
 path = '/home/martin/Documentos/Tesis/WorkingData/StandardResolution'   # Ubicacion
 # Identtificando el snapshot 017 del catalogo de halos
-archivos = glob( path + '/' + sim + '/' + data_Name + '/*.hdf5')
+archivos = glob(path + '/' + sim + '/' + data_Name + '/*.hdf5')
 archivos.sort()
 
 temp_exit = 0
@@ -98,19 +102,20 @@ fig.supxlabel('log$_{10}$Kpc')
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
 fig.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
 # plt.tight_layout()
-# ax.flat[-1].axis('off')  # type: ignore Temporalmente
-# fig.savefig('Documento/images/'+sim+'/HalfMassRad_Dist_'+sim+'Sep.png')
+ax.flat[-1].axis('off')  # type: ignore Temporalmente
+# ax.flat[-2].axis('off')  # type: ignore Temporalmente
+fig.savefig('Documento/images/'+sim+'/HalfMassRad_Dist_'+sim+'Sep.png')
 
 
 plt.figure('HalfMassRad-Dist')
 plt.title('Radio que contine la mitad de la masa')
-ax2.legend(loc='best')
-ax2.set_xlim(0.2, 2.8)
-ax2.set_ylim(-15,2200)
+ax2.legend(loc='best', ncol=2, columnspacing=0.5 )
+ax2.set_xlim(0.20, 2.8)
+ax2.set_ylim(-15,2400)
 ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('log$_{10}$ Kpc')
 fig2.tight_layout()
-# fig2.savefig('Documento/images/'+sim+'/HalfMassRad_Dist_'+ sim +'.png')
+fig2.savefig('Documento/images/'+sim+'/HalfMassRad_Dist_'+ sim +'.png')
 
 # plt.close('all')
 plt.show()

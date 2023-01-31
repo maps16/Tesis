@@ -1,6 +1,7 @@
 # Librerias
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.colors as cplt
 import h5py as h5
 from glob import glob
 from scipy.stats import exponnorm as scp
@@ -9,8 +10,11 @@ from scipy.stats import exponnorm as scp
 #NUM_COLORS = 5
 fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='VelDispDistCanonRunSep' )
 fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='VelDispDistCanonRun', figsize=(5.5,5.5) )
-NUM_COLORS = 20#len(arch)
-cm =  plt.get_cmap('tab20')  # type: ignore
+NUM_COLORS = 40#len(arch)
+cm1 = plt.cm.tab20(np.linspace(0,1,20))   # type: ignore
+cm2 = plt.cm.tab20b(np.linspace(0,1,20))  # type: ignore
+cmT = np.vstack((cm1, cm2))
+cm  = cplt.LinearSegmentedColormap.from_list('Tab30', cmT)
 ax2.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
 
 def plotAx(pos, pdata, nameData, num_bin, *param):
@@ -54,7 +58,7 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
 
 
 # Localizacion de datos
-sim = 'RunCanonica'
+sim = 'RunHighLam'
 data_Name = 'subhalo'                                                   # Tipo de Dato
 path = '/home/martin/Documentos/Tesis/WorkingData/StandardResolution'   # Ubicacion
 # Identtificando el snapshot 017 del catalogo de halos
@@ -98,18 +102,19 @@ fig.supxlabel('km/s')
 fig.tight_layout( w_pad = 0.09 )
 # fig.tight_layout()
 ax.flat[-1].axis('off') # type: ignore
-# fig.savefig('Documento/images/'+sim+'/VelDisp_Dist_'+sim+'Sep.png')
+# ax.flat[-2].axis('off') # type: ignore
+fig.savefig('Documento/images/'+sim+'/VelDisp_Dist_'+sim+'Sep.png')
 
 
 plt.figure('VelDispDistCanonRun')
 fig2.suptitle('Dispersión de velocidades')
-ax2.legend(loc='best')
-# ax2.set_xlim(0,400)
-ax2.set_ylim(-50,10750)
+ax2.legend(loc='best', ncol=2)
+ax2.set_xlim(5,680)
+ax2.set_ylim(-75,10500)
 ax2.set_ylabel("Número de halos")
 ax2.set_xlabel('km/s')
 fig2.tight_layout(rect=(0.01, 0, 1, 1.0))
-# fig2.savefig('Documento/images/'+sim+'/VelDisp_Dist_'+sim+'.png')
+fig2.savefig('Documento/images/'+sim+'/VelDisp_Dist_'+sim+'.png')
 
 # plt.close('all')
 plt.show()
