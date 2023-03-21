@@ -18,7 +18,9 @@
 \backcite {2001NewA....6...79S}{{9}{2}{chapter.2}}
 \backcite {2021MNRAS.506.2871S}{{9}{2}{chapter.2}}
 \backcite {2005Natur.435..629S}{{10}{2.1}{section*.7}}
-\backcite {2015MNRAS.450.1937C, 2015MNRAS.446..521S}{{10}{2.1}{section*.8}}
-\backcite { 2013ApJS..208...20B, 2020A&A...641A...1P}{{10}{2.1}{section*.8}}
-\backcite {2021MNRAS.506.2871S}{{11}{2.3}{section.2.3}}
-\backcite {2020A&A...641A...1P}{{13}{3.1}{section.3.1}}
+\backcite {2015MNRAS.450.1937C, 2015MNRAS.446..521S}{{11}{2.1}{section*.9}}
+\backcite { 2013ApJS..208...20B, 2020A&A...641A...1P}{{11}{2.1}{section*.9}}
+\backcite {Binney1988-rs}{{12}{2.3}{section.2.3}}
+\backcite {Binney1988-rs}{{13}{2.3}{equation.2.3.5}}
+\backcite {2021MNRAS.506.2871S}{{14}{2.4}{section.2.4}}
+\backcite {2020A&A...641A...1P}{{15}{3.1}{section.3.1}}

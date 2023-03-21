@@ -109,15 +109,14 @@ Como vemos que las colisiones entre estrellas de una galaxia son raras, podemos 
 
 \noindent y $f(\mathbf{r},\mathbf{v},t)$ es la densidad de una partícula en el espacio fase.
 
-En la práctica, no resolvemos CBE, sino que representamos el Universo como un sistema de N partículas, por lo tanto, se transforma en un problema de N-Cuerpos donde se siguen las ecuaciones de movimiento de Newton. Notemos que ahora es necesario introducir un radio de suavizado para pequeñas distancias con el objetivo de evitar que en el caso de una colisión de dos cuerpos, las partículas no salgan disparadas y para mantener el sistema sin colisiones. Según el número de partículas con el que se va a trabajar, va tener un efecto sobre como escoger el radio de suavizado.
-
+% En la práctica, no resolvemos CBE, sino que representamos el Universo como un sistema de N partículas, por lo tanto, se transforma en un problema de N-Cuerpos donde se siguen las ecuaciones de movimiento de Newton. Notemos que ahora es necesario introducir un radio de suavizado para pequeñas distancias con el objetivo de evitar que en el caso de una colisión de dos cuerpos, las partículas no salgan disparadas y para mantener el sistema sin colisiones. Según el número de partículas con el que se va a trabajar, va tener un efecto sobre como escoger el radio de suavizado.
 
 
 % Pero lo que se realiza para simular nuestro Universo no es resolver CBE, si no que optamos por trabajar con un sistema de N-Cuerpos y ver 
 
 % Es muy complicado resolver este sistema de ecuaciones. La solución a la que se a llegado es construir códigos para simulaciones de N-Cuerpos. Existen grandes cantidades de códigos para simulaciones de N-Cuerpos, pero se diferencian en como realizan los cálculos para el movimiento gravitacional. Además de que siempre están buscando la forma de hacer los simuladores mas rápidos y eficientes.
 
-Seguir esta ruto presenta algunos retos tanto computacionales como físicos ya que debemos conocer bien la densidad en el espacio fase. Esta cantidad es  prácticamente imposible de conocer para el Universo temprano, aunque se hacen algunos intentos por extrapolar posibles formas a partir de estructuras que vemos en el cielo actualmente (ver por ejemplo, [Binney], capítulo 7). 
+Seguir esta ruta presenta algunos retos tanto computacionales como físicos ya que debemos conocer bien la densidad en el espacio fase. Esta cantidad es prácticamente imposible de conocer para el Universo temprano, aunque se hacen algunos intentos por extrapolar posibles formas a partir de estructuras que vemos en el cielo actualmente (ver por ejemplo, [\cite[Binney]{Binney1988-rs} ], capítulo 7). 
 
 La solución que se ha preferido es aproximar la dinámica mediante códigos de N-cuerpos, en los cuales se supone una interacción entre partículas dada por la interacción gravitacional clásica por pares de partículas en las cuales se agrega un radio de suavizado para evitar dividir por cero cuando se acercan mucho los cuerpos. 
 
@@ -127,17 +126,33 @@ Existen grandes cantidades de códigos para simulaciones de N-Cuerpos, pero se d
 %==================================================================================================
 
 \section{GADGET-4}
-Los código GADGET han sido un de los mas utilizados en el estudió de formación de estructura y estudio de la materia oscura en las ultimas décadas. Han existido varias iteraciones de los códigos GADGET, siendo GADGET-4 la mas reciente.
+% Las simulaciones numéricas permiten el estudio detallado de formación de estructura y conecta a un Universo simple con alto corrimiento al rojo con uno con estructura compleja como la que se observa en la actualidad. 
 
-La motivación detrás de la nueva versión de GADGET-4
-\cite{2021MNRAS.506.2871S}
+Los código GADGET han sido un de los mas utilizados en el estudió de formación de estructura y estudio de la materia oscura en las ultimas dos décadas. Han existido varias iteraciones de los códigos GADGET, siendo GADGET-4 la mas reciente siendo una renovación completa del simulador. 
+
+La motivación detrás de la nueva versión de GADGET-4 fue construir un simulador con el cual se pudieran tener simulaciones mas grandes y con mayor precisión. Esto implica tener cálculos con gran poder estadístico y mayor resolución y para lograr esto, GADGET hace uso de métodos de paralelización avanzados. Pero debido a la necesidad de tener simulaciones cada vez mas grandes, se ha buscado mejorar escalabilidad del cogido GADGET \cite{2021MNRAS.506.2871S}.
+
+Para esto se busco quitar las limitaciones para grandes simulaciones y buscando que tenga un buen rendimiento en condiciones de alto rango dinámico en escalas de tiempo. También busca mejorar la precisión en los cálculos de fuerza gravitacional y hidrodinámica. Finalmente se busco modernizar el código, quitando partes obsoletas y mejorando la legibilidad y la modularidad del código con el objetivo de que los usuarios puedan desarrollar con facilidad extensiones para este. 
+
+ 
+Una de las características que separa a GADGET de otros simuladores, es que es un código flexible multi-propósito que no restringe el tipo de simulaciones, sino que da prioridad a la flexibilidad  sobre la optimización para casos específicos. Para esto se implementaron un buen numero de nuevos métodos numéricos. También se introdujeron nuevas funcionalidades al código en la forma de la introducción de código para la búsqueda de grupos y sub-estructura (\textit{Friends of Friends} (FOF), \textit{SUBFIND}) asi como un \textit{Merger Tree} que corre junto a la simulación. Se incluyo una nueva variación de un buscador de sub-estructura, \textit{SUBFIND-HBT}, que usa la información de sub-halos del pasado en consideración, lo que permite una forma robusta y eficiente de seguir la sub-estructura en el tiempo incluso después de unirse a otro halo. GADGET también es capaz de generar sus condiciones iniciales ya sea usando la aproximación de Zeldovich o con la teoría de la perturbación lagrangiana de segundo orden (2PLT)\cite{2021MNRAS.506.2871S}.
 
 
 
+  
+
+\subsubsection{Cálculos de Gravedad de GADGET-4}
+
+Tenemos un potencial $\Phi (\mathbf{x})$ producido por $N$ partículas con masas $m_j$ en coordenadas $x_j$ en el dominio con dimensiones $L_x \times L_y \times L_z$ que se replica periódicamente en las tres direcciones esta dado por:
+
+\begin{equation}
+    \Phi (\mathbf{x}) = - \sum_{j=1}^{N} \sum_{\mathbf{n}=-\infty}^{\infty} \frac{m_j}{|\textbf{x}_j-\textbf{x}+\textbf{q_n}| + |\epsilon(\textbf{x}_j-\textbf{x}+\textbf{q_n})|} - m_j\varphi_{\mathbf{n}}(\mathbf{x})
+    \label{eq:Grav_Pot_1}
+\end{equation}
+
+donde $\mathbf{q_n}$ denota  vectores de desplazamiento periódico dados por $\mathbf{q_n} = (n_x L_x , n_y L_y ,n_z L_z)$
 
 
-
-\subsubsection{---}
 Esencialmente para resolver el sistema de N-cuerpos, el potencial gravitacional que se usa para calcular el movimiento de las N partículas es el siguiente:
 
 \begin{align}
