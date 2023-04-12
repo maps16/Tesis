@@ -83,9 +83,6 @@ Pero también podemos resolver el problema si trabajamos con el potencial
     \label{eq:potencial-gravitacional}
 \end{equation}
 
-
-
- 
 %==================================================================================================
 %==================================================================================================
 %==================================================================================================
@@ -143,11 +140,11 @@ Una de las características que separa a GADGET de otros simuladores, es que es 
 Tenemos un potencial $\Phi (\mathbf{x})$ producido por $N$ partículas con masas $m_j$ en coordenadas $x_j$ en el dominio con dimensiones $L_x \times L_y \times L_z$ que se replica periódicamente en las tres direcciones esta dado por:
 
 \begin{equation}
-    \Phi (\mathbf{x}) = - \sum_{j=1}^{N} \sum_{\mathbf{n}=-\infty}^{\infty} \frac{m_j}{|\textbf{x}_j-\textbf{x}+\textbf{q_n}| + |\epsilon(\textbf{x}_j-\textbf{x}+\textbf{q_n})|} - m_j\varphi_{\mathbf{n}}(\mathbf{x})
+    \Phi (\mathbf{x}) = - \sum_{j=1}^{N} \sum_{\mathbf{n}=-\infty}^{\infty}  \frac{ m_j }{ |\mathbf{x}_j - \mathbf{x} + \mathbf{q}_n| + |\epsilon ( \mathbf{x}_j - \mathbf{x} + \mathbf{q}_n)| }   - m_j\varphi_{\mathbf{n}}(\mathbf{x})
     \label{eq:Grav_Pot_1}
 \end{equation}
 
-donde $\mathbf{q_n}$ denota  vectores de desplazamiento periódico dados por $\mathbf{q_n} = (n_x L_x , n_y L_y ,n_z L_z)$, donde $\mathbf{n} = (n_x, n_y, n_z)$ son tripletes enteros y la suma sobre $\mathbf{n}$ se extiende sobre todo los tripletes. Se omitió la constante gravitacional $G$ por simplicidad. La contribución del potencial $\varphi_{\mathbf{n}}(\mathbf{x})$ es el de un cubo homogéneo de unidad de masa y extensión $L_x \times L_y \times L_z$ con un desplazamiento $\mathbf{q_n}$. Este termino se agrega para que la suma converja sobre un sistema periódico, de manera que efectivamente se establece neutralidad de carga gravitacional.
+\noindent donde $\mathbf{q_n}$ denota vectores de desplazamiento periódico dados por $\mathbf{q}_n$ $=(n_x L_x $,$ n_y L_y $,$n_z L_z)$ y $\mathbf{n} = (n_x, n_y, n_z)$ son tripletes enteros y la suma sobre $\mathbf{n}$ se extiende sobre todo los tripletes. Se omitió la constante gravitacional $G$ por simplicidad. La contribución del potencial $\varphi_{\mathbf{n}}(\mathbf{x})$ es el de un cubo homogéneo de unidad de masa y extensión $L_x \times L_y \times L_z$ con un desplazamiento $\mathbf{q_n}$. Este termino se agrega para que la suma converja sobre un sistema periódico, de manera que efectivamente se establece neutralidad de carga gravitacional.
 
 La función $\epsilon(r)$ describe a la ley de suavizado gravitacional. Debemos asumir que el suavizado tiene un rango finito, donde $\epsilon(r)=0$ para $r\geq r_0$ y donde $r_0$ es mas pequeño que la mitad de la dimensión mas pequeña de la caja. En GADGET se ha adoptado un potencial donde el potencial de una partícula puntual se remplaza por un potencial con una distribución de masa suave con bordes en $h=2.8\epsilon_0$, donde $\epsilon_0$ es el radio de suavizado. La ley de suavizado esta dada por:
 
@@ -156,16 +153,29 @@ La función $\epsilon(r)$ describe a la ley de suavizado gravitacional. Debemos 
     \label{eq:Ley-Suavizado}
 \end{equation}
 
-Ahora definimos $\mathbf{q^*_j}$
-
-Esencialmente para resolver el sistema de N-cuerpos, el potencial gravitacional que se usa para calcular el movimiento de las N partículas es el siguiente:
+Ahora definamos $\mathbf{q}^*_j(x)$ como el desplazamiento periódico que minimiza la distancia de $\mathbf{x}_j+\mathbf{q}_n$ a $x$ (es decir selecciona la ubicación de la partícula $j$ imagen periódica mas cercana a la posición $\mathbf{x}$), podemos escribir el potencial como:
+% Esencialmente para resolver el sistema de N-cuerpos, el potencial gravitacional que se usa para calcular el movimiento de las N partículas es el siguiente:
 
 \begin{align}
     \Phi (\textbf{x}) = &- \sum_{j=1}^{N} \frac{m_j}{|\textbf{x}_j-\textbf{x}+\textbf{q}^*_j| + |\epsilon(\textbf{x}_j-\textbf{x}+\textbf{q}^*_j)|} \nonumber \\
-    &+ \sum_{j=1}^{N} m_j \psi (\textbf{x}_j-\textbf{x}+\textbf{q}^*_j)
+    &+ \sum_{j=1}^{N} m_j \psi (\textbf{x}_j-\textbf{x}+\textbf{q}^*_j) \label{eq:Pot}
 \end{align}
 
-donde la primera parte es el potencial gravitacional de newton con una corrección para considerar el radio de suavizado y el segundo termino en potencial se introduce como una corrección para el suavizado de imágenes distantes.
+\noindent donde la primera parte es el potencial gravitacional de newton con una corrección para considerar el radio de suavizado y el segundo termino en potencial se introduce como una corrección para el suavizado de imágenes distantes. Este es el potencial que GADGET-4 usa como base para los cálculos de gravedad, pero como GADGET es un simulador diseñado para abarcar una amplia gama de necesidades, sus desarrolladores implementaron diversos algoritmos para la forma en la que se realizaron los cálculos.
 
-\cite{springler white}
-\subsubsection{---}
+
+\subsubsection{Buscador de grupos y sub-halos}
+
+Las simulaciones cosmológicas son una herramienta util para simular el movimiento de cuerpos en nuestro Universo, pero ocupamos mas herramientas para poder describir las propiedades del Universo. En GADGET-4 se han implementado una diversa cantidad de herramientas con las que podemos estudiar nuestras simulaciones y muchas de estas corren junto a la simulación, lo que permite mejores tener mejores resultados. Algunas de las herramientas que tiene GADGET son buscador de grupos y sub-halos, construcción de arboles de fusión, conos de luz, estimación del espectro de potencia y generación de condiciones iniciales. 
+
+La herramienta de nuestro interés fue el buscador de grupos y sub-halos. GADGET tiene tres implementaciones distintas. Se implementó un \textit{Friends of Friends} (\textit{FOF}), un algoritmo \textit{SUBFIND} para buscar sub-estructura ligada gravitacionalmente y nueva variante \textit{SUBFIND-HBT} el cual usa información pasada de miembros del grupos para ver la evolución de los grupos y sub-halos.
+
+\subsubsection{ Friends of Friends (\textbf{FOF}) }
+El algoritmo de FOF organiza los halos en una lista de enlaces. Este empieza poniendo todas las partículas en su propio grupo, luego el se busca todos los pares de partículas con una distancia menor a longitud de enlace $l$. El valor mas común de $l$ es $0.2$ veces la distancia media entre partícula. De esta manera los halos están ligados por contornos de densidad que aproximan sobre-densidades. Cada par que se encuentra con una distancia suficiente pequeña, provoca que los grupos a los que pertenecen se unan.La implementación de GADGET se ha reportado tener mayores velocidades comparados con otras implementaciones en la literatura \cite{2021MNRAS.506.2871S}.
+
+\subsubsection{SUBFIND}
+En la búsqueda de estructuras de materia oscura, el buscador FOF se puede combinar con el algoritmo \textit{SUBFIND}. La idea es checar si los halos encontrados son estructuras ligadas gravitacionalmente. Primero se busca el campo de densidad, donde se busca picos de densidad aislados. De ahi se buscan los puntos sillas que conectan dos picos de densidad. El pico pequeño se registra como un candidato de sub-estructura, el cual se somete a un procedimiento con el cual se verifica que se encuentra ligado gravitacionalmente. 
+
+En la implementación que se realizó en GADGET-4, para la selección de cuales picos son sub-estructura y cuales solo están en el fondo (no forman parte de la sub-estructura), se puede tomar en cuenta la historia de las partículas sobre a cuales halos formo parte en el pasado. Esto lo puede hacer mientras se evoluciona el sistema de la simulación tomando en cuenta a que halos han pertenecido y la suma acumulada del tamaño del halo, mientras que en el si se realiza al terminar la simulación esta información se recolecta de los snapshots en orden temporal. El pico con la mayor suma se identifica como un pico del fondo (no es necesariamente el pico con la mayor cantidad de partículas).
+
+\subsubsection{SUBFIND-HBT}
