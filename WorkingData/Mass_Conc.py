@@ -13,7 +13,7 @@ fig2, ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(6,6) )
 data = 'subhalo'
 dataParam = 'SubhaloMass'
 
-# Ubicanco las carpetas de las diferentes cosmologias
+# Ubicando las carpetas de las diferentes Cosmologias
 run = glob('WorkingData/StandardResolution/*')
 run.sort()
 
@@ -23,21 +23,23 @@ std  = []       # Desviacion Estandar
 z = []          # Redshift
 nameParam = ''
 
+# Corriendo sobre las diferentes Cosmologias
 for x in run:
 
-    # Limpienado las listas para la nueva cosmologia
+    # Limpiando las listas para las nuevas Cosmologias
     mean.clear()
     std.clear()
     z.clear()
 
-    # Identificando todos los archivos dentro de las cosmologias
+    # Identificando todos los archivos dentro de las Cosmologias
     namepath = '/home/martin/Documentos/Tesis/' + x + '/' + data
     arch = glob(namepath + '/*')
     arch.sort()
 
+    # Iterar sobre todos los archivos
     for y in arch:
 
-        # Abrir los  HDF5 
+        # Abrir los HDF5
         file_data = h5.File(y, mode='r')
 
         # Trabajando solo con los archivos que contienen subhalos
@@ -52,12 +54,10 @@ for x in run:
             # Extrayendo el dato deseado
             got_data = file_data['Subhalo'][dataParam][:] * 1e10# type: ignore
             log_data = np.log10(got_data)
-            # print(y.split('/')[-1].split('.')[0])
 
             # Buscando Ajuste
             loc, scale = scp.fit(log_data,)
             mean_cal, std_cal = scp.mean(loc,scale), scp.std(loc,scale) # Calculo de media y std
-            # print(mean_cal,std_cal)
             
             # Guardando los valoares en los arrays
             mean.append(mean_cal)
@@ -66,12 +66,12 @@ for x in run:
             
             print('z=',round(z_cal,ndigits=2),', mean=',round(mean_cal, ndigits=2),', std=',round(std_cal,ndigits=2), sep=' ')    # type: ignore
 
+        file_data.close()
+
     if len(mean) != 0 : 
         ax1.plot(z, mean, label=nameParam, marker='o') 
     if len(std) != 0: 
         ax2.plot(z, std, label=nameParam, marker='o') 
-
-
 
 ax1.set_xlabel('z')
 ax2.set_xlabel('z')
@@ -82,11 +82,8 @@ ax2.set_xlim(round(max(z),0) + 0.5,-0.2)
 ax1.legend(loc='best')
 ax2.legend(loc='best')
 
-
 fig1.tight_layout()
 fig1.savefig('Documento/images/Conc/MassMean_Conc.png')
 fig2.tight_layout()
-# fig2.savefig('Documento/images/Conc/MassStd_Conc.png')
-# plt.close('all')
+fig2.savefig('Documento/images/Conc/MassStd_Conc.png')
 plt.show()
-print('Done')
