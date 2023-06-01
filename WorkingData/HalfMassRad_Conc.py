@@ -52,7 +52,7 @@ for x in run:
             nameParam = r'$\Omega_0=$'+str(Omega0) + ', ' + r'$\Omega_\lambda=$'+str(OmegaL) 
 
             # Extrayendo el dato deseado
-            got_data = np.log10( file_data['Subhalo'][dataParam][:] * 1e03) # type: ignore
+            got_data = ( file_data['Subhalo'][dataParam][:] * 1e03) # type: ignore
             log_data = np.log10(got_data)
 
             # Buscando Ajuste
@@ -63,7 +63,7 @@ for x in run:
             std.append(std_cal)
             z.append(z_cal)
 
-            print('z=',round(z_cal,ndigits=2),', mean=',round(mean_cal, ndigits=2),', std=',round(std_cal,ndigits=2), sep=' ')    # type: ignore
+            # print('z=',round(z_cal,ndigits=2),', mean=',round(mean_cal, ndigits=2),', std=',round(std_cal,ndigits=2), sep=' ')    # type: ignore
 
         file_data.close()
 
@@ -71,6 +71,7 @@ for x in run:
         ax1.plot(z, mean, label=nameParam, marker='o') 
     if len(std) != 0:
         ax2.plot(z, std, label=nameParam, marker='o')
+    print(x.split('/')[-1],', z=',round(z[-1],ndigits=0),', mean=',round(mean[-1],ndigits=2), ', std=', round(std[-1],ndigits=2),', z=',round(z[1],ndigits=0),', mean=',round(mean[1],ndigits=2), ', std=', round(std[1],ndigits=2))
 
 ax1.set_xlabel('z')
 ax2.set_xlabel('z')

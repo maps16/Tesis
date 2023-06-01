@@ -7,7 +7,7 @@ from glob import glob
 
 fig ,ax = plt.subplots( nrows = 1, ncols = 1, figsize = ( 5, 5 ) )
 
-run = "RunHighLam"
+run = "RunNoDE"
 data = "subhalo"
 namepath = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/" + run + "/" + data
 

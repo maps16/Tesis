@@ -50,13 +50,13 @@ for x in run:
             # Guardando los valoares en los arrays
             N_Subhalos.append(N_subh)
             z.append(z_Cal)
-            print('Total =' , N_subh, ', z=',z_Cal )
-                    
+            # print('Total =' , N_subh, ', z=',z_Cal )
+    
         
         file_data.close()
 
-        
-    print('Primeros Halos en z= ', round( max(z), 0), ', Total de Corridas =', len(z), 'Corrio ' , nameParam ,  )
+    # print(max(N_Subhalos))                
+    print('Primeros Halos en z= ', round( max(z), 0), ', Total de Corridas =', len(z), ', Corrio ' , nameParam , ', Max Halos:' , max(N_Subhalos), ', Last Total:' , N_Subhalos[-1]  )
     
     ax.plot(z, N_Subhalos,'o-' , label=nameParam)
 
