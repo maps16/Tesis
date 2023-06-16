@@ -1,0 +1,245 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+
+
+\usetheme{Szeged}
+
+\usecolortheme{dolphin}
+
+
+\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage[spanish, es-tabla, es-nodecimaldot]{babel}
+%\usepackage[utf8]{inputenc}
+\usepackage{mathrsfs}
+\usepackage{amssymb, amsmath, amsthm}
+
+% \usepackage{hyperref}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{gensymb}
+%\usepackage[dvipsnames]{xcolor}
+
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{geometry}
+
+\usepackage{float}
+\usepackage{array}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{pstricks}
+\newrgbcolor{darkgreen}{0 .5 0}
+\newrgbcolor{blues}{0 0 .5}
+\newrgbcolor{morado}{.3984 .1992 .9961}
+\newrgbcolor{cafe}{.5391 .3594 .1797}
+\newrgbcolor{cafeoscuro}{.4 .26 .13}
+\newrgbcolor{darksienna}{0.24, 0.08, 0.08}
+\newrgbcolor{apricot}{0.984, 0.808, 0.694}
+
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%========================================================================================
+%   TITLE PAGE
+%========================================================================================
+
+\title[]{Subestructura en simulaciones de materia oscura} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{L.F. Martín Alejandro Paredes Sosa} % Your name
+\institute[Universidad de Sonora MCF ] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Universidad de Sonora\\ % Your institution for the title page
+\medskip
+\textbf{Director}: Dr. Carlos Calcáneo Roldan \\
+\medskip
+\tiny{Maestría en Ciencias (Física)}\\
+%\textit{\tiny{mapsjr16@gmail.com}} % Your email address
+\medskip
+\tiny{Hermosillo, Sonora a Junio, 2023 }
+}
+\date{} % Date, can be changed to a custom date
+%========================================================================================%========================================================================================%========================================================================================
+
+\begin{document}
+{\setbeamertemplate{headline}{}
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\vspace*{-2.0cm}
+%\includegraphics[scale= 1]{IA_UNAM.png}
+\hspace*{8.5cm}
+\includegraphics[width= 0.2\linewidth]{USON.png}
+
+\end{frame}
+
+%========================================================================================
+\begin{frame}
+    \frametitle{Contenido}
+    
+    \begin{columns}[t]
+        
+        \begin{column}{.5\textwidth}
+            \tableofcontents[sections={1-2}]
+        \end{column}
+
+        \begin{column}{.5\textwidth}
+            \tableofcontents[sections={3-5}]
+
+        \end{column}
+
+    \end{columns}
+
+\end{frame}
+%\begin{frame}
+%
+%\vspace*{-0.25cm}
+%	\frametitle{Contenido} % Table of contents slide, comment this block out to remove it
+%	\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%
+%\end{frame}
+}
+\addtocounter{framenumber}{-1} %Restart frame counter
+
+%========================================================================================
+%   PRESENTATION SLIDES
+%========================================================================================
+
+\section{Introducción}
+	\begin{frame}
+		\frametitle{Introducción}
+		\scriptsize
+		
+		En este trabajo resumimos los resultados de usar una serie de algoritmos, los cuales  podemos llamar colectivamente GADGET, que están disponibles para hacer simulaciones cosmológicas. Mi trabajo principal consistió en aprender a ajustar los modelos necesarios y correr distintos escenarios Cosmológicos para corroborar que las simulaciones pueden servir para discernir el Universo en el que vivimos de una vasta posibilidad de modelos.
+
+		Después de un breve resumen sobre el modelo cosmológico, describimos las técnicas para simular partículas usando GADGET. Presentamos un resumen de todas las simulaciones realizadas y concluimos que efectivamente existen varios indicadores que nos permite distinguir un modelo cosmológico de otro. Esto además permitirá comparar con observaciones del espacio real, así como guiar el tipo de observaciones que se requieren para poder así acercarnos al modelo que mejor describe el Universo el que vivimos.
+		
+	\end{frame}
+
+%========================================================================================
+%========================================================================================
+%========================================================================================
+\section{Modelo Cosmológico}
+
+\subsection{Materia y Energía en el Universo}
+	\begin{frame}
+
+
+
+	\end{frame}
+%========================================================================================
+\subsection{Evidencia astrofísica de la Materia Oscura}
+	\begin{frame}
+
+
+
+	\end{frame}
+%========================================================================================
+\subsection{Características de la Materia Oscura}
+	\begin{frame}
+
+
+
+	\end{frame}
+
+
+%========================================================================================
+%====================== Simulaciones Cosmologicas =======================================
+%========================================================================================
+\section{Simulaciones cosmológicas}
+	\begin{frame}
+
+
+
+	\end{frame}
+%========================================================================================
+\subsection{Grandes Simulaciones}
+	\begin{frame}
+
+
+
+	\end{frame}
+%========================================================================================
+\subsection[La interacción dominante en las simulaciones]{La interacción Dominante}
+	\begin{frame}
+
+
+
+	\end{frame}
+%========================================================================================
+\subsection[Una razón práctica para las simulaciones]{Razón de las Simulaciones}
+	\begin{frame}
+
+
+
+	\end{frame}
+%========================================================================================
+\subsection{GADGET-4}
+	\begin{frame}
+
+
+
+	\end{frame}
+	
+
+
+%========================================================================================
+%========================================================================================
+%========================================================================================
+\section{Halos de Materia Oscura}
+\setcounter{equation}{0}
+	\begin{frame}
+		\frametitle{Halos de Materia Oscura}
+		Con la intención de conocer y diferenciar diferentes cosmologías, en nuestro estudio de los halos de materia oscura, optamos por realizar fue una variedad de simulaciones de materia oscura. Desde simulaciones con cosmologías de Universos planos ($\Omega=1$), asi como cosmologías de universos con densidades sub-criticas ($\Omega < 1$) y super-criticas ($\Omega > 1$). Las simulaciones que realizamos empezaron en un corrimiento al rojo de $z = 63$ hasta un $z = 0$.
+		
+	\end{frame}
+%========================================================================================
+\subsection{Cosmología Plana}
+	\begin{frame}
+
+
+
+	\end{frame}
+
+%========================================================================================
+\subsection{Comologia Sub-Crítica}
+	\begin{frame}
+
+
+
+	\end{frame}
+%========================================================================================
+\subsection{Cosmología Super-Crítica}
+	\begin{frame}
+
+
+
+	\end{frame}
+
+
+%========================================================================================
+%=========================== Conclusion ==========================================
+%========================================================================================
+
+\section{Conclusión}
+	\begin{frame}
+		\frametitle{Conclusión}
+
+
+	\end{frame}
+
+\end{document}
+
+
+
+%========================================================================================
