@@ -55,7 +55,7 @@
 %   TITLE PAGE
 %========================================================================================
 
-\title[]{Subestructura en simulaciones de materia oscura} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[simulaciones de materia oscura]{Subestructura en simulaciones de materia oscura} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author{L.F. Martín Alejandro Paredes Sosa} % Your name
 \institute[Universidad de Sonora MCF ] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
@@ -67,7 +67,7 @@ Universidad de Sonora\\ % Your institution for the title page
 \tiny{Maestría en Ciencias (Física)}\\
 %\textit{\tiny{mapsjr16@gmail.com}} % Your email address
 \medskip
-\tiny{Hermosillo, Sonora a Junio, 2023 }
+\tiny{Hermosillo, Sonora a Agosto, 2023 }
 }
 \date{} % Date, can be changed to a custom date
 %========================================================================================%========================================================================================%========================================================================================
@@ -118,77 +118,134 @@ Universidad de Sonora\\ % Your institution for the title page
 \section{Introducción}
 	\begin{frame}
 		\frametitle{Introducción}
-		\scriptsize
+%		\scriptsize
+%		\tiny
+%		\small
 		
-		En este trabajo resumimos los resultados de usar una serie de algoritmos, los cuales  podemos llamar colectivamente GADGET, que están disponibles para hacer simulaciones cosmológicas. Mi trabajo principal consistió en aprender a ajustar los modelos necesarios y correr distintos escenarios Cosmológicos para corroborar que las simulaciones pueden servir para discernir el Universo en el que vivimos de una vasta posibilidad de modelos.
+		En este trabajo resumimos los resultados de usar GADGET-4, el cual esta disponible para hacer simulaciones cosmológicas. Mi trabajo principal consistió en aprender a ajustar los modelos necesarios y correr distintos escenarios Cosmológicos para corroborar que las simulaciones pueden servir para discernir el Universo en el que vivimos de una vasta posibilidad de modelos.
+		\end{frame}
 
-		Después de un breve resumen sobre el modelo cosmológico, describimos las técnicas para simular partículas usando GADGET. Presentamos un resumen de todas las simulaciones realizadas y concluimos que efectivamente existen varios indicadores que nos permite distinguir un modelo cosmológico de otro. Esto además permitirá comparar con observaciones del espacio real, así como guiar el tipo de observaciones que se requieren para poder así acercarnos al modelo que mejor describe el Universo el que vivimos.
-		
-	\end{frame}
+%		\begin{frame}
+%		Tendremos un breve resumen sobre el modelo cosmológico, luego describiremos las técnicas para simular usando GADGET. Presentamos un resumen de todas las simulaciones realizadas y concluimos que efectivamente existen varios indicadores que nos permite distinguir un modelo cosmológico de otro. Esto además permitirá comparar con observaciones del espacio real, así como guiar el tipo de observaciones que se requieren para poder así acercarnos al modelo que mejor describe el Universo el que vivimos.
+%		
+%	\end{frame}
 
 %========================================================================================
 %========================================================================================
 %========================================================================================
 \section{Modelo Cosmológico}
+	\begin{frame}
+		\frametitle{Modelo Cosmológico}
+		Existe una gran cantidad de evidencia de que el Universo tiene una componente no luminosa conocida como ``materia oscura'' y este no es la materia bariónica habitual (protones, neutrones, electrones, etc), sino alguna partícula cuyas propiedades son desconocidas.
+
+Se han probado muchas escalas en la búsqueda de evidencia de materia oscura: desde la escala cosmológica hasta la escala local de galaxias. En el segundo de estos métodos es el mas favorable debido a que es relativamente mas sencillo extraer información dinámica de los sistemas cercanos. Experimentos en la escala cosmológica como el WMAP, la Misión Planck hacen posibles medidas detalladas de muchos parámetros cosmológicos.
+
+	\end{frame}
+	%========================================================================================
 
 \subsection{Materia y Energía en el Universo}
 	\begin{frame}
-
-
-
+		La cantidad y composición de materia y energía en el Universo es de fundamental en la cosmología. Podemos descomponer la densidad de materia/energía en tres componentes: la aportada por la radiación ($\Omega_{rad}$), la componente de materia ($\Omega_{M}$) y una contribución suave ($\Omega_{\Lambda}$).		
+		\begin{equation}
+			\Omega_o \equiv \frac{\rho_{tot}}{\rho_o} = \Omega_{rad} + \Omega_M + \Omega_{\Lambda}
+		\end{equation}
+Esta elección trata de reflejar los valores medidos actuales, donde la materia y la radiación son componentes evidentes. La contribución de la radiación a la densidad total de energía en el Universo es pequeña,podemos continuar tomando en cuenta solamente $\Omega_{M}$ y $\Omega_{\Lambda}$, donde las observaciones apuntan a que $\Omega_{o}=1\pm 0.1$, $\Omega_{M}\approx 0.3$ y $\Omega_{\Lambda}\approx 0.7$.
 	\end{frame}
+	
 %========================================================================================
+
 \subsection{Evidencia astrofísica de la Materia Oscura}
 	\begin{frame}
-
+		Las primeras evidencias de la materia oscura, fueron en las mediciones de las velocidades de estrellas cercanas, donde concluyó que había de un $30\%$ a $50\%$ mas de materia gravitante de la que es visible. También del estudio de dispersión de velocidades del cúmulo ricos de galaxias requieren de $10$ a $100$ mas masa para que se encuentren unidas. 
+		
+		Estos ejemplos nos ilustran como la dinámica de estrellas, galaxias y cúmulos sirven como una sonda para detectar el contenido de materia en el Universo.
 
 
 	\end{frame}
 %========================================================================================
 \subsection{Características de la Materia Oscura}
+
 	\begin{frame}
-
-
+			La mayor parte de la materia del Universo es ``materia oscura'', la cual no interactúa con los campos electromagnéticos y solo la podemos detectarla por su interacción gravitacional y posiblemente por su interacciones de fuerza débil. Sus efectos sobre la materia ordinaria son espectaculares dado que los pozos de potencial gravitacional de materia oscura canalizan a los bariones formando los lugares de nacimiento de las galaxias visibles. El estudio de estos lugares nos permite estudiar el crecimiento de estructuras de materia oscura conocidas como ``halos''.
 
 	\end{frame}
 
+%========================================================================================
+
+	\begin{frame}
+		El estudio de los halos no es simple y aunque no existe un consenso en la definición de sus propiedades, pero lo definen como un objeto ligado gravitacionalmente. Algunas propiedades con la que caracterizan los halos son la masa, sus velocidades y su tamaño.Sin embargo,cada una de estas cantidades puede referirse a distintos aspectos físicos de la colección de partículas a la que llamamos halos.
+	\end{frame}
 
 %========================================================================================
-%====================== Simulaciones Cosmologicas =======================================
+%====================== Simulaciones Cosmológicas =======================================
 %========================================================================================
 \section{Simulaciones cosmológicas}
 	\begin{frame}
-
-
-
-	\end{frame}
-%========================================================================================
-\subsection{Grandes Simulaciones}
-	\begin{frame}
-
-
-
+		\frametitle{Simulaciones Cosmológicas}
+		Las simulaciones cosmológicas son una herramienta esencial para el estudio del Universo.Son el único experimento con el que contamos para reproducir su evolución. Estas permiten un estudio detallado de estructura y nos permite hacer conexiones entre un Universo simple con alto corrimiento al rojo, con un Universo complejo como en la actualidad.
+		
+		Gracias al desarrollo de códigos y el avance en el hardware de las maquinas modernas, han surgido grandes colaboraciones con la intención de realizar simulaciones cada vez mas grandes. Algunas de estas colaboraciones son la \textit{Millennium Simulation} y la \textit{Eagle Simulation}.
 	\end{frame}
 %========================================================================================
 \subsection[La interacción dominante en las simulaciones]{La interacción Dominante}
 	\begin{frame}
-
-
-
+		La fuerza que se utiliza en las simulaciones es la gravedad descrita por Newton.
+		\begin{equation}
+		    F = G \frac{m_1 m_2}{r^2}
+		    \label{eq:Gravedad-Newton}
+		\end{equation}
+		También se suele resolver trabajando el problema con el potencial
+		\begin{equation}
+		    \nabla \phi(\mathbf{r}) = \mathbf{F}
+		    \label{eq:potencial-gravitacional}
+		\end{equation}
 	\end{frame}
+	
+
 %========================================================================================
 \subsection[Una razón práctica para las simulaciones]{Razón de las Simulaciones}
+
 	\begin{frame}
+		Dado que en el Universo las colisiones son eventos raros, podemos modelar al Universo usando la  ecuación de Boltzmann sin colisiones (CBE)
+	
+		
+		\begin{equation}
+		    \frac{d f}{d t} \equiv \frac{\partial f}{\partial t} + \mathbf{v}\frac{\partial f}{\partial \mathbf{x}} + \frac{\partial \Phi}{\partial \mathbf{r}} \frac{\partial f}{\partial \mathbf{v}}
+		    \label{eq:CBE}
+		\end{equation}
 
+		donde el potencial auto-consistente $\Phi$ es la solución a la ecuación de Poisson
 
+		\begin{equation}
+		    \nabla^2\Phi(\mathbf{r},t) = 4\pi G \int f(\mathbf{r},\mathbf{v},t)d\mathbf{v}
+		    \label{eq:PoissonSol}
+		\end{equation}
+		\noindent y $f(\mathbf{r},\mathbf{v},t)$ es la densidad de partículas en el espacio fase.
+	\end{frame}
+	
+	\begin{frame}
+		Sin embargo, la dinámica se suele aproximar mediante códigos de N-cuerpos, en el cual supone una interacción entre las partículas dada por la interacción gravitacional clásica por pares de partículas a las que se les agrega un radio de suavizado.
+
+		 La diferencia entre códigos suele estar en los métodos que usan para realizar los cálculos para el movimiento gravitacional, asi como la manera en la que buscan volverlos mas rápidos y eficientes.
 
 	\end{frame}
 %========================================================================================
 \subsection{GADGET-4}
 	\begin{frame}
+		El código GADGET es uno de los mas ustilizados en el estudio de formación de estructura y estudio de materia oscura. Una de las características que separa a GADGET de otros simuladores, es que es un código flexible multi-propósito que no restringe el tipo de simulaciones, sino que da prioridad a la flexibilidad sobre la optimización para casos específicos.
+		
+		En GADGET-4 se implementaron nuevos metodos nuimericos y se introdujeron nuevas herramientas como el FOF y sus variacionmes, un generador de condiciones iniciales, entre otras.
 
-
-
+	\end{frame}
+	
+	
+	\begin{frame}
+		El potecial que se resuelve en GADGET-4 es 
+		\begin{align}
+    \Phi (\textbf{x}) = &- \sum_{j=1}^{N} \frac{m_j}{|\textbf{x}_j-\textbf{x}+\textbf{q}^*_j| + |\epsilon(\textbf{x}_j-\textbf{x}+\textbf{q}^*_j)|} \nonumber \\
+    &+ \sum_{j=1}^{N} m_j \psi (\textbf{x}_j-\textbf{x}+\textbf{q}^*_j) \label{eq:Pot}
+\end{align}
+		donde la primera parte es el potencial gravitacional de newton con una corrección para considerar el radio de suavizado y el segundo termino en potencial se introduce como una corrección para el suavizado de imágenes distantes. Como GADGET es un simulador diseñado para abarcar una amplia gama de necesidades, se implementaron diversos algoritmos para la forma en la que se realizan los cálculos.
 	\end{frame}
 	
 
@@ -212,7 +269,7 @@ Universidad de Sonora\\ % Your institution for the title page
 	\end{frame}
 
 %========================================================================================
-\subsection{Comologia Sub-Crítica}
+\subsection{Cosmología Sub-Crítica}
 	\begin{frame}
 
 
