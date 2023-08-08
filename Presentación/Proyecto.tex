@@ -62,8 +62,8 @@
 {
 Universidad de Sonora\\ % Your institution for the title page
 \medskip
-\textbf{Director}: Dr. Carlos Calcáneo Roldan \\
-\medskip
+% \textbf{Director}: Dr. Carlos Calcáneo Roldan \\
+% \medskip
 \tiny{Maestría en Ciencias (Física)}\\
 %\textit{\tiny{mapsjr16@gmail.com}} % Your email address
 \medskip
@@ -75,7 +75,7 @@ Universidad de Sonora\\ % Your institution for the title page
 \titlegraphic{
 	\begin{tikzpicture}[overlay,remember picture]
 		\node[left=0.5cm] at (current page.335){
-	    \includegraphics[width=2cm]{USON.png}
+	    \includegraphics[width=2cm]{USON.png}   % LOGOTIPO
 	};
 \end{tikzpicture}
 
@@ -129,17 +129,10 @@ Universidad de Sonora\\ % Your institution for the title page
 \section{Introducción}
 	\begin{frame}
 		\frametitle{Introducción}
-%		\scriptsize
-%		\tiny
-%		\small
 		
-		En este trabajo resumimos los resultados de usar GADGET-4, el cual esta disponible para hacer simulaciones cosmológicas. Mi trabajo principal consistió en aprender a ajustar los modelos necesarios y correr distintos escenarios Cosmológicos para corroborar que las simulaciones pueden servir para discernir el Universo en el que vivimos de una vasta posibilidad de modelos.
+		En este trabajo resumimos los resultados de usar GADGET-4, el cual esta disponible para hacer simulaciones cosmológicas. Mi trabajo principal consistió en aprender a ajustar los modelos necesarios y correr distintos escenarios Cosmológicos para corroborar que las simulaciones pueden servir para discriminar el Universo en el que vivimos de una vasta posibilidad de modelos.
 		\end{frame}
 
-%		\begin{frame}
-%		Tendremos un breve resumen sobre el modelo cosmológico, luego describiremos las técnicas para simular usando GADGET. Presentamos un resumen de todas las simulaciones realizadas y concluimos que efectivamente existen varios indicadores que nos permite distinguir un modelo cosmológico de otro. Esto además permitirá comparar con observaciones del espacio real, así como guiar el tipo de observaciones que se requieren para poder así acercarnos al modelo que mejor describe el Universo el que vivimos.
-%		
-%	\end{frame}
 
 %========================================================================================
 %========================================================================================
@@ -184,7 +177,7 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 %========================================================================================
 
 	\begin{frame}
-		El estudio de los halos no es simple y aunque no existe un consenso en la definición de sus propiedades, pero lo definen como un objeto ligado gravitacionalmente. Algunas propiedades con la que caracterizan los halos son la masa, sus velocidades y su tamaño.Sin embargo,cada una de estas cantidades puede referirse a distintos aspectos físicos de la colección de partículas a la que llamamos halos.
+		El estudio de los halos no es simple y aunque no existe un consenso en la definición de sus propiedades, pero lo definen como un objeto ligado gravitacionalmente. Algunas propiedades con la que caracterizan los halos son la masa, velocidad circular, dispersión de velocidades del halo, el radio que contienen la mitad de la masa y el radio  de la velocidad maxima. Sin embargo,cada una de estas cantidades puede referirse a distintos aspectos físicos de la colección de partículas a la que llamamos halos.
 	\end{frame}
 
 %========================================================================================
@@ -264,7 +257,7 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 	\end{frame}
 	
 	\begin{frame}
-		GADGET-4 tiene diversas implementación es de grupos y sub-halos. Se introdujeron versiones propias de FOF y SUBFIND, ademas se creo SUBFIND-HBT (Hierarchically Bound Tracing). FOF busca partículas cercanas, mientras que SUBFIND verifica que las estructuras encontradas estén ligadas gravitacionalmente y SUBFIND-HBT hace el mismo estudio pero en el espacio fase y considera las pasadas afiliaciones.
+		GADGET-4 tiene diversas implementación es de grupos y sub-halos. Se introdujeron versiones propias de FOF y SUBFIND, ademas se creo SUBFIND-HBT (Hierarchically Bound Tracing). FOF busca partículas cercanas, mientras que SUBFIND verifica que las estructuras encontradas estén ligadas gravitacionalmente y SUBFIND-HBT hace el mismo estudio pero en el espacio fase y considera las afiliaciones pasadas.
 	
 	\end{frame}
 
@@ -297,7 +290,7 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 			\vspace{0.5cm}
     	    \begin{column}{.5\textwidth}
 
-    	    	Esta es la cosmología con la distribicuión de densidades mas aceptada de nuestro Universo. Las estructuras que se forman empiezan a aparecer en $z=17$, pero a partir de $z=10$ se ve un incremento significante en la cantidad de halos hasta alcanzar un máximo 26,584 halos en $z = 1.5$ y finalizando en $z=0$ con 21,097 halos.
+    	    	Esta es la cosmología con la distribución de densidades mas aceptada de nuestro Universo. Las estructuras que se forman empiezan a aparecer en $z=17$, pero a partir de $z=10$ se ve un incremento significante en la cantidad de halos hasta alcanzar un máximo 26,584 halos en $z = 1.5$ y finalizando en $z=0$ con 21,097 halos.
 
         	\end{column}
 	    \end{columns}
@@ -446,16 +439,18 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 
 				\begin{figure}
 					\centering
-					\includegraphics[scale=0.3]{Conc/TotalHalos_Conc.png}
-					\caption{\footnotesize Se muestra el numero de halos según el redshift y podemos observar como evoluciona el Universo en una cosmología $\Omega_\lambda = 0.691 $ y $\Omega_0 = 0.309$.}
+					\includegraphics[scale=0.31]{Conc/TotalHalos_Conc.png}
+					\caption{\footnotesize Se muestra el numero de halos según el redshift y podemos observar como evolucionan diferentes cosmologías }
 					\label{fig:TotalHalos_Conc}
 				\end{figure}
 
 	        \end{column}
-			\vspace{0.5cm}
+%			\vspace{0.5cm}
     	    \begin{column}{.5\textwidth}
 
-    	    	Esta es la cosmología con la distribicuión de densidades mas aceptada de nuestro Universo. Las estructuras que se forman empiezan a aparecer en $z=17$, pero a partir de $z=10$ se ve un incremento significante en la cantidad de halos hasta alcanzar un máximo 26,584 halos en $z = 1.5$ y finalizando en $z=0$ con 21,097 halos.
+    	    	Lo que podemos observar es que las simulaciones sub-críticas forman estructura mucho antes que el resto, alrededor de $z=25$ y forman una mayor cantidad de halos, aproximadamente $28,000$ halos.
+    	    	
+    	    	El resto empieza a formar halos en $z=15$ donde alcanzan un máximo de halos entre $25,900$ y $26,300$.
 
         	\end{column}
 	    \end{columns}
@@ -464,13 +459,14 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 %========================================================================================
 
 	\begin{frame}
-			\small Observamos que la masa media incrementa desde $10^{10.41}M_\odot$ con una desviación de $10^{0.11}M_\odot$ en $z=15$ hasta $10^{10.75}M_\odot$ con una desviación de $10^{0.49}M_\odot$ en $z=0$.
+			\only<1>{\small Vemos que la masa media en $\Omega_0=0.691$ $\Omega_\lambda=0.309$ tiene las estructuras mas masivas y $\Omega_0=0.1545$ $\Omega_\lambda=0.691$ las menos. }
+			\only<2>{\small En las cosmologías sub-críticas, se ve que la desviación es mayor que en el resto, las cuales tienen un comportamiento similar.}
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
 				\begin{figure}
 					\centering
-					\includegraphics[scale=0.28]{Conc/MassMean_Conc.png}
-					\caption{\footnotesize La evolución de la masa media de los halos de materia oscura en el Universo desde un z=17 hasta z=0.}
+					\includegraphics[scale=0.27]{Conc/MassMean_Conc.png}
+					\caption{\footnotesize La evolución de la masa media de los halos de materia oscura en diferentes cosmologías.}
 					\label{fig:Conc-MassMean}
 				\end{figure}
 			\end{column}
@@ -478,8 +474,8 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 			\begin{column}{.5\textwidth}
 				\begin{figure}
 					\centering
-					\includegraphics[scale=0.28]{Conc/MassStd_Conc.png}
-					\caption{\footnotesize La evolución de la desviación estándar de la masa de los halos de materia oscura en el Universo desde un z=17 hasta z=0.}
+					\includegraphics[scale=0.27]{Conc/MassStd_Conc.png}
+					\caption{\footnotesize La evolución de la desviación estándar de la masa de los halos de materia oscura en diferentes cosmologías.}
 					\label{fig:Conc-MassStd}
 				\end{figure}
 			\end{column}
@@ -489,14 +485,15 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 
 %========================================================================================
 	\begin{frame}
-		\small Vemos el crecimiento del radio medio desde $10^{0.44}$kpc con una desviación de $10^{0.06}$kpc en $z=15$ hasta un radio de $10^{1.47}$kpc con una desviación de $10^{0.19}$kpc en $z=0$.
+		\only<1> {\small Vemos que la media del radio der las diferentes cosmologías tienen un crecimiento similar, donde las cosmologías con un incremento $\Omega_0$ son las de mayor radio y las sub-críticas son las de menor.}
+		\only<2>{\small Mientras la desviación estándar del radio, muestra que las cosmologías sub-críticas tienen mayor variación en las cosmologías sub-críticas.}
 		
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
 				\begin{figure}
 					\centering
-					\includegraphics[scale=0.3]{Conc/HalfMassRad_Mean_Conc.png}
-					\caption{\footnotesize La evolución del radio que contiene la mitad de la masa de los halos de materia oscura desde un z=17 hasta z=0.}
+					\includegraphics[scale=0.27]{Conc/HalfMassRad_Mean_Conc.png}
+					\caption{\footnotesize La evolución del radio que contiene la mitad de la masa de los halos de materia oscura en diferentes cosmologías.}
 					\label{fig:Conc-HalfMassRadMean}
 				\end{figure}
 			\end{column}
@@ -504,8 +501,8 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 			\begin{column}{.5\textwidth}
 				\begin{figure}
 					\centering
-					\includegraphics[scale=0.3]{Conc/HalfMassRad_Std_Conc.png}
-					\caption{\footnotesize La evolución de la desviación estándar del radio que contiene la mitad de la masa de los halos de materia oscura desde un z=17 hasta z=0.}
+					\includegraphics[scale=0.27]{Conc/HalfMassRad_Std_Conc.png}
+					\caption{\footnotesize La evolución de la desviación estándar del radio que contiene la mitad de la masa de los halos de materia oscura en diferentes cosmologías.}
 					\label{fig:Conc-HalfMassRadStd}
 				\end{figure}
 			\end{column}
@@ -514,15 +511,18 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 	\end{frame}	
 
 %========================================================================================
+	
 	\begin{frame}
-		\small Vemos que el radio tiene una media que va desde los $2.45$kpc con una desviación de $0.88$kpc en $z=15$ hasta $27.60$kpc con una desviación de $15.69$kpc en $z=0$.
+		\only<1> {\small Se observa que con el incremento de $\Omega_0$ las estructuras alcanzan un mayor radio medio, mientras en los Universos sub-críticos los radios son lo mas pequeños. }
+		\only<2> {\small Un caso especial que se ve fue que la cosmología con $\Omega_\lambda=0.791$ tiene un crecimiento similar a cuando $\Omega_0$ crece.}
+		\only<2> {\small En cuanto a su desviación, vemos el mismo comportamiento que la media al incrementar $\Omega_0$ }
 		
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
 				\begin{figure}
 					\centering
-					\includegraphics[scale=0.3]{Conc/VMaxRad_Mean_Conc.png}
-					\caption{\footnotesize La evolución del radio donde se alcanza la velocidad máxima radial de los halos de materia oscura desde un z=17 hasta z=0.}
+					\includegraphics[scale=0.27]{Conc/VMaxRad_Mean_Conc.png}
+					\caption{\footnotesize La evolución del radio donde se alcanza la velocidad máxima radial de los halos de materia oscura en diferentes cosmologías.}
 					\label{fig:Conc-VMAxRadMean}
 				\end{figure}
 			\end{column}
@@ -530,8 +530,8 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 			\begin{column}{.5\textwidth}
 				\begin{figure}
 					\centering
-					\includegraphics[scale=0.3]{Conc/VMaxRad_Std_Conc.png}
-					\caption{\footnotesize La evolución de la desviación estándar del radio de la velocidad máxima radial de los halos de materia oscura desde un z=17 hasta z=0.}
+					\includegraphics[scale=0.27]{Conc/VMaxRad_Std_Conc.png}
+					\caption{\footnotesize La evolución de la desviación estándar del radio de la velocidad máxima radial de los halos de materia oscura en diferentes cosmologías.}
 					\label{fig:Conc-VMaxRadStd}
 				\end{figure}
 			\end{column}
@@ -542,14 +542,14 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 %========================================================================================
 
 	\begin{frame}
-		\small Lo que podemos es que la velocidad media disminuye rápidamente desde $150.13$km/s con una desviación de $26.76$km/s en $z=15$ hasta que alcanza $74.77$km/s con una desviación de $33.90$km/s en $z=0$.
-		
+		\only<1> {\small Podemos notar que entre mas grande sea el $\Omega_0$, los halos que se forman alcanzan una mayor velocidad maxima media.}
+				
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
 				\begin{figure}
 					\centering
-					\includegraphics[scale=0.3]{Conc/VelMax_Mean_Conc.png}
-					\caption{\footnotesize La evolución de la velocidad máxima circular media de los halos de materia oscura desde un z=17 hasta z=0.}
+					\includegraphics[scale=0.27]{Conc/VelMax_Mean_Conc.png}
+					\caption{\footnotesize La evolución de la velocidad máxima circular media de los halos de materia oscura en diferentes cosmologías.}
 					\label{fig:Conc-VelMaxMean}
 				\end{figure}
 			\end{column}
@@ -557,8 +557,8 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 			\begin{column}{.5\textwidth}
 				\begin{figure}
 					\centering
-					\includegraphics[scale=0.3]{Conc/VelMax_Std_Conc.png}
-					\caption{\footnotesize La evolución de la desviación estándar de la velocidad máxima circular de los halos de materia oscura desde un z=17 hasta z=0.}
+					\includegraphics[scale=0.27]{Conc/VelMax_Std_Conc.png}
+					\caption{\footnotesize La evolución de la desviación estándar de la velocidad máxima circular de los halos de materia oscura en diferentes cosmologías.}
 					\label{fig:Conc-VelMaxStd}
 				\end{figure}
 			\end{column}
@@ -569,14 +569,14 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 %========================================================================================
 
 	\begin{frame}
-		\small Observamos que la dispersión de velocidades media disminuye desde los $85.25$km/s con una desviación de $13.09$km/s en $z=15$ a $37.08$km/s con una desviación de $18.69$km/s en $z=0$.
+		\small Podemos apreciar que la dispersión de velocidades media se ve afectado con el aumento de $\Omega_0$ de la misma manera que la velocidad maxima.
 		
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
 				\begin{figure}
 					\centering
-					\includegraphics[scale=0.3]{Conc/VelDisp_Mean_Conc.png}
-					\caption{\footnotesize La evolución de la dispersión de velocidades de los halos de materia oscura desde un z=17 hasta z=0.}
+					\includegraphics[scale=0.27]{Conc/VelDisp_Mean_Conc.png}
+					\caption{\footnotesize La evolución de la dispersión de velocidades de los halos de materia oscura en diferentes cosmologías.}
 					\label{fig:Conc-VelDispMean}
 				\end{figure}
 			\end{column}
@@ -584,8 +584,8 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 			\begin{column}{.5\textwidth}
 				\begin{figure}
 					\centering
-					\includegraphics[scale=0.3]{Conc/VelDisp_Std_Conc.png}
-					\caption{\footnotesize La evolución de la desviación estándar del radio de la dispersión de velocidades de los halos de materia oscura desde un z=17 hasta z=0.}
+					\includegraphics[scale=0.27]{Conc/VelDisp_Std_Conc.png}
+					\caption{\footnotesize La evolución de la desviación estándar del radio de la dispersión de velocidades de los halos de materia oscura en diferentes cosmologías.}
 					\label{fig:Conc-VelDispStd}
 				\end{figure}
 			\end{column}
@@ -602,11 +602,13 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 %=================================================================================
 %=========================== Conclusion ==========================================
 %=================================================================================
-
+%y que la cosmología $\Omega_0 = 0.691$, $\Omega_\lambda = 0.309$ tiene grandes estructuras de gran masa que alcanzan grandes velocidades.
 \section{Conclusión}
 	\begin{frame}
 		\frametitle{Conclusión}
+Podemos ver que las velocidades se ven alteradas por los cambios en $\Omega_0$, mientra que el tamaño y la masa se ven afectadas por los cambios en $\Omega_0$ y en el tipo de cosmología, ya sea un Universos cerrado, abierto o plano. Pudimos observar que las cosmologías sub-críticas forman estructuras mas pequeñas y menos densas que el resto de las cosmologías.
 
+Con este trabajo podemos inferir como es el comportamiento en la evolución de un Universo según sea sus densidades de materia y energía. Esto nos ayuda a poder inferir que tipo de Universo es en el que vivimos ya que podemos usar las observaciones y compararlas con resultados como estos para inferir las densidades del Universo.
 
 	\end{frame}
 

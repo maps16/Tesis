@@ -1,0 +1,14 @@
+\babel@toc {spanish}{}
+\beamer@sectionintoc {1}{Introducción}{3}{0}{1}
+\beamer@sectionintoc {2}{Modelo Cosmológico}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{Materia y Energía en el Universo}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Evidencia astrofísica de la Materia Oscura}{6}{0}{2}
+\beamer@subsectionintoc {2}{3}{Características de la Materia Oscura}{7}{0}{2}
+\beamer@sectionintoc {3}{Simulaciones cosmológicas}{9}{0}{3}
+\beamer@subsectionintoc {3}{1}{La interacción Dominante}{10}{0}{3}
+\beamer@subsectionintoc {3}{2}{Razón de las Simulaciones}{11}{0}{3}
+\beamer@subsectionintoc {3}{3}{GADGET-4}{13}{0}{3}
+\beamer@sectionintoc {4}{Halos de Materia Oscura}{17}{0}{4}
+\beamer@subsectionintoc {4}{1}{Cosmología $\Omega _\lambda = 0.691$ $\Omega _0 = 0.309$ }{18}{0}{4}
+\beamer@subsectionintoc {4}{2}{Comparando Cosmologías}{24}{0}{4}
+\beamer@sectionintoc {5}{Conclusión}{33}{0}{5}
