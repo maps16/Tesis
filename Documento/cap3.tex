@@ -11,23 +11,31 @@
 \chapter{Halos de Materia Oscura}
 \setcounter{equation}{0}
 
-\noindent Con la intención de conocer y diferenciar diferentes cosmologías, en nuestro estudio de los halos de materia oscura, optamos por realizar fue una variedad de simulaciones de materia oscura. Desde simulaciones con cosmologías de Universos planos ($\Omega = 1$), asi como cosmologías  de universos con densidades sub-criticas ($\Omega < 1$) y super-criticas ($\Omega > 1$). Las simulaciones que realizamos tienen $16,777,216$ partículas en una caja de $50$ Mpc y se empezaron en un corrimiento al rojo de $z=63$ hasta un $z=0$.
-\begin{table}[H]
-    \begin{tabular}{|c|c|l|c|c|c|c|}
+\noindent Con la intención de conocer y diferenciar diferentes cosmologías, en nuestro estudio de los halos, optamos por realizar una variedad de simulaciones de materia oscura. Desde simulaciones con cosmologías de Universos planos ($\Omega = 1$), asi como cosmologías  de universos con densidades sub-criticas ($\Omega < 1$) y super-criticas ($\Omega > 1$). Las simulaciones que realizamos tienen $16,777,216$ partículas en una caja de $50$ Mpc y se empezaron en un corrimiento al rojo de $z=63$ hasta un $z=0$ con un numero mínimo de partículas para los grupos (DesLinkNgb) de 20. Los parámetros específicos se referencian en la tabla \ref{tab:Resumen_Sim}.
+
+\begin{table}[]
+
+    \begin{tabular}{|c|c|c|}
+
     \hline
-    $\Omega$                      & Numero de Partículas       & BoxSize                 & $\Omega_0$ & $\Omega_\lambda$ & Inicio (z)          & Fin (z)            \\ \hline
-    \multirow{3}{*}{$\Omega = 1$} & \multirow{8}{*}{16,777216} & \multirow{8}{*}{50 Mpc} & 0.309      & 0.691            & \multirow{8}{*}{63} & \multirow{8}{*}{0} \\ \cline{4-5}
-                                  &                            &                         & 0.691      & 0.309            &                     &                    \\ \cline{4-5}
-                                  &                            &                         & 0.500      & 0.500            &                     &                    \\ \cline{1-1} \cline{4-5}
-    \multirow{3}{*}{$\Omega < 1$} &                            &                         & 0.309      & 0.000            &                     &                    \\ \cline{4-5}
-                                  &                            &                         & 0.1545     & 0.691            &                     &                    \\ \cline{4-5}
-                                  &                            &                         & 0.309      & 0.3455           &                     &                    \\ \cline{1-1} \cline{4-5}
-    \multirow{2}{*}{$\Omega > 1$} &                            &                         & 0.409      & 0.691            &                     &                    \\ \cline{4-5}
-                                  &                            &                         & 0.309      & 0.791            &                     &                    \\ \hline
+    $\Omega$ & $\Omega_0$ & $\Omega_\lambda$ \\ \hline
+    \multirow{3}{*}{$\Omega = 1$} & 0.309 & 0.691 \\ \cline{2-3} 
+     & 0.691 & 0.309 \\ \cline{2-3} 
+     & 0.500 & 0.500 \\ \hline
+    \multirow{3}{*}{$\Omega < 1$} & 0.309 & 0.000 \\ \cline{2-3} 
+     & 0.1545 & 0.691 \\ \cline{2-3} 
+     & 0.309 & 0.3455 \\ \hline
+    \multirow{2}{*}{$\Omega > 1$} & 0.409 & 0.691 \\ \cline{2-3} 
+     & 0.309 & 0.791 \\ \hline
     \end{tabular}
-    \caption{\footnotesize Se muestra un resumen de las simulaciones que se realizaron y que parámetros fueron lo que se usaron para correr GADGET-4.}
+    
+    \caption{Se muestra un resumen de las simulaciones que se realizaron y cuales parámetros se usaron para correr GADGET-4. Son Simulaciones que corren de un redshift $z=63$ a $z=0$ con $16,777,216$ en una caja de 50 Mpc.}
+    
     \label{tab:Resumen_Sim}
-    \end{table}
+
+\end{table} 
+
+DesLinkNgb
 %====================================================================================================================
 %======================================  COSMO PLANA  ===============================================================
 %====================================================================================================================
