@@ -55,7 +55,7 @@
 %   TITLE PAGE
 %========================================================================================
 
-\title[simulaciones de materia oscura]{Subestructura en simulaciones de materia oscura} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Simulaciones de materia oscura]{Subestructura en simulaciones de materia oscura} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author{L.F. Martín Alejandro Paredes Sosa} % Your name
 \institute[Universidad de Sonora MCF ] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
@@ -273,7 +273,7 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 		
 	\end{frame}
 %========================================================================================
-\subsection{Cosmología \texorpdfstring{$\Omega_\lambda = 0.691$ $\Omega_0 = 0.309$ }{Omega lambda = 0.691, Omega 0 = 0.309} }
+\subsection{Cosmología \texorpdfstring{$\Omega_\lambda = 0.691$ $\Omega_0 = 0.309$}{Omega lambda = 0.691, Omega 0 = 0.309} }
 	\begin{frame}
 		\frametitle{Universo $\Omega_\lambda=0.691$, $\Omega_0=0.309$}
 		\begin{columns}[t]
@@ -430,10 +430,50 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 
 %========================================================================================
 
+\begin{frame}{Mapa de Densidad}
+
+	\small Se muestra el mapa de densidad durante su evolución.  Los redshifts que se muestran son $z=63$, $z=10$ y $z=0$. Se observa evoluciona a lo que llaman \textit{Cosmic Web}.
+
+	\begin{columns}[t]
+
+		\begin{column}{0.33\textwidth}
+			
+			\begin{figure}
+				\includegraphics[scale=0.2]{RunCanonica/RunCanonZ63Rho.png}
+				\caption{\footnotesize Mapa de densidad en $z=63$}
+			\end{figure}
+
+		\end{column}
+
+		\begin{column}{0.33\textwidth}
+			
+			\begin{figure}
+				\includegraphics[scale=0.2]{RunCanonica/RunCanonZ10Rho.png}
+				\caption{\footnotesize Mapa de densidad en $z=10$}
+			\end{figure}
+
+		\end{column}	
+
+		\begin{column}{0.33\textwidth}
+			
+			\begin{figure}
+				\includegraphics[scale=0.2]{RunCanonica/RunCanonZ0Rho.png}
+				\caption{\footnotesize Mapa de densidad en $z=0$}
+			\end{figure}
+
+		\end{column}		
+		
+	\end{columns}
+\end{frame}
+
+%========================================================================================
+
+
+
 %========================================================================================
 \subsection{Comparando Cosmologías}
 	\begin{frame}
-		\frametitle{Comaprando Cosmologías}
+		\frametitle{Comparando Cosmologías}
 		\begin{columns}[t]
            	\begin{column}{.5\textwidth}
 
@@ -595,7 +635,27 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 
 %========================================================================================
 
-%========================================================================================
+\begin{frame}
+
+	\begin{figure}[H]
+    	\centering
+
+	    \includegraphics[width = 0.25\linewidth]{RunCanonica/RunCanonZ0Rho.png}   %Canon
+	    \includegraphics[width = 0.25\linewidth]{RunInvertida/RunInvertidaZ0.png}   %Invertida
+	    \includegraphics[width = 0.25\linewidth]{RunHalfCosmo/RunHalfCosmoZ0.png}   %HalfCosmo
+	     \\
+	    \includegraphics[width = 0.25\linewidth]{RunNoDE/RunNoDEZ0.png}   %NoDE
+	    \includegraphics[width = 0.25\linewidth]{RunLow0/RunLow0Z0.png}   %Low0
+	    \includegraphics[width = 0.25\linewidth]{RunLowLam/RunLowLamZ0.png}    %LowLam
+	    \\
+	    \includegraphics[width = 0.25\linewidth]{RunHigh0/RunHigh0Z0.png}    %High0
+	    \includegraphics[width = 0.25\linewidth]{RunHighLam/RunHighLamZ0.png}  %HighLam
+	    \caption{\footnotesize Mapa de densidad de las diferentes simulaciones. Cosmologías criticas en la parte superior, luego están las sub-críticas y las inferiores son super-críticas. }
+    	\label{fig:DensityMap}
+\end{figure}
+
+\end{frame}
+
 
 
 

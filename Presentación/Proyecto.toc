@@ -1,4 +1,4 @@
-\babel@toc {spanish}{}
+\babel@toc {spanish}{}\relax 
 \beamer@sectionintoc {1}{Introducción}{3}{0}{1}
 \beamer@sectionintoc {2}{Modelo Cosmológico}{4}{0}{2}
 \beamer@subsectionintoc {2}{1}{Materia y Energía en el Universo}{5}{0}{2}
@@ -10,5 +10,5 @@
 \beamer@subsectionintoc {3}{3}{GADGET-4}{13}{0}{3}
 \beamer@sectionintoc {4}{Halos de Materia Oscura}{17}{0}{4}
 \beamer@subsectionintoc {4}{1}{Cosmología $\Omega _\lambda = 0.691$ $\Omega _0 = 0.309$ }{18}{0}{4}
-\beamer@subsectionintoc {4}{2}{Comparando Cosmologías}{24}{0}{4}
-\beamer@sectionintoc {5}{Conclusión}{33}{0}{5}
+\beamer@subsectionintoc {4}{2}{Comparando Cosmologías}{25}{0}{4}
+\beamer@sectionintoc {5}{Conclusión}{35}{0}{5}
