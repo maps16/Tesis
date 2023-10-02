@@ -7,7 +7,22 @@ from glob import glob
 
 fig ,ax = plt.subplots( nrows = 1, ncols = 1, figsize = ( 5, 5 ) )
 
-run = "RunCanonica"
+LEGEND_SIZE= 11
+DEFAULT=4
+SMALL_SIZE = 22
+MEDIUM_SIZE = 22
+BIGGER_SIZE = 16
+
+plt.rcParams.update({'font.size': SMALL_SIZE})
+plt.rc('font', size=DEFAULT)          # controls default text sizes
+plt.rc('axes', titlesize=MEDIUM_SIZE)     # fontsize of the axes title
+plt.rc('axes', labelsize=MEDIUM_SIZE)    # fontsize of the x and y labels
+plt.rc('xtick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('legend', fontsize=LEGEND_SIZE)    # legend fontsize
+plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
+
+run = "RunHighLam"
 data = "subhalo"
 namepath = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/" + run + "/" + data
 
@@ -41,10 +56,12 @@ print('Primeros Halos en z= ', round( max(redS), 0), ', Total de Corridas =', le
 #Nsubh = np.array( (redS, Nsubh), dtype=np.int32)
 # print(redS, Nsubh)
 ax.plot(redS, Nsubh,'o-')
+ax.tick_params(axis='x', labelsize=LEGEND_SIZE+1)
+ax.tick_params(axis='y', labelsize=LEGEND_SIZE+1)
 
 fig.suptitle('Evolución del número de halos total')
-ax.set_ylabel('Total Halos')
-ax.set_xlabel('Redshift (z)')
+fig.supylabel('Total Halos')
+fig.supxlabel('Redshift (z)')
 ax.set_xlim(round( max(redS), 0 )+.5, -0.5)
 
 fig.tight_layout()
