@@ -132,7 +132,7 @@ fig.savefig('Documento/images/'+sim+'/VMaxRad_Dist_'+sim+'Sep.png')
 
 
 plt.figure('VMaxRadDistCanonRun')
-plt.title('Radio de la velocidad circular máxima')
+fig2.suptitle('Radio de la velocidad circular máxima')
 ax2.legend(loc='best', ncol=2)
 ax2.set_xlim(1.,100.)
 ax2.set_ylim(-50,5500)

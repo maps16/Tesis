@@ -63,7 +63,7 @@ for x in run:
             # Extrayendo la masa y calculando su Log10
             VMaxRad = file_data['Subhalo']['SubhaloVmaxRad'][:] * 1e3  # type: ignore
 
-# Calculado los parametros para el ajuste
+            # Calculado los parametros para el ajuste
             loc, scale = scp.fit(VMaxRad,)
             # Calculo de la media y desviacion estandar
             mean_cal, std_cal = scp.mean(loc,scale), scp.std(loc,scale)
