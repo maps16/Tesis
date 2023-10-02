@@ -75,6 +75,8 @@ for x in run:
     
     ax.plot(z, N_Subhalos,'o-' , label=nameParam)
 
+ax.tick_params(axis='x', labelsize=LEGEND_SIZE+1)
+ax.tick_params(axis='y', labelsize=LEGEND_SIZE+1)
 fig.suptitle('Evolución del número de halos total')
 fig.supylabel('Total Halos')
 fig.supxlabel('Redshift (z)')
