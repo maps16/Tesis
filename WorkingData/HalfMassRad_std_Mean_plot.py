@@ -8,8 +8,23 @@ import h5py as h5
 fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(5.5,5.5) )
 fig2, ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(5.5,5.5) )
 
+LEGEND_SIZE= 12
+DEFAULT=4
+SMALL_SIZE = 22
+MEDIUM_SIZE = 22
+BIGGER_SIZE = 16
+
+plt.rcParams.update({'font.size': SMALL_SIZE})
+plt.rc('font', size=DEFAULT)          # controls default text sizes
+plt.rc('axes', titlesize=MEDIUM_SIZE)     # fontsize of the axes title
+plt.rc('axes', labelsize=MEDIUM_SIZE)    # fontsize of the x and y labels
+plt.rc('xtick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('legend', fontsize=LEGEND_SIZE)    # legend fontsize
+plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
+
 # Loc de archivos para trabajar
-sim = 'RunHighLam'
+sim = 'RunLowLam'
 data = "subhalo"
 run = glob('WorkingData/StandardResolution/*') #Ubicanco las carpetas de las diferentes cosmologias
 run.sort()
@@ -64,16 +79,20 @@ for x in run:
     if len(mean) != 0 :
         ax1.plot(z, mean, label=nameParam, marker='o') 
     if len(std) != 0:
-        ax2.plot(z, std, label=nameParam, marker='o')  
-        
-ax1.set_xlabel('z')
-ax2.set_xlabel('z')
-ax1.set_ylabel('$\mu$ (log$_{10}$Kpc)') # type: ignore
-ax2.set_ylabel('$\sigma$(log$_{10}$Kpc)') # type: ignore
+        ax2.plot(z, std, label=nameParam, marker='o') 
+
+ax1.tick_params(axis='x', labelsize=LEGEND_SIZE+1)
+ax1.tick_params(axis='y', labelsize=LEGEND_SIZE+1)
+ax2.tick_params(axis='x', labelsize=LEGEND_SIZE+1)
+ax2.tick_params(axis='y', labelsize=LEGEND_SIZE+1)
+fig1.supxlabel('z')
+fig2.supxlabel('z')
+fig1.supylabel('$\mu$ (log$_{10}$r/Kpc)') # type: ignore
+fig2.supylabel('$\sigma$(log$_{10}$r/Kpc)') # type: ignore
 ax1.set_xlim(round(max(z),0) + 0.5,-0.2)
 ax2.set_xlim(round(max(z),0) + 0.5,-0.2)
 ax1.legend(loc='best')
-ax2.legend(loc='best')  
+ax2.legend(loc='best')
 
 
 fig1.tight_layout()

@@ -76,9 +76,9 @@ for x in run:
 
         file_data.close()
 
-    if len(mean) != 0 : 
+    if len(mean) != 0 :
         ax1.plot(z, mean, label=nameParam, marker='o') 
-    if len(std) != 0: 
+    if len(std) != 0:
         ax2.plot(z, std, label=nameParam, marker='o') 
 
 ax1.tick_params(axis='x', labelsize=LEGEND_SIZE+1)

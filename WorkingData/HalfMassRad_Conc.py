@@ -8,6 +8,21 @@ from scipy.stats import norm as scp
 fig1, ax1 = plt.subplots( nrows=1, ncols=1, num='mean', figsize=(6,6) )
 fig2, ax2 = plt.subplots( nrows=1, ncols=1, num='std', figsize=(6,6) )
 
+LEGEND_SIZE= 11
+DEFAULT=4
+SMALL_SIZE = 22
+MEDIUM_SIZE = 22
+BIGGER_SIZE = 16
+
+plt.rcParams.update({'font.size': SMALL_SIZE})
+plt.rc('font', size=DEFAULT)          # controls default text sizes
+plt.rc('axes', titlesize=MEDIUM_SIZE)     # fontsize of the axes title
+plt.rc('axes', labelsize=MEDIUM_SIZE)    # fontsize of the x and y labels
+plt.rc('xtick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('legend', fontsize=LEGEND_SIZE)    # legend fontsize
+plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
+
 # Loc de archivos para trabajar
 # sim = 'RunHighLam'
 data = 'subhalo'
@@ -58,6 +73,7 @@ for x in run:
             # Buscando Ajuste
             loc, scale = scp.fit(log_data,)
             mean_cal, std_cal = scp.mean(loc,scale), scp.std(loc,scale) # Calculo de media y std
+
             # Guardando los valoares en los arrays
             mean.append(mean_cal)
             std.append(std_cal)
@@ -69,19 +85,18 @@ for x in run:
 
     if len(mean) != 0 : 
         ax1.plot(z, mean, label=nameParam, marker='o') 
-    if len(std) != 0:
-        ax2.plot(z, std, label=nameParam, marker='o')
+    if len(std) != 0: 
+        ax2.plot(z, std, label=nameParam, marker='o') 
     print(x.split('/')[-1],', z=',round(z[-1],ndigits=0),', mean=',round(mean[-1],ndigits=2), ', std=', round(std[-1],ndigits=2),', z=',round(z[1],ndigits=0),', mean=',round(mean[1],ndigits=2), ', std=', round(std[1],ndigits=2))
 
-ax1.set_xlabel('z')
-ax2.set_xlabel('z')
-ax1.set_ylabel('$\mu$ (log$_{10}$Kpc)') # type: ignore
-ax2.set_ylabel('$\sigma$(log$_{10}$Kpc)') # type: ignore
+fig1.supxlabel('z')
+fig2.supxlabel('z')
+fig1.supylabel('$\mu$ (log$_{10}$r/Kpc)')# type: ignore
+fig2.supylabel('$\sigma$(log$_{10}$r/Kpc)')# type: ignore
 ax1.set_xlim(round(max(z),ndigits=0) + 0.5,-0.2)
 ax2.set_xlim(round(max(z),ndigits=0) + 0.5,-0.2)
 ax1.legend(loc='best')
 ax2.legend(loc='best')
-
 
 fig1.tight_layout()
 fig1.savefig('Documento/images/Conc/HalfMassRad_Mean_Conc.png')

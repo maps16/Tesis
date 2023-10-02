@@ -78,7 +78,7 @@ for x in run:
             mean.append(mean_cal)
             std.append(std_cal)
             z.append(z_cal)
-            
+
             # print('z=',round(z_cal,ndigits=2),', mean=',round(mean_cal, ndigits=2),', std=',round(std_cal,ndigits=2), sep=' ')    # type: ignore
 
         file_data.close()
