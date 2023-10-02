@@ -78,7 +78,7 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     ax.flat[pos].tick_params(axis='x', labelsize=TICK_SIZE)
     ax.flat[pos].tick_params(axis='y', labelsize=TICK_SIZE)
     ax.flat[pos].legend(loc=1)  # type: ignore
-    print('Min=',min(pdata), ', Max=',max(pdata) )
+    print('z=',nameData,', Min=',min(pdata), ', Max=',max(pdata) )
     return None
 
 
