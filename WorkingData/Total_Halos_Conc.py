@@ -5,6 +5,21 @@ from glob import glob
 # Generando Figura
 fig ,ax = plt.subplots( nrows = 1, ncols = 1, figsize = ( 6, 6 ) )
 
+LEGEND_SIZE= 11
+DEFAULT=4
+SMALL_SIZE = 22
+MEDIUM_SIZE = 22
+BIGGER_SIZE = 16
+
+plt.rcParams.update({'font.size': SMALL_SIZE})
+plt.rc('font', size=DEFAULT)          # controls default text sizes
+plt.rc('axes', titlesize=MEDIUM_SIZE)     # fontsize of the axes title
+plt.rc('axes', labelsize=MEDIUM_SIZE)    # fontsize of the x and y labels
+plt.rc('xtick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('legend', fontsize=LEGEND_SIZE)    # legend fontsize
+plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
+
 # Loc de archivos para trabajar
 data = 'subhalo'
 dataParam = 'SubhaloMass'
@@ -61,8 +76,8 @@ for x in run:
     ax.plot(z, N_Subhalos,'o-' , label=nameParam)
 
 fig.suptitle('Evolución del número de halos total')
-ax.set_ylabel('Total Halos')
-ax.set_xlabel('Redshift (z)')
+fig.supylabel('Total Halos')
+fig.supxlabel('Redshift (z)')
 ax.set_xlim(round( max(z), ndigits=0 )+.5, -0.5)
 ax.legend(loc='best')
 
