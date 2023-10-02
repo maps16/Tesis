@@ -8,7 +8,7 @@ from scipy.stats import exponnorm as scp
 
 # Creando Figura para plot
 #NUM_COLORS = 5
-fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,10), num='MassDistSep' )
+fig ,ax = plt.subplots( nrows=4, ncols=5, figsize=(16,9), num='MassDistSep' )
 fig2 ,ax2 = plt.subplots(nrows=1, ncols=1 ,num='MassDist', figsize=(5.5,5.5) )
 NUM_COLORS = 40#len(arch)
 cm1 = plt.cm.tab20(np.linspace(0,1,20))   # type: ignore
@@ -17,6 +17,21 @@ cmT = np.vstack((cm1, cm2))
 cm  = cplt.LinearSegmentedColormap.from_list('Tab30', cmT)
 
 ax2.set_prop_cycle('color', [cm(1.*i/NUM_COLORS) for i in range(NUM_COLORS)] )
+
+LEGEND_SIZE= 10
+TICK_SIZE = 13
+DEFAULT=9
+SMALL_SIZE = 2
+MEDIUM_SIZE = 18
+BIGGER_SIZE = 16
+
+plt.rc('font', size=DEFAULT)          # controls default text sizes
+plt.rc('axes', titlesize=MEDIUM_SIZE)     # fontsize of the axes title
+plt.rc('axes', labelsize=MEDIUM_SIZE)    # fontsize of the x and y labels
+plt.rc('xtick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('legend', fontsize=LEGEND_SIZE)    # legend fontsize
+plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
 def plotAx(pos, pdata, nameData, num_bin, *param):
     '''
@@ -51,9 +66,17 @@ def plotAx(pos, pdata, nameData, num_bin, *param):
     ax2.plot( X, scp.pdf(X, k, loc, scale) * len(pdata) * bsz, label=simplename)
     
     # Ajustes de la figura
-    # ax.flat[pos].set_xlim(round(np.min(pdata))  , 15.)
+    if(np.max(pdata)>=12.8): 
+        ax.flat[pos].set_xlim(round(np.min(pdata)) , 12.8)
+
+    if(np.max(pdata)<12.8): 
+        #ax.flat[pos].set_xlim(np.min(pdata)-0.1  , np.max(pdata)+0.1 )
+        print('sup')
+
     # ax.flat[pos].set_ylabel("Número de halos")
     # ax.flat[pos].set_xlabel('log$_{10}$ M$_\odot$')
+    ax.flat[pos].tick_params(axis='x', labelsize=TICK_SIZE)
+    ax.flat[pos].tick_params(axis='y', labelsize=TICK_SIZE)
     ax.flat[pos].legend(loc=1)  # type: ignore
     print('Min=',min(pdata), ', Max=',max(pdata) )
     return None
@@ -99,22 +122,24 @@ for i in archivos:
 # Ajuste de la figura
 plt.figure('MassDistSep')
 fig.supylabel('Número de halos')
-fig.supxlabel('log$_{10}$ M$_\odot$')# type: ignore
+fig.supxlabel('log$_{10}$(M/ M$_\odot$)')# type: ignore
 #plt.tight_layout(h_pad = hspace, w_pad=wspace ,rect=(left,bottom,right,top))
 fig.tight_layout(h_pad=0.001,w_pad=0.001,rect=(0.0,0.0,1.0,1.0))
 # fig.tight_layout()
 ax.flat[-1].axis('off')  # type: ignore Temporalmente
-# ax.flat[-2].axis('off')  # type: ignore Temporalmente
+#ax.flat[-2].axis('off')  # type: ignore Temporalmente
 fig.savefig('Documento/images/'+sim+'/Mass_Dist_'+sim+'Sep.png')
 
 
 plt.figure('MassDist')
 plt.title('Distribución de masa')
 ax2.legend(loc='best', ncol=2)
-ax2.set_xlim(10.05,14.4)
+ax2.set_xlim(10.05,12.8)
 ax2.set_ylim(-25,2900)
-ax2.set_ylabel("Número de halos")
-ax2.set_xlabel('log$_{10}$ M$_\odot$') # type: ignore
+ax2.tick_params(axis='x', labelsize=TICK_SIZE)
+ax2.tick_params(axis='y', labelsize=TICK_SIZE)
+fig2.supylabel("Número de halos")
+fig2.supxlabel('log$_{10}$ (M/ M$_\odot$)') # type: ignore
 fig2.tight_layout( rect=(0.0, 0, 1, 1.0) )
 fig2.savefig('Documento/images/'+sim+'/Mass_Dist_'+sim+'.png')
 
