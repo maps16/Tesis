@@ -30,11 +30,11 @@ plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 print ("Figura Lista")
 
 #Ubicacion de los archivos
-sim = 'RunLow0'
+sim = 'RunHighLam'
 arcNameG4 = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/"+sim+"/snapshot/"
 
 #Cargar Snapshots
-snap17 = pnb.load(filename= arcNameG4 + "snapshot_027.hdf5")
+snap17 = pnb.load(filename= arcNameG4 + "snapshot_033.hdf5")
 print ("Cargar snapshots Lista")
 
 #Tratar en umidades fisicas
