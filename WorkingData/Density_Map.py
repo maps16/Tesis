@@ -12,14 +12,29 @@ print ("Librerias Lista")
 #GENERAR FIGURA PARA EL PLOT
 fig, ax = plt.subplots(1, 1, sharex= True, sharey= True, figsize=(6.8,5.5)  )
 
+LEGEND_SIZE= 10
+TICK_SIZE = 12
+DEFAULT=6
+SMALL_SIZE = 12
+MEDIUM_SIZE = 16
+BIGGER_SIZE = 14
+
+plt.rc('font', size=DEFAULT)          # controls default text sizes
+plt.rc('axes', titlesize=MEDIUM_SIZE)     # fontsize of the axes title
+plt.rc('axes', labelsize=MEDIUM_SIZE)    # fontsize of the x and y labels
+plt.rc('xtick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
+plt.rc('legend', fontsize=LEGEND_SIZE)    # legend fontsize
+plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
+
 print ("Figura Lista")
 
 #Ubicacion de los archivos
-sim = 'RunHighLam'
+sim = 'RunLow0'
 arcNameG4 = "/home/martin/Documentos/Tesis/WorkingData/StandardResolution/"+sim+"/snapshot/"
 
 #Cargar Snapshots
-snap17 = pnb.load(filename= arcNameG4 + "snapshot_033.hdf5")
+snap17 = pnb.load(filename= arcNameG4 + "snapshot_027.hdf5")
 print ("Cargar snapshots Lista")
 
 #Tratar en umidades fisicas
@@ -50,7 +65,13 @@ print ("Inicio Plotting: ", nameParam)
 sph.image(snap17, qty="rho", width = bxs * 0.50, cmap="Blues", av_z=True, title=nameParam, subplot= ax, show_cbar=True, clear = True, resolution=500)    # type: ignore
 
 #Mostrar Plots
-fig.tight_layout()                                                                      #Ajustar Plot
+ax.set_xlabel('x/kpc', fontsize=MEDIUM_SIZE)
+ax.set_ylabel('y/kpc', fontsize=MEDIUM_SIZE)
+ax.tick_params(axis='x', labelsize=TICK_SIZE)
+ax.tick_params(axis='y', labelsize=TICK_SIZE)
+
+fig.tight_layout()   #Ajustar Plot
+
 ImageFileName ='Documento/images/'+sim+'/'+sim+'Z'+str(round(redshiftZ,1))+'.png'
 fig.savefig(ImageFileName)                                                              #Guardar Plot en PNG
 # plt.show()                                                                            #Mostrar Plot
