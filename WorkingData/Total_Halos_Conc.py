@@ -5,13 +5,13 @@ from glob import glob
 # Generando Figura
 fig ,ax = plt.subplots( nrows = 1, ncols = 1, figsize = ( 6, 6 ) )
 
-LEGEND_SIZE= 11
-DEFAULT=4
-SMALL_SIZE = 22
-MEDIUM_SIZE = 22
+LEGEND_SIZE= 10
+TICK_SIZE = 13
+DEFAULT=9
+SMALL_SIZE = 2
+MEDIUM_SIZE = 18
 BIGGER_SIZE = 16
 
-plt.rcParams.update({'font.size': SMALL_SIZE})
 plt.rc('font', size=DEFAULT)          # controls default text sizes
 plt.rc('axes', titlesize=MEDIUM_SIZE)     # fontsize of the axes title
 plt.rc('axes', labelsize=MEDIUM_SIZE)    # fontsize of the x and y labels
@@ -75,8 +75,8 @@ for x in run:
     
     ax.plot(z, N_Subhalos,'o-' , label=nameParam)
 
-ax.tick_params(axis='x', labelsize=LEGEND_SIZE+1)
-ax.tick_params(axis='y', labelsize=LEGEND_SIZE+1)
+ax.tick_params(axis='x', labelsize=TICK_SIZE)
+ax.tick_params(axis='y', labelsize=TICK_SIZE)
 fig.suptitle('Evolución del número de halos total')
 fig.supylabel('Total Halos')
 fig.supxlabel('Redshift (z)')
