@@ -358,7 +358,7 @@ La figura \ref{fig:Invertida-DensityMap} muestra el mapa de densidad de un Unive
 %====================================================================================================================
 \subsection{Universo con cosmología \texorpdfstring{$\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$ }{Omega lambda = 0.5, Omega 0 = 0.5} }
 
-Hemos visto que como se comporta un Universo con las densidades más aceptadas y cuando estas se invierten. Ahora veamos un Universo con las densidades iguales ($\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$). Comencemos viendo como se afecta la cantidad de halos. La figura \ref{fig:HalfCosmo-TotalHalos} muestra que los primeros halos aparecen en $z=15$, además muestra que el máximo de halos en las simulaciones que se alcanza fue de $26242$ halos en $z=1.5$. Observamos un comportamiento similar a las cosmologías anteriores donde vemos un crecimiento rápido hasta que alcanza un máximo y después empieza a disminuir.
+Hemos visto que como se comporta un Universo con las densidades más aceptadas y cuando estas se invierten. Ahora veamos un Universo con las densidades iguales ($\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$). Comencemos viendo como se afecta la cantidad de halos. La figura \ref{fig:HalfCosmo-TotalHalos} muestra que los primeros halos aparecen en $z=15$, además vemos que el máximo de halos se alcanza fue de $26242$ halos en $z=1.5$. Apreciamos un comportamiento similar a las cosmologías anteriores donde vemos un crecimiento rápido hasta que alcanza un máximo y después empieza a disminuir.
 
 \begin{figure}[H]
     \centering
@@ -367,19 +367,19 @@ Hemos visto que como se comporta un Universo con las densidades más aceptadas y
     \label{fig:HalfCosmo-TotalHalos}
 \end{figure}
 
-La distribución de la masa para esta cosmología se observa en las figuras \ref{fig:HalfCosmo-MassDistSep} y \ref{fig:HalfCosmo-MassDist}. Los rangos de la masa se encuentran entre las $10^{10.3}$ $M_\odot$ a $10^{14.5}$ $M_\odot$ a lo largo de de la evolución del sistema. Las primeras estructuras, las que tienen $z$ altos, tenían masas menores a las $10^{12}$ $M_\odot$ y las estructuras en $z$ pequeños la mayor parte de los halos tenían masas entre $10^{10.5}$ $M_\odot$ y $10^{11.5}$ $M_\odot$. Mientras, la figura \ref{fig:HalfCosmo-MassStats} nos muestra el comportamiento medio durante la evolución. Observamos que la masa media incrementa desde $10^{10.65}$ $M_\odot$ con una desviación de $10^{0.1}$ $M_\odot$ en $z=14$ hasta $10^{10.95}$ $M_\odot$ con una desviación de $10^{0.5}$ $M_\odot$ en $z=0$.
+La distribución de la masa para esta cosmología se observa en las figuras \ref{fig:HalfCosmo-MassDistSep} y \ref{fig:HalfCosmo-MassDist}. Los rangos de la masa se encuentran entre las $10^{10.32}$ $M_\odot$ a $10^{14.51}$ $M_\odot$ a lo largo de de la evolución del sistema. En $z=14$, los halos tenían masas menores a las $10^{10.75}$ $M_\odot$ y las estructuras en $z=0$ la mayor parte de los halos tenían masas entre $10^{10.47}$ $M_\odot$ y $10^{11.45}$ $M_\odot$. Mientras, la figura \ref{fig:HalfCosmo-MassStats} nos muestra el comportamiento medio durante la evolución, donde apreciamos que la masa media incrementa desde $10^{10.65}$ $M_\odot$ con una desviación de $10^{0.10}$ $M_\odot$ en $z=14$ hasta $10^{10.96}$ $M_\odot$ con una desviación de $10^{0.49}$ $M_\odot$ en $z=0$.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.8\linewidth]{RunHalfCosmo/Mass_Dist_RunHalfCosmoSep.png}
-    \caption[Distribución de masa]{\footnotesize Se muestra la distribución de la masa conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.5$ y $\Omega_0 = 0.5$. Se observa como aumentan la cantidad de halos cada vez más masivos.}
+    \caption[Distribución de masa]{\footnotesize Mostramos la cantidad de halos en los diferentes rangos de masa y su ajuste conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.5 $ y $\Omega_0 = 0.5$. Se muestran las distribuciones en los diferentes redshifts empezando en $z=15$ en la parte superior izquierda y terminado en $z=0$ en la parte inferior derecha. Se observa como aumentan la cantidad de halos cada vez más masivos.}
     \label{fig:HalfCosmo-MassDistSep}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.5\linewidth]{RunHalfCosmo/Mass_Dist_RunHalfCosmo.png}
-    \caption[Comparación de distribución de masa Universo]{\footnotesize Comparación de las distribuciones de masa durante la evolución del Universo $\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$. Se observa como crece la cantidad de halos de materia oscura, asi como el tamaño de estos.}
+    \caption[Comparación de distribución de masa Universo]{\footnotesize Mostramos los ajustes de la figura \ref{fig:HalfCosmo-MassDistSep} para destacar la evolución de la distribución de masa del Universo $\Omega_\lambda = 0.5$, $\Omega_0 = 0.5$ desde un $z=15$ hasta un $z=0$.}
     \label{fig:HalfCosmo-MassDist}
 \end{figure}
 
@@ -387,23 +387,23 @@ La distribución de la masa para esta cosmología se observa en las figuras \ref
     \centering
     \includegraphics[width = 0.4\linewidth]{RunHalfCosmo/MassMean_RunHalfCosmo.png}
     \includegraphics[width = 0.4\linewidth]{RunHalfCosmo/MassStd_RunHalfCosmo.png}
-    \caption[Media y desviación estándar de la distribución de masa]{\footnotesize En la izquierda se muestra la masa media de los halos de materia oscura y se observa como cambia durante la evolución del Universo. En la derecha se muestra la desviación estándar de la masa, la cual nos muestra la variedad que hay de los halos de materia oscura.}
+    \caption[Media y desviación estándar de la distribución de masa]{\footnotesize En la izquierda se muestra la masa media de los halos de materia oscura donde observamos como cambian durante la evolución del Universo. En la derecha se muestra la desviación estándar de la masa, la cual nos muestra la variedad de los halos que hay durante la evolución del Universo, desde un $z=15$ hasta un $z=0$.}
     \label{fig:HalfCosmo-MassStats}
 \end{figure}
 
-En las figuras \ref{fig:HalfCosmo-HalfMassRadDistSep} y \ref{fig:HalfCosmo-HalfMassRadDist} podemos ver el radio que contiene la mitad de la masa de los halos a lo largo de la evolución del Universo. Vemos que los radios se encuentran entre los $10^{0.27}$ kpc y $10^{2.72}$ kpc donde los primeros halos tienen radios entre los $10^{0.29}$ kpc y los $10^{1.61}$ y las estructuras más recientes tienen la mayor parte de los halos en el rango de $10^{1}$ kpc y los $10^{1.75}$. El radio medio tiene un crecimiento de $10^{0.53}$ kpc con una desviación de $10^{0.09}$ kpc en $z=14$ hasta un radio de $10^{1.49}$ kpc con una desviación de $10^{0.18}$ kpc en $z=0$.
+En las figuras \ref{fig:HalfCosmo-HalfMassRadDistSep} y \ref{fig:HalfCosmo-HalfMassRadDist} podemos ver el radio que contiene la mitad de la masa de los halos a lo largo de la evolución del Universo. Vemos que los radios se encuentran entre los $10^{0.40}$ kpc y $10^{2.72}$ kpc a lo largo de la evolución del sistema, donde los halos en $z=14$ tienen radios entre los $10^{0.40}$ kpc y los $10^{0.61}$ y las estructuras $z=0$ tienen la mayor parte de los halos en el rango de $10^{1.31}$ kpc y los $10^{1.67}$. En la figura \ref{fig:HalfCosmo-HalfMassRadStats} apreciamos que el radio medio tiene un crecimiento de $10^{0.53}$ kpc con una desviación de $10^{0.09}$ kpc en $z=14$ hasta un radio de $10^{1.49}$ kpc con una desviación de $10^{0.18}$ kpc en $z=0$.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.75\linewidth]{RunHalfCosmo/HalfMassRad_Dist_RunHalfCosmoSep.png}
-    \caption[Radio que contiene la mitad de la masa]{\footnotesize Se muestra el radio que contiene la mitad de la masa conforme evoluciona el Universo en una cosmología $\Omega_\lambda = 0.5 $ y $\Omega_0 = 0.5$.}
+    \caption[Radio que contiene la mitad de la masa]{\footnotesize Mostramos la cantidad de halos de materia oscura en los diferentes rangos del radio que contiene la mitad de la masa y su ajuste conforme evoluciona en el Universo $\Omega_\lambda = 0.5 $, $\Omega_0 = 0.5$. Se muestran las distribuciones empezando en $z=15$ en la parte superior izquierda y terminado en $z=0$ en la parte inferior derecha.}
     \label{fig:HalfCosmo-HalfMassRadDistSep}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width = 0.5\linewidth]{RunHalfCosmo/HalfMassRad_Dist_RunHalfCosmo.png}
-    \caption[Distribución del Radio que contiene la mitad de la masa]{\footnotesize Comparación de las distribuciones del radio que contiene la mitad de la masa de los halos de materia oscura en un Universo $\Omega_\lambda = 0.5 $ y $\Omega_0 = 0.5$.}
+    \caption[Distribución del Radio que contiene la mitad de la masa]{\footnotesize Mostramos los ajustes de la figura \ref{fig:HalfCosmo-HalfMassRadDistSep} para destacar la evolución de la distribución del radio que contiene la mitad de la masa del Universo $\Omega_\lambda = 0.5 $, $\Omega_0 = 0.5$ desde un $z=15$ hasta un $z=0$.}
     \label{fig:HalfCosmo-HalfMassRadDist}
 \end{figure}
 
@@ -411,7 +411,7 @@ En las figuras \ref{fig:HalfCosmo-HalfMassRadDistSep} y \ref{fig:HalfCosmo-HalfM
     \centering
     \includegraphics[width = 0.4\linewidth]{RunHalfCosmo/HalfMassRad_Mean_RunHalfCosmo.png}
     \includegraphics[width = 0.4\linewidth]{RunHalfCosmo/HalfMassRad_Std_RunHalfCosmo.png}
-    \caption[Media y desviación estándar del radio de la mitad de la masa]{\footnotesize En la izquierda mostramos la media del radio que contiene la mitad de la masa de los halos de materia oscura y en la derecha se muestra su desviación estándar a lo largo de la evolución del Universo.}
+    \caption[Media y desviación estándar del radio de la mitad de la masa]{\footnotesize En la izquierda mostramos la media del radio que contiene la mitad de la masa de los halos de materia oscura donde observamos como cambian durante la evolución del Universo. En la derecha se muestra la desviación estándar del radio que contiene la mitad de la masa que nos muestra la variedad de halos que hay durante la evolución del Universo, desde un $z=14$ hasta un $z=0$.}
     \label{fig:HalfCosmo-HalfMassRadStats}
 \end{figure}
 
