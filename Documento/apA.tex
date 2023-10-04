@@ -5,9 +5,81 @@
 \renewcommand{\theequation}{\Alph{chapter}.\arabic{section}.\arabic{equation}}
 \addcontentsline{toc}{chapter}{\numberline{}Apéndice}
 \setcounter{equation}{0}
-
-
-\chapter{Basic and Auxiliary Results}
-
+\setcounter{figure}{0}
 %%%%%%%%EL TExto Comienza abajo de aquí! 
-\section{Basic Results}
+\chapter{Realización de la Simulación} \label{appendix:Ser-Sim-INFO}
+Veremos un resumen del servidor donde corrimos las simulaciones, así como, las características que se usaron para correr GADGET-4.
+
+\section{Características del Servidor}
+Se utilizó el servidor del \emph{Área de Cómputo del departamento de Física} (ACF). A continuación, en la tabla \ref{tab:Carac-Server}, mostramos un resumen de las características del servidor que utilizamos. 
+
+\begin{table}[H]
+    
+    \centering
+	
+    \begin{tabular}{|c|c|}
+
+        \hline
+        \textbf{Característica} & \textbf{Especificación} \\ \hline
+        CPU & 2x INTEL Xeon Gold 5120 \\ 
+         & (2.20Ghz 19Mb Caché 14C/28T) \\ \hline
+        Núcleos & 28 procesadores \\ 
+         & (56 núcleos) \\ \hline
+        Memoria & 4 X 8 GB.(32GB) \\
+         & RDIMM 2666MT/S \\ \hline
+        Almacenamiento & 6 TB Útiles con redundancia \\
+         & (Arreglo RAID de discos duros de 2TB 7200K RPM S-ATA) \\ \hline
+
+    \end{tabular}
+	
+    \caption{Se muestra un resumen de las características donde se realizaron las simulaciones.}
+
+    \label{tab:Carac-Server}
+
+\end{table}
+
+\section{Características de las corridas de las Simulaciones}
+
+La tabla \ref{tab:Comp-Gadget-4} muestra los parámetros que se usaron para compilar GADGET-4, con el cual activamos las diferentes herramientas que tiene. Mientras que la tabla \ref{tab:Corrida-Gadget-4} mostramos algunos de los parámetros que usamos para correr las simulaciones, las cuales se corrieron en paralelo con MPICH usando 54 de los 56 núcleos disponibles.
+
+\begin{table}[H]
+
+    \centering
+
+    \begin{tabular}{|c|c|}
+    	
+        \hline
+        \multicolumn{2}{|c|}{\textbf{Parámetro}} \\ \hline
+        ASMT = 2.0 & IDS\_32BITS \\ \hline
+        NTYPES = 2.0 & SUBFIND \\ \hline
+        CREATE\_GRID & LEAN \\ \hline
+        PERIODIC & SUBFIND\_HBT \\ \hline
+        DOUBLEPRECISION = 2.0 & MERGERTREE \\ \hline 
+        PMGRID = 384.0 & SELFGRAVITY \\ \hline
+        FOF & NGENIC \\ \hline
+        POSITION\_IN\_32BIT & TREEPM\_NOTIMESPLIT \\ \hline
+        NSOFTCLASSES = 1.0 & NGGENIC\_2LPT \\ \hline
+        \multicolumn{2}{|c|}{RANDOMIZE\_DOMAINCENTER }  \\ \hline
+    	
+    \end{tabular}
+
+    \caption{Se muestra los parámetros de compilación de GADGET-4}
+
+    \label{tab:Comp-Gadget-4}
+
+\end{table}
+
+\begin{table}[H]
+    \begin{tabular}{|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Parámetro}} \\ \hline
+    MaxMemSize = 600 & TimeBegin = 0.015625 ($z=63$) \\ \hline
+    Hubble = 100 & BoxSize = 50 \\ \hline
+    UnitLength\_in\_cm = 3.085678e+24 & UnitMass\_in\_g = 1.989e+43 \\ \hline
+    TimeMax = 1 ($z=0$) & HubbleParam = 0.678 \\ \hline
+    NSample = 256 & Seed = 123456 \\ \hline
+    UnitVelocity\_in\_cm\_per\_s = 100,000 & DesLinkNgb = 20 \\ \hline
+    \end{tabular}
+    \caption{Se muestran algunos los parámetros de corrida de las simulaciones con GADGET-4.}
+    \label{tab:Corrida-Gadget-4}
+\end{table}
