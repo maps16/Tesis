@@ -8,8 +8,8 @@
 \usecolortheme{dolphin}
 
 
-\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
 \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
@@ -247,9 +247,9 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 	\begin{frame}
 		El potencial que se resuelve en GADGET-4 es 
 		\begin{align}
-    \Phi (\textbf{x}) = &- \sum_{j=1}^{N} \frac{m_j}{|\textbf{x}_j-\textbf{x}+\textbf{q}^*_j| + |\epsilon(\textbf{x}_j-\textbf{x}+\textbf{q}^*_j)|} \nonumber \\
-    &+ \sum_{j=1}^{N} m_j \psi (\textbf{x}_j-\textbf{x}+\textbf{q}^*_j) \label{eq:Pot}
-\end{align}
+			\Phi (\textbf{x}) = &- \sum_{j=1}^{N} \frac{m_j}{|\textbf{x}_j-\textbf{x}+\textbf{q}^*_j| + |\epsilon(\textbf{x}_j-\textbf{x}+\textbf{q}^*_j)|} \nonumber \\
+			&+ \sum_{j=1}^{N} m_j \psi (\textbf{x}_j-\textbf{x}+\textbf{q}^*_j) \label{eq:Pot}
+		\end{align}
 		donde la primera parte es el potencial gravitacional de newton con una corrección para considerar el radio de suavizado y el segundo termino en potencial se introduce como una corrección para el suavizado de imágenes distantes. Como GADGET es un simulador diseñado para abarcar una amplia gama de necesidades, se implementaron diversos algoritmos para la forma en la que se realizan los cálculos.
 	\end{frame}
 	
@@ -273,6 +273,8 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 		Con la intención de conocer y diferenciar diferentes cosmologías, en nuestro estudio de los halos de materia oscura, optamos por realizar fue una variedad de simulaciones de materia oscura. Desde simulaciones con cosmologías de Universos planos ($\Omega=1$), asi como cosmologías de universos con densidades sub-criticas ($\Omega < 1$) y super-criticas ($\Omega > 1$). Las simulaciones que realizamos tienen $16,777,216$ partículas en una caja de $50$ Mpc y se empezaron con un corrimiento al rojo de $z = 63$ hasta un $z = 0$.
 		
 	\end{frame}
+
+%========================================================================================
 
 	\begin{frame}
 %		\frametitle{Halos de Materia Oscura}
@@ -326,7 +328,7 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 %========================================================================================
 
 	\begin{frame}
-			\small Observamos que la masa media incrementa desde $10^{10.41}M_\odot$ con una desviación de $10^{0.11}M_\odot$ en $z=15$ hasta $10^{10.75}M_\odot$ con una desviación de $10^{0.49}M_\odot$ en $z=0$.
+			\small Observamos que la masa media incrementa desde $10^{10.41}M_\odot$ con una desviación de $10^{0.09}M_\odot$ en $z=15$ hasta $10^{10.75}M_\odot$ con una desviación de $10^{0.5}M_\odot$ en $z=0$.
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
 				\begin{figure}
@@ -351,7 +353,7 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 
 %========================================================================================
 	\begin{frame}
-		\small Vemos el crecimiento del radio medio desde $10^{0.44}$kpc con una desviación de $10^{0.06}$kpc en $z=15$ hasta un radio de $10^{1.47}$kpc con una desviación de $10^{0.19}$kpc en $z=0$.
+		\small Vemos el crecimiento del radio medio desde $10^{0.44}$ kpc con una desviación de $10^{0.06}$ kpc en $z=15$ hasta un radio de $10^{1.47}$ kpc con una desviación de $10^{0.19}$ kpc en $z=0$.
 		
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
@@ -377,7 +379,7 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 
 %========================================================================================
 	\begin{frame}
-		\small Vemos que el radio tiene una media que va desde los $2.45$kpc con una desviación de $0.88$kpc en $z=15$ hasta $27.60$kpc con una desviación de $15.69$kpc en $z=0$.
+		\small Vemos que el radio tiene una media que va desde los $2.45$ kpc con una desviación de $0.88$ kpc en $z=15$ hasta $27.60$ kpc con una desviación de $15.69$ kpc en $z=0$.
 		
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
@@ -404,7 +406,7 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 %========================================================================================
 
 	\begin{frame}
-		\small Lo que podemos es que la velocidad media disminuye rápidamente desde $150.13$km/s con una desviación de $26.76$km/s en $z=15$ hasta que alcanza $74.77$km/s con una desviación de $33.90$km/s en $z=0$.
+		\small Lo que podemos es que la velocidad media disminuye rápidamente desde $150.13$ kms$^{-1}$ con una desviación de $26.76$ kms$^{-1}$ en $z=15$ hasta que alcanza $74.77$ kms$^{-1}$ con una desviación de $33.90$ kms$^{-1}$ en $z=0$.
 		
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
@@ -431,7 +433,7 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 %========================================================================================
 
 	\begin{frame}
-		\small Observamos que la dispersión de velocidades media disminuye desde los $85.25$km/s con una desviación de $13.09$km/s en $z=15$ a $37.08$km/s con una desviación de $18.69$km/s en $z=0$.
+		\small Observamos que la dispersión de velocidades media disminuye desde los $85.25$ kms$^{-1}$ con una desviación de $13.09$ kms$^{-1}$ en $z=15$ a $37.08$ kms$^{-1}$ con una desviación de $18.69$ kms$^{-1}$ en $z=0$.
 		
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
@@ -515,9 +517,9 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 %			\vspace{0.5cm}
     	    \begin{column}{.5\textwidth}
 
-    	    	Lo que podemos observar, es que las simulaciones sub-críticas se forma estructura mucho antes que el resto, alrededor de $z=25$ y forman una mayor cantidad de halos, aproximadamente $28,000$ halos.
+    	    	Lo que podemos observar, es que las simulaciones sub-críticas forman estructura alrededor de $z=25$ y llegan a formar hasta $28,000$ halos en $z=2$ y en $z=0$  tienen $22,000$ halos.
     	    	
-    	    	En el resto de las simulaciones, estas empieza a formar halos en $z=15$ donde alcanzan un máximo de halos entre $25,900$ y $26,300$.
+    	    	Mientras que el resto de las simulaciones, empiezan a formar halos entre $z=17$ y $z=13$ donde alcanzan un máximo de $26,000$ halos en $z=1.5$ y en $z=0$ tenemos $20,800$ halos.
 
         	\end{column}
 	    \end{columns}
@@ -526,8 +528,8 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 %========================================================================================
 
 	\begin{frame}
-			\only<1>{\small Vemos que la masa media en $\Omega_0=0.691$ $\Omega_\lambda=0.309$ tiene las estructuras mas masivas y $\Omega_0=0.1545$ $\Omega_\lambda=0.691$ las menos. }
-			\only<2>{\small En las cosmologías sub-críticas, se ve que la desviación es mayor que en el resto, las cuales tienen un comportamiento similar.}
+			\only<1>{\small Vemos que la masa media de los halos crece junto con el valor de $\Omega_0$. De manera que la cosmología con mayor $\Omega_0$ tiene la mayor masa media. }
+			\only<2>{\small Mientras que la desviación estándar, en $z$ altos, las cosmología  sub-crítica es mayor que el resto y en $z$ pequeños la desviación tiende a $10^{0.5} M_\odot$}
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
 				\begin{figure}
@@ -552,8 +554,8 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 
 %========================================================================================
 	\begin{frame}
-		\only<1> {\small Vemos que la media del radio der las diferentes cosmologías tienen un crecimiento similar, donde las cosmologías con un incremento $\Omega_0$ son las de mayor radio y las sub-críticas son las de menor.}
-		\only<2>{\small Mientras la desviación estándar del radio, muestra que las cosmologías sub-críticas tienen mayor variación en las cosmologías sub-críticas.}
+		\only<1> {\small Vemos que el radio medio de las diferentes cosmologías tiene un crecimiento similar y son difíciles de distinguir.}
+		\only<2>{\small Mientras la desviación estándar del radio, muestra que las cosmologías sub-críticas tienen mayor variación que el resto para $z$ intermedios, pero en $z$ pequeños tienden a $10^{0.19}$ kpc.}
 		
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
@@ -581,8 +583,8 @@ Esta elección trata de reflejar los valores medidos actuales, donde la materia 
 	
 	\begin{frame}
 		\only<1> {\small Se observa que con el incremento de $\Omega_0$ las estructuras alcanzan un mayor radio medio, mientras en los Universos sub-críticos los radios son lo mas pequeños. }
-		\only<2> {\small Un caso especial que se ve fue que la cosmología con $\Omega_\lambda=0.791$ tiene un crecimiento similar a cuando $\Omega_0$ crece.}
-		\only<2> {\small En cuanto a su desviación, vemos el mismo comportamiento que la media al incrementar $\Omega_0$ }
+
+		\only<2> {\small En cuanto a su desviación estándar, vemos el mismo comportamiento, si incrementar $\Omega_0$ la desviación aumenta y el Universo sub-crítico tiene la desviación menor.}
 		
 		\begin{columns}[t]
 			\begin{column}{.5\textwidth}
